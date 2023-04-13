@@ -1,0 +1,52 @@
+inherit_from:
+  - .rubocop_strict.yml
+
+require:
+  - rubocop-rails
+  - rubocop-performance
+  - rubocop-rspec
+  - rubocop-md
+
+Style/CommentedKeyword:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Rails/I18nLocaleTexts:
+  Enabled: false
+
+Style/HashAsLastArrayItem:
+  Enabled: false
+
+RSpec/ContextWording:
+  Enabled: false
+
+RSpec/DescribedClass:
+  Enabled: false
+
+RSpec/MultipleExpectations:
+  Enabled: false
+
+RSpec/ExampleLength:
+  Enabled: false
+
+RSpec/LetSetup:
+  Enabled: false
+
+RSpec/MultipleMemoizedHelpers:
+  Enabled: false
+
+AllCops:
+  NewCops: enable
+  Exclude:
+    - "db/**/*"
+    - "bin/*"
+    - "config/*"
+    - "config/environments/*"
+    - "doc/**/*"
+    - "lib/**/*"
+    - "log/**/*"
+    - "node_modules/**/*"
+    - "storage/**/*"
+    - "tmp/**/*"

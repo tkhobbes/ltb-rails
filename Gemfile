@@ -14,6 +14,7 @@ gem 'jsbundling-rails'
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem 'kredis'
 gem 'pg', '~> 1.1'
+gem 'pg_query'
 gem 'propshaft'
 gem 'puma', '~> 5.0'
 gem 'stimulus-rails'
@@ -26,9 +27,31 @@ group :development, :test do
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   # store env variables in a .env file during dev
   gem 'dotenv-rails'
+  # testing
+  gem 'factory_bot_rails'
+  gem 'faker'
+  gem 'pry-rails'
+  gem 'rspec-rails'
+  gem 'webdrivers'
 end
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem 'web-console'
+
+  # dev tools
+  gem 'annotate'
+  gem 'brakeman'
+  gem 'bullet'
+  gem 'database_consistency', '>= 1.1.15'
+  gem 'prosopite'
+  gem 'rails-erd'
 end
+
+group :test do
+  gem 'simplecov'
+end
+
+# Application gems
+
+# Application gems: Visuals

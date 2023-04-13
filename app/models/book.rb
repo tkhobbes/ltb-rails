@@ -5,7 +5,7 @@
 #  id         :bigint           not null, primary key
 #  issue      :integer          not null
 #  pages      :integer          default(0)
-#  published  :date
+#  published  :integer
 #  title      :string           not null
 #  url        :string
 #  created_at :datetime         not null

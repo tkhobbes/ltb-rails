@@ -3,8 +3,8 @@
 # Table name: artists
 #
 #  id          :bigint           not null, primary key
-#  born        :date
-#  died        :date
+#  born        :integer
+#  died        :integer
 #  name        :string           not null
 #  nationality :string
 #  created_at  :datetime         not null

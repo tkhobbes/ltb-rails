@@ -2,14 +2,16 @@
 #
 # Table name: stories
 #
-#  id         :bigint           not null, primary key
-#  code       :string           not null
-#  origin     :string
-#  pages      :integer          default(0)
-#  published  :date
-#  url        :string
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id             :bigint           not null, primary key
+#  code           :string           not null
+#  origin         :string
+#  original_title :string
+#  pages          :integer          default(0)
+#  published      :integer
+#  title          :string
+#  url            :string
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
 #
 class Story < ApplicationRecord
   has_many :roles, dependent: :destroy

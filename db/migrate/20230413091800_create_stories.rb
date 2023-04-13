@@ -3,7 +3,7 @@ class CreateStories < ActiveRecord::Migration[7.0]
     create_table :stories do |t|
       t.string :code, null: false
       t.string :url
-      t.date :published
+      t.integer :published
       t.string :origin
       t.integer :pages, default: 0
 

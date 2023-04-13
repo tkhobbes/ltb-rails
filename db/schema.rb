@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_13_093313) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_13_094236) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "artists", force: :cascade do |t|
     t.string "name", null: false
-    t.date "born"
-    t.date "died"
+    t.integer "born"
+    t.integer "died"
     t.string "nationality"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -35,7 +35,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_13_093313) do
   create_table "books", force: :cascade do |t|
     t.integer "issue", null: false
     t.string "title", null: false
-    t.date "published"
+    t.integer "published"
     t.integer "pages", default: 0
     t.string "url"
     t.datetime "created_at", null: false
@@ -55,11 +55,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_13_093313) do
   create_table "stories", force: :cascade do |t|
     t.string "code", null: false
     t.string "url"
-    t.date "published"
+    t.integer "published"
     t.string "origin"
     t.integer "pages", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "title"
+    t.string "original_title"
   end
 
   add_foreign_key "book_entries", "books"

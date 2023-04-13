@@ -17,9 +17,9 @@ gem 'pg', '~> 1.1'
 gem 'propshaft'
 gem 'puma', '~> 5.0'
 gem 'stimulus-rails'
+gem 'turbo-rails'
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[ mingw mswin x64_mingw jruby ]
-gem 'turbo-rails'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

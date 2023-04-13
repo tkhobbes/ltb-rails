@@ -61,4 +61,8 @@ gem 'countries'
 gem 'country-select'
 gem 'i18n-country-translations'
 
+# Application gems: Authentication and Security
+gem 'devise'
+gem 'devise-i18n'
+
 # Application gems: Visuals

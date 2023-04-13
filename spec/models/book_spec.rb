@@ -17,6 +17,12 @@ RSpec.describe Book do
         book = Book.new(title: 'abc', issue: 1, published: 1970, pages: 260, url: 'abc')
         expect(book).to be_valid
       end
+
+      it 'cannot have two books with the same issue number' do
+        b = create(:book)
+        book = Book.new(title: 'abc', issue: b.issue)
+        expect(book).not_to be_valid
+      end
     end
   end
 end

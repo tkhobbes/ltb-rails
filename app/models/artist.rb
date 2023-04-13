@@ -10,9 +10,13 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
+# Indexes
+#
+#  index_artists_on_name  (name) UNIQUE
+#
 class Artist < ApplicationRecord
   has_many :roles, dependent: :destroy
   has_many :stories, through: :roles
 
-  validates :name, presence: true
+  validates :name, presence: true, uniqueness: true
 end

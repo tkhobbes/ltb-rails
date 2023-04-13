@@ -12,6 +12,12 @@ RSpec.describe Story do
         story = Story.new(code: '123')
         expect(story).to be_valid
       end
+
+      it 'cannot have two stories with the same code' do
+        s = create(:story)
+        story = Story.new(code: s.code)
+        expect(story).not_to be_valid
+      end
     end
   end
 end

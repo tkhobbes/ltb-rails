@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_13_125007) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_13_141609) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -21,6 +21,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_13_125007) do
     t.string "nationality"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_artists_on_name", unique: true
   end
 
   create_table "book_entries", force: :cascade do |t|
@@ -28,6 +29,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_13_125007) do
     t.bigint "story_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["book_id", "story_id"], name: "index_book_entries_on_book_id_and_story_id", unique: true
     t.index ["book_id"], name: "index_book_entries_on_book_id"
     t.index ["story_id"], name: "index_book_entries_on_story_id"
   end
@@ -40,6 +42,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_13_125007) do
     t.string "url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["issue"], name: "index_books_on_issue", unique: true
   end
 
   create_table "roles", force: :cascade do |t|
@@ -48,6 +51,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_13_125007) do
     t.integer "task"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["artist_id", "story_id", "task"], name: "index_roles_on_artist_id_and_story_id_and_task", unique: true
     t.index ["artist_id"], name: "index_roles_on_artist_id"
     t.index ["story_id"], name: "index_roles_on_story_id"
   end
@@ -62,6 +66,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_13_125007) do
     t.datetime "updated_at", null: false
     t.string "title"
     t.string "original_title"
+    t.index ["code"], name: "index_stories_on_code", unique: true
   end
 
   create_table "users", force: :cascade do |t|

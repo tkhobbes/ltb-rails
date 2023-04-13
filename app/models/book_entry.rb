@@ -10,8 +10,9 @@
 #
 # Indexes
 #
-#  index_book_entries_on_book_id   (book_id)
-#  index_book_entries_on_story_id  (story_id)
+#  index_book_entries_on_book_id               (book_id)
+#  index_book_entries_on_book_id_and_story_id  (book_id,story_id) UNIQUE
+#  index_book_entries_on_story_id              (story_id)
 #
 # Foreign Keys
 #

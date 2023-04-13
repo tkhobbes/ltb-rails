@@ -13,11 +13,15 @@
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #
+# Indexes
+#
+#  index_stories_on_code  (code) UNIQUE
+#
 class Story < ApplicationRecord
   has_many :roles, dependent: :destroy
   has_many :artists, through: :roles
   has_many :book_entries, dependent: :destroy
   has_many :books, through: :book_entries
 
-  validates :code, presence: true
+  validates :code, presence: true, uniqueness: true
 end

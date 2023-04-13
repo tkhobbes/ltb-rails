@@ -46,6 +46,12 @@ group :development do
   gem 'database_consistency', '>= 1.1.15'
   gem 'prosopite'
   gem 'rails-erd'
+  gem 'rubocop', require: false
+  gem 'rubocop-i18n', require: false
+  gem 'rubocop-md', require: false
+  gem 'rubocop-performance', require: false
+  gem 'rubocop-rails', require: false
+  gem 'rubocop-rspec', '>= 2.11.1', require: false
 end
 
 group :test do
@@ -55,7 +61,6 @@ end
 # Application gems: Data
 gem 'i18n-tasks'
 gem 'rails-i18n'
-gem 'rubocop-i18n'
 
 gem 'countries'
 gem 'country-select'

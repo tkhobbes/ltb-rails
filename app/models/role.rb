@@ -11,8 +11,9 @@
 #
 # Indexes
 #
-#  index_roles_on_artist_id  (artist_id)
-#  index_roles_on_story_id   (story_id)
+#  index_roles_on_artist_id                        (artist_id)
+#  index_roles_on_artist_id_and_story_id_and_task  (artist_id,story_id,task) UNIQUE
+#  index_roles_on_story_id                         (story_id)
 #
 # Foreign Keys
 #

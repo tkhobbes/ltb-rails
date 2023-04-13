@@ -12,6 +12,12 @@ RSpec.describe Artist do
         artist = Artist.new(name: 'Romano Scarpa')
         expect(artist).to be_valid
       end
+
+      it 'cannot have two artists with the same name' do
+        a = create(:artist)
+        artist = Artist.new(name: a.name)
+        expect(artist).not_to be_valid
+      end
     end
   end
 end

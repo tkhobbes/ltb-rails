@@ -3,7 +3,7 @@ attributes:
   - foreign_key
   - inheritance
 disconnected: false
-filename: newbooksdb
+filename: ltb-rails
 filetype: pdf
 indirect: true
 inheritance: false

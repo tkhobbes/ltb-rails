@@ -221,6 +221,16 @@
         "lines": [
           1,
           1,
+          5,
+          5,
+          5,
+          5,
+          null,
+          null
+        ]
+      },
+      "/Users/thomas/Programming/ltb-rails/spec/factories/book_entries.rb": {
+        "lines": [
           1,
           1,
           1,
@@ -233,10 +243,10 @@
         "lines": [
           1,
           1,
-          1,
-          1,
-          1,
-          1,
+          5,
+          5,
+          5,
+          5,
           null,
           null
         ]
@@ -247,7 +257,7 @@
           1,
           1,
           1,
-          1,
+          2,
           null,
           null
         ]
@@ -256,11 +266,11 @@
         "lines": [
           1,
           1,
-          1,
-          1,
-          1,
-          1,
-          1,
+          8,
+          8,
+          8,
+          8,
+          8,
           null,
           null
         ]
@@ -281,8 +291,276 @@
           1,
           null
         ]
+      },
+      "/Users/thomas/Programming/ltb-rails/app/models/artist.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null
+        ]
+      },
+      "/Users/thomas/Programming/ltb-rails/app/models/application_record.rb": {
+        "lines": [
+          null,
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/thomas/Programming/ltb-rails/spec/models/book_entry_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/thomas/Programming/ltb-rails/app/models/book_entry.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/thomas/Programming/ltb-rails/spec/models/book_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/thomas/Programming/ltb-rails/app/models/book.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/thomas/Programming/ltb-rails/spec/models/role_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/thomas/Programming/ltb-rails/app/models/role.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/thomas/Programming/ltb-rails/spec/models/story_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/thomas/Programming/ltb-rails/app/models/story.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null
+        ]
+      },
+      "/Users/thomas/Programming/ltb-rails/spec/support/factories_spec.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          1,
+          5,
+          null,
+          5,
+          5,
+          5,
+          null,
+          null,
+          null,
+          5,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
       }
     },
-    "timestamp": 1681378053
+    "timestamp": 1681384661
   }
 }

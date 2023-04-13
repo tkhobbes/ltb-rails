@@ -13,4 +13,6 @@
 class Artist < ApplicationRecord
   has_many :roles, dependent: :destroy
   has_many :stories, through: :roles
+
+  validates :name, presence: true
 end

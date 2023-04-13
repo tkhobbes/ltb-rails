@@ -1,9 +1,9 @@
 FactoryBot.define do
   factory :story do
-    code { "MyString" }
-    url { "MyString" }
-    published { "2023-04-13" }
-    origin { "MyString" }
-    pages { 1 }
+    code { 'I TL  303-AP' }
+    url { 'https://inducks.org/story.php?c=I+TL++303-AP' }
+    published { 1961 }
+    origin { 'Italy' }
+    pages { 63 }
   end
 end

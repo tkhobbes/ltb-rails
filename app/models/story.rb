@@ -18,4 +18,6 @@ class Story < ApplicationRecord
   has_many :artists, through: :roles
   has_many :book_entries, dependent: :destroy
   has_many :books, through: :book_entries
+
+  validates :code, presence: true
 end

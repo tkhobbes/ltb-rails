@@ -14,4 +14,7 @@
 class Book < ApplicationRecord
   has_many :book_entries, dependent: :destroy
   has_many :stories, through: :book_entries
+
+  validates :title, presence: true
+  validates :issue, presence: true
 end

@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :book_entry do
-    book { nil }
-    story { nil }
+    book
+    story
   end
 end

@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :book do
-    issue { 1 }
-    title { "MyString" }
-    date { "2023-04-13" }
-    pages { 1 }
+    issue { 2 }
+    title { 'Hallo...hier Micky!' }
+    published { 1968 }
+    pages { 260 }
   end
 end

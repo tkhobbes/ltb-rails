@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :artist do
-    name { 'MyString' }
-    born { '2023-04-13' }
-    died { '2023-04-13' }
-    nationality { 'MyString' }
+    name { 'Romano Scarpa' }
+    born { 1927 }
+    died { 2005 }
+    nationality { 'Italy' }
   end
 end

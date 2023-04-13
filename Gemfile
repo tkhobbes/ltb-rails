@@ -52,6 +52,13 @@ group :test do
   gem 'simplecov'
 end
 
-# Application gems
+# Application gems: Data
+gem 'i18n-tasks'
+gem 'rails-i18n'
+gem 'rubocop-i18n'
+
+gem 'countries'
+gem 'country-select'
+gem 'i18n-country-translations'
 
 # Application gems: Visuals

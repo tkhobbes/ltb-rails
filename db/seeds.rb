@@ -69,4 +69,20 @@ Book.all.each do |book|
   end
 end
 
+# Users
+puts 'Seeding 2 users...'
+User.create(
+  email: 'tkhobbes@example.com',
+  password: 'password',
+  name: 'tkhobbes',
+  admin: true
+)
+
+User.create(
+  email: 'jdoe@example.com',
+  password: 'password',
+  name: 'John Doe',
+  admin: false
+)
+
 puts 'Seeding of database complete.'

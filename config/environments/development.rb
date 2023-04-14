@@ -79,5 +79,5 @@ Rails.application.configure do
   # config.action_cable.disable_request_forgery_protection = true
 
   #rails-i18n
-  config.i18n.available_locales = %i[:en :de]
+  config.i18n.available_locales = %i[en de]
 end

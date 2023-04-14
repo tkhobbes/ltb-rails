@@ -81,5 +81,5 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   #rails-i18n
-  config.i18n.available_locales = %i[:en :de]
+  config.i18n.available_locales = %i[en de]
 end

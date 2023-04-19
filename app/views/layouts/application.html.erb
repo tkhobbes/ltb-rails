@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>LtbRails</title>
+    <title>Lustige Taschenbücher Inlays</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,6 +11,19 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div>
+      <%= render 'shared/navbar' %>
+    </div>
+    <div class="container-fluid row">
+      <div class="col-3 gx-5">
+        <%= render 'shared/sidebar' %>
+      </div>
+      <div class="col-9">
+        <%= yield %>
+      </div>
+    </div>
+    <div>
+      <%= render 'shared/footer' %>
+    </div>
   </body>
 </html>

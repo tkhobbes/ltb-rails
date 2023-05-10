@@ -44,6 +44,7 @@ group :development do
   gem 'brakeman'
   gem 'bullet'
   gem 'database_consistency', '>= 1.1.15'
+  gem 'erb_lint'
   gem 'prosopite'
   gem 'rails-erd'
   gem 'rubocop', require: false

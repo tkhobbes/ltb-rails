@@ -2,6 +2,7 @@
 
 // Import a Google Font
 // @import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
+@import url("https://fonts.googleapis.com/css2?family=Darumadrop+One&family=Lato:ital,wght@0,100;0,400;0,700;1,100;1,400;1,700&display=swap");
 
 // Set your brand colors
 // $purple: #8A4D76;
@@ -9,6 +10,11 @@
 // $brown: #757763;
 // $beige-light: #D0D1CD;
 // $beige-lighter: #EFF0EB;
+$blue: #002185;
+$blue-light: #7d9dff;
+$blue-lighter: #ccd9ff;
+$pink: #ff4d78;
+$green: #78ff4d;
 
 // Update Bulma's global variables
 // $family-sans-serif: "Nunito", sans-serif;
@@ -18,22 +24,16 @@
 // $link: $pink;
 // $widescreen-enabled: false;
 // $fullhd-enabled: false;
+$family-sans-serif: "Lato", sans-serif;
+$family-secondary: "Darumadrop One", cursive;
+$primary: $blue-light;
+$success: $green;
+$danger: $pink;
 
 // Update some of Bulma's component variables
 // $body-background-color: $beige-lighter;
 // $control-border-width: 2px;
 // $input-border-color: transparent;
 // $input-shadow: none;
-
-// Import only what you need from Bulma
-// @import "bulma/sass/utilities/_all.sass";
-// @import "bulma/sass/base/_all.sass";
-// @import "bulma/sass/elements/button.sass";
-// @import "bulma/sass/elements/container.sass";
-// @import "bulma/sass/elements/title.sass";
-// @import "bulma/sass/form/_all.sass";
-// @import "bulma/sass/components/navbar.sass";
-// @import "bulma/sass/layout/hero.sass";
-// @import "bulma/sass/layout/section.sass";
 
 @import "bulma/bulma";

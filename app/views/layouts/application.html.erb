@@ -11,11 +11,31 @@
   </head>
 
   <body>
-    <div>
-      <%= render 'shared/navbar' %>
-    </div>
-    <main>
-      <%= yield %>
-    </main>
+    <%= render 'shared/navbar' %>
+    <section class="section m-0 p-0">
+      <layout-container class="container">
+        <layout-columns class="columns p-1 mb-1">
+          <sidebar-column class="column is-one-quarter m-1 px-5 py-3 box">
+            <ul>
+              <li>New Story</li>
+              <li>New Books</li>
+              <li>New Artist</li>
+              <li>Print Inlay</li>
+            </ul>
+          </sidebar-column>
+          <main class="column m-1 px-5 py-3">
+            <%= yield %>
+          </main>
+        </layout-columns>
+      </layout-container>
+    </section>
+    <footer class="footer">
+      <div class="content has-text-centered">
+        <p>
+          <strong>LTB-Rails</strong> by <a href="https://www.hobbes.ch">Thomas Keller</a>. The source code is licensed
+          <a href="http://opensource.org/licenses/mit-license.php">MIT</a>.
+        </p>
+      </div>
+    </footer>
   </body>
 </html>

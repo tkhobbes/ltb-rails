@@ -1,33 +1,39 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
-      </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
-    </div>
+<nav class="navbar is-link" data-controller="navbar">
+  <div class="navbar-brand">
+    <%= link_to root_path, class: 'navbar-item' do %>
+      <strong class="is-size-3">LTB-Rails</strong>
+    <% end %>
+
+    <a role="button"
+      class="navbar-burger"
+      data-navbar-target="burger"
+      data-action="navbar#toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </a>
   </div>
+
+  <navbar-menu class="navbar-menu" data-navbar-target="menu">
+    <div class="navbar-start">
+      <%= link_to 'bla', '#', class: 'navbar-item' %>
+      <div class="navbar-item has-dropdown is-hoverable mr-4">
+        <%= link_to 'menu', '#', class: 'navbar-link' %>
+        <div class="navbar-dropdown is-right">
+          <%= link_to 'item', '#', class: 'navbar-item' %>
+          <%= link_to 'item', '#', class: 'navbar-item' %>
+          <hr class="navbar-divider">
+          <%= link_to 'item', '#', class: 'navbar-item' %>
+        </div>
+      </div>
+    </div>
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+          <%= link_to 'Sign up', '#', class: 'button is-primary' %>
+          <%= link_to 'Login', '#', class: 'button is-light' %>
+        </div>
+      </div>
+    </div>
+  </navbar-menu>
 </nav>

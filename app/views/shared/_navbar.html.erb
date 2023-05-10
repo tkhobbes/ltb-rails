@@ -1,7 +1,7 @@
 <nav class="navbar is-link" data-controller="navbar">
   <div class="navbar-brand">
     <%= link_to root_path, class: 'navbar-item' do %>
-      <strong class="is-size-3">LTB-Rails</strong>
+      <strong class="is-size-3 is-family-secondary">LTB-Rails</strong>
     <% end %>
 
     <a role="button"
@@ -16,14 +16,15 @@
 
   <navbar-menu class="navbar-menu" data-navbar-target="menu">
     <div class="navbar-start">
-      <%= link_to 'bla', '#', class: 'navbar-item' %>
+      <%= link_to 'Books', '#', class: 'navbar-item' %>
+      <%= link_to 'Stories', '#', class: 'navbar-item' %>
+      <%= link_to 'Artists', '#', class: 'navbar-item' %>
       <div class="navbar-item has-dropdown is-hoverable mr-4">
-        <%= link_to 'menu', '#', class: 'navbar-link' %>
+        <%= link_to 'Username', '#', class: 'navbar-link' %>
         <div class="navbar-dropdown is-right">
-          <%= link_to 'item', '#', class: 'navbar-item' %>
-          <%= link_to 'item', '#', class: 'navbar-item' %>
+          <%= link_to 'Profile', '#', class: 'navbar-item' %>
           <hr class="navbar-divider">
-          <%= link_to 'item', '#', class: 'navbar-item' %>
+          <%= link_to 'Logout', '#', class: 'navbar-item' %>
         </div>
       </div>
     </div>

@@ -14,16 +14,8 @@
     <div>
       <%= render 'shared/navbar' %>
     </div>
-    <div class="container-fluid row">
-      <div class="col-3 gx-5">
-        <%= render 'shared/sidebar' %>
-      </div>
-      <div class="col-9">
-        <%= yield %>
-      </div>
-    </div>
-    <div>
-      <%= render 'shared/footer' %>
-    </div>
+    <main>
+      <%= yield %>
+    </main>
   </body>
 </html>

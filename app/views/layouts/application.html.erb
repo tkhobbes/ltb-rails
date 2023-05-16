@@ -12,17 +12,11 @@
 
   <body>
     <%= render 'shared/navbar' %>
+    <%= render 'shared/flashes' %>
     <section class="section m-0 p-0">
       <layout-container class="container">
         <layout-columns class="columns p-1 mb-1">
-          <sidebar-column class="column is-one-quarter m-1 px-5 py-3 box">
-            <ul>
-              <li>New Story</li>
-              <li>New Books</li>
-              <li>New Artist</li>
-              <li>Print Inlay</li>
-            </ul>
-          </sidebar-column>
+          <%= render 'shared/sidebar' if current_user %>
           <main class="column m-1 px-5 py-3">
             <%= yield %>
           </main>

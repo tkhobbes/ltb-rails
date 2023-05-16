@@ -73,4 +73,5 @@ gem 'i18n-country-translations'
 gem 'devise'
 gem 'devise-i18n'
 
-# Application gems: Visuals
+# Application gems: Network and scraping
+gem 'down'

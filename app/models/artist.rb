@@ -19,4 +19,6 @@ class Artist < ApplicationRecord
   has_many :stories, through: :roles
 
   validates :name, presence: true, uniqueness: true
+
+  has_one_attached :portrait
 end

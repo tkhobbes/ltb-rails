@@ -115,6 +115,8 @@ GEM
     dotenv-rails (2.8.1)
       dotenv (= 2.8.1)
       railties (>= 3.2)
+    down (5.4.0)
+      addressable (~> 2.8)
     erb_lint (0.4.0)
       activesupport
       better_html (>= 2.0.1)
@@ -368,6 +370,7 @@ DEPENDENCIES
   devise
   devise-i18n
   dotenv-rails
+  down
   erb_lint
   factory_bot_rails
   faker

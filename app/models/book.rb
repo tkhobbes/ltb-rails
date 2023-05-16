@@ -21,4 +21,6 @@ class Book < ApplicationRecord
 
   validates :title, presence: true
   validates :issue, presence: true, uniqueness: true
+
+  has_one_attached :cover
 end

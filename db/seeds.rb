@@ -2,7 +2,8 @@ puts 'Seeding Database...'
 
 # Artists
 puts 'Seeding 20 Artists...'
-20.times do
+20.times do |index|
+  puts "   Artist #{index + 1}"
   age = Random.rand(20..100)
   if [true, false].sample
     died = Random.rand(1920..2023)
@@ -10,27 +11,32 @@ puts 'Seeding 20 Artists...'
   else
     birth = Random.rand(1930..2000)
   end
-  Artist.create(
+  artist = Artist.create(
     name: Faker::Name.name,
     born: birth,
     died: died,
-    nationality: Faker::Address.country
+    nationality: Faker::Address.country,
   )
+  temp = Down.download(Faker::Avatar.image)
+  artist.portrait.attach(io: temp, filename: 'cover.png')
 end
 
 # Stories
 puts 'Seeding 200 Stories...'
-200.times do
+200.times do |index|
+  puts "   Story #{index + 1}"
   code = Faker::Code.unique.asin
-  Story.create(
+  story = Story.create(
     code: code,
     url: "https://inducks.org/story.php?c=#{code}",
     published: Random.rand(1950..2023),
     origin: Faker::Address.country,
     pages: Random.rand(30..80),
     title: Faker::Movie.title,
-    original_title: Faker::Movie.title
+    original_title: Faker::Movie.title,
   )
+  temp = Down.download(Faker::LoremFlickr.image(size: '300x400', search_terms: ['comic']))
+  story.cover.attach(io: temp, filename: 'cover.jpg')
 end
 
 # Roles
@@ -48,13 +54,16 @@ end
 # Books
 puts 'Seeding 50 books...'
 50.times do |index|
-  Book.create(
+  puts "   Book #{index + 1}"
+  book = Book.create(
     issue: index,
     title: Faker::DcComics.title,
     published: Random.rand(1950..2023),
     pages: Random.rand(250..300),
-    url: "https://inducks.org/issue.php?c=de%2FLTB+++#{index}"
+    url: "https://inducks.org/issue.php?c=de%2FLTB+++#{index}",
   )
+  temp = Down.download(Faker::LoremFlickr.image(size: '300x400', search_terms: ['comic']))
+  book.cover.attach(io: temp, filename: 'cover.jpg')
 end
 
 # Book Entries

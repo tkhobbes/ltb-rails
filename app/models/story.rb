@@ -24,4 +24,6 @@ class Story < ApplicationRecord
   has_many :books, through: :book_entries
 
   validates :code, presence: true, uniqueness: true
+
+  has_one_attached :cover
 end

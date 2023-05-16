@@ -45,6 +45,8 @@ group :development do
   gem 'bullet'
   gem 'database_consistency', '>= 1.1.15'
   gem 'erb_lint'
+  gem 'i18n-debug'
+  gem 'letter_opener'
   gem 'prosopite'
   gem 'rails-erd'
   gem 'rubocop', require: false

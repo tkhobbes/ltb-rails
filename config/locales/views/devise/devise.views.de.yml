@@ -50,7 +50,7 @@ de:
       confirmation_instructions:
         action: Mein Konto bestätigen
         greeting: Willkommen %{recipient}!
-        instruction: 'Folgen Sie dem untenstehenden Link, um Ihr Konto zu bestätigen:'
+        instruction: "Folgen Sie dem untenstehenden Link, um Ihr Konto zu bestätigen:"
         subject: Anleitung zur Bestätigung Ihres Kontos
       email_changed:
         greeting: Hallo %{recipient}!
@@ -71,7 +71,7 @@ de:
       unlock_instructions:
         action: Mein Konto entsperren
         greeting: Hallo %{recipient}!
-        instruction: 'Folgen Sie dem untenstehenden Link, um Ihr Konto zu entsperren:'
+        instruction: "Folgen Sie dem untenstehenden Link, um Ihr Konto zu entsperren:"
         message: Ihr Konto wurde aufgrund einer großen Anzahl von fehlgeschlagenen Anmeldeversuchen gesperrt.
         subject: Anleitung für die Konto-Freischaltung
     omniauth_callbacks:
@@ -85,7 +85,7 @@ de:
         new_password: Neues Passwort
       new:
         forgot_your_password: Haben Sie Ihr Passwort vergessen?
-        send_me_reset_password_instructions: Schicken Sie mir die Anleitung, mein Passwort zurückzusetzen
+        send_me_reset_password_instructions: Anleitung zum Zurücksetzen schicken
       no_token: Sie können sich nicht auf dieser Seite anmelden, wenn Sie nicht von einer Passwort-Zurücksetzen-E-Mail kommen. Wenn Sie von solch einer E-Mail kommen, überprüfen Sie bitte, ob Sie die gesamte URL verwendet haben.
       send_instructions: Sie erhalten in wenigen Minuten eine E-Mail mit der Anleitung, wie Sie Ihr Passwort zurücksetzen können.
       send_paranoid_instructions: Falls Ihre E-Mail-Adresse in unserer Datenbank existiert, erhalten Sie in wenigen Minuten eine E-Mail mit der Anleitung, wie Sie Ihr Passwort zurücksetzen können.
@@ -114,6 +114,7 @@ de:
     sessions:
       already_signed_out: Erfolgreich abgemeldet.
       new:
+        remember_me: Angemeldet bleiben
         sign_in: Anmelden
       signed_in: Erfolgreich angemeldet.
       signed_out: Erfolgreich abgemeldet.

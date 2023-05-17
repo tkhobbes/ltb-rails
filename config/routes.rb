@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root "books#index"
 
-  resources :books, only: %i[index]
+  resources :books
 
   devise_for :users
 end

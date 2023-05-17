@@ -1,0 +1,17 @@
+en:
+  books:
+    index:
+      destroy: Delete
+      edit: Edit
+      pages: Pages
+      published: Published
+      show: Show
+    show:
+      published: Published
+      pages: Pages
+      story-credit-story: Story
+      story-credit-drawings: Drawings
+      story-id: ID
+      story-pages: Pages
+      story-table-title: Stories in this Book
+      story-title: Title

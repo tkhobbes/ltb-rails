@@ -1,0 +1,17 @@
+de:
+  books:
+    index:
+      destroy: Löschen
+      edit: Bearbeiten
+      pages: Seiten
+      published: Veröffentlicht
+      show: Anzeigen
+    show:
+      published: Veröffentlicht
+      pages: Seiten
+      story-credit-story: Story
+      story-credit-drawings: Zeichnungen
+      story-id: ID
+      story-pages: Seiten
+      story-table-title: Geschichten in diesem Buch
+      story-title: Titel

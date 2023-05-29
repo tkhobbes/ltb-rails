@@ -1,0 +1,44 @@
+<%= form_with model: @book, class: 'mt-2', id: 'book_form' do |form| %>
+
+  <form-main-columns class="columns">
+    <form-form-column class="column is-8">
+      <form-columns class="columns pb-0">
+        <div class="field column is-2">
+          <%= form.label :issue, class: 'label' %>
+          <%= form.text_field :issue, class: 'input' %>
+        </div>
+        <div class="field column">
+          <%= form.label :title, class: 'label' %>
+          <%= form.text_field :title, class: 'input' %>
+        </div>
+      </form-columns>
+      <form-sub-columns class="columns">
+        <form-text-column class="column">
+          <div class="field">
+            <%= form.label :url, class: 'label' %>
+            <%= form.text_field :url, class: 'input' %>
+          </div>
+          <form-columns class="columns">
+            <div class="field column">
+              <%= form.label :published, class: 'label' %>
+              <%= form.number_field :published, class: 'input' %>
+            </div>
+            <div class="field column">
+              <%= form.label :pages, class: 'label' %>
+              <%= form.number_field :pages, class: 'input' %>
+            </div>
+          </form-columns>
+        </form-text-column>
+        <form-cover-column class="column is-3">
+          <%= image_tag book.cover if book.cover.attached? %>
+        </form-cover-column>
+      </form-sub-columns>
+    </form-form-column>
+    <form-image-column class="column">
+      <div class="field">
+        <%= form.label :cover, class: 'label' %>
+        <%= form.file_field :cover, class: 'input' %>
+      </div>
+    </form-image-column>
+  </form-main-columns>
+<% end %>

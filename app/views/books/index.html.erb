@@ -1,2 +1,50 @@
-<h1>Books#index</h1>
-<p>Find me in app/views/books/index.html.erb</p>
+<hero-box class="hero is-primary">
+  <div class="hero-body">
+    <p class="title is-family-secondary">
+      <%= t('app_title') %>
+    </p>
+    <p class="subtitle">
+      <%= t('app_tagline') %>
+    </p>
+  </div>
+</hero-box>
+<main-layout class="columns is-centered is-multiline mt-2">
+  <% @books.each do |book| %>
+    <main-box class="column is-12-tablet is-6-desktop is-4-fullhd">
+      <div class="card">
+        <header class="card-header">
+          <p class="card-header-title">
+            <%= book.issue %> - <%= book.title %>
+          </p>
+        </header>
+        <div class="card-image">
+          <figure class="image is-4by3 is-flex is-flex-direction-column">
+            <% if book.cover.attached? %>
+              <%= image_tag book.cover, alt: book.title, style: 'flex:1; object-fit:cover' %>
+            <% else %>
+              <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image" style="flex: 1; object-fit:cover">
+            <% end %>
+          </figure>
+        </div>
+        <div class="card-content">
+          <div class="content">
+            <%= t('.published') %>: <%= book.published %><br>
+            <%= t('.pages') %>: <%= book.pages %>
+          </div>
+        </div>
+        <footer class="card-footer">
+          <%= link_to t('.show'), book_path(book), class: 'card-footer-item' %>
+          <%= link_to t('.edit'), edit_book_path(book), class: 'card-footer-item' %>
+          <%= link_to t('.destroy'),
+            book_path(book),
+            class: 'card-footer-item',
+            data: {
+              turbo_method: :delete,
+              turbo_confirm: 'Delete this book?'
+            }
+          %>
+        </footer>
+      </div>
+    </main-box>
+  <% end %>
+</main-layout>

@@ -1,0 +1,35 @@
+en:
+  books:
+    index:
+      destroy: Delete
+      edit: Edit
+      pages: Pages
+      published: Published
+      show: Show
+    show:
+      published: Published
+      pages: Pages
+      story-credit-story: Story
+      story-credit-drawings: Drawings
+      story-id: ID
+      story-pages: Pages
+      story-table-title: Stories in this Book
+      story-title: Title
+      edit: Edit Book
+      delete: Delete Book
+    edit:
+      title: Edit '%{book}'
+      update: Update
+      cancel: Cancel
+    update:
+      updated: Book updated
+      not_updated: Book could not be updated.
+    destroy:
+      deleted: Book deleted
+    new:
+      title: New Book
+      create: Create
+      cancel: Cancel
+    create:
+      created: Book created
+      not_created: Book could not be created.

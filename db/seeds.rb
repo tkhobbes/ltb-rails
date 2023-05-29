@@ -56,7 +56,7 @@ puts 'Seeding 50 books...'
 50.times do |index|
   puts "   Book #{index + 1}"
   book = Book.create(
-    issue: index,
+    issue: index+1,
     title: Faker::DcComics.title,
     published: Random.rand(1950..2023),
     pages: Random.rand(250..300),

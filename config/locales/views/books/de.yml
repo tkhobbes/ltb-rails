@@ -15,3 +15,21 @@ de:
       story-pages: Seiten
       story-table-title: Geschichten in diesem Buch
       story-title: Titel
+      edit: Buch bearbeiten
+      delete: Buch löschen
+    edit:
+      title: "'%{book}' bearbeiten"
+      update: Aktualisieren
+      cancel: Abbrechen
+    update:
+      updated: Buch aktualisiert
+      not_updated: Buch konnte nicht aktualisiert werden.
+    destroy:
+      deleted: Buch gelöscht
+    new:
+      title: Neues Buch
+      create: Erstellen
+      cancel: Abbrechen
+    create:
+      created: Buch erstellt
+      not_created: Buch konnte nicht erstellt werden.

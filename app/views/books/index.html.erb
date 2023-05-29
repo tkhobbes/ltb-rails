@@ -35,7 +35,14 @@
         <footer class="card-footer">
           <%= link_to t('.show'), book_path(book), class: 'card-footer-item' %>
           <%= link_to t('.edit'), edit_book_path(book), class: 'card-footer-item' %>
-          <%= link_to t('.destroy'), book_path(book), class: 'card-footer-item', method: :delete %>
+          <%= link_to t('.destroy'),
+            book_path(book),
+            class: 'card-footer-item',
+            data: {
+              turbo_method: :delete,
+              turbo_confirm: 'Delete this book?'
+            }
+          %>
         </footer>
       </div>
     </main-box>

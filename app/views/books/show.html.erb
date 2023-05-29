@@ -1,8 +1,18 @@
 <hero-box class="hero is-primary">
-  <div class="hero-body">
-    <p class="title is-family-secondary">
+  <div class="hero-body columns">
+    <p class="title is-family-secondary column">
       <%= @book.issue %> - <%= @book.title %>
     </p>
+    <button-group class="buttons column is-right">
+      <%= link_to t('.edit'), edit_book_path(@book), class: 'button is-small is-info m-1' %>
+      <%= link_to t('.delete'),
+        book_path(@book),
+        class: 'button is-danger is-small m-1',
+        data: {
+          turbo_method: :delete,
+          turbo_confirm: 'Delete this book?'
+        } %>
+    </button-group>
   </div>
 </hero-box>
 <main-layout class="columns is-centered mt-2">

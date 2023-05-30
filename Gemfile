@@ -62,12 +62,15 @@ group :test do
 end
 
 # Application gems: Data
-gem 'i18n-tasks'
-gem 'rails-i18n'
-
 gem 'countries'
 gem 'country-select'
 gem 'i18n-country-translations'
+gem 'i18n-tasks'
+gem 'rails-i18n'
+
+# Application gems: Frontend functionality
+gem 'pagy'
+
 
 # Application gems: Authentication and Security
 gem 'devise'

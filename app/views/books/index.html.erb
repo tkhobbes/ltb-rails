@@ -41,10 +41,10 @@
             data: {
               turbo_method: :delete,
               turbo_confirm: 'Delete this book?'
-            }
-          %>
+          } %>
         </footer>
       </div>
     </main-box>
   <% end %>
 </main-layout>
+<%== render 'shared/pagy', pagy: @pagy %>

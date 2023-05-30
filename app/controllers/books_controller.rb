@@ -1,10 +1,11 @@
 # This is the main controller - the index action is the main page of the app
 class BooksController < ApplicationController
   before_action :authenticate_user!, except: %i[index show]
+  before_action { @pagy_locale = params[:locale] || I18n.default_locale }
 
   # this is the root path and can be accessed also for non-logged in users
   def index
-    @books = Book.all.with_attached_cover.order(issue: :asc)
+    @pagy, @books = pagy(Book.all.with_attached_cover.order(issue: :asc))
   end
 
   # the show method can also be accessed for non-logged in users

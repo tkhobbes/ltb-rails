@@ -28,8 +28,8 @@
         </div>
         <div class="card-content">
           <div class="content">
-            <%= t('.published') %>: <%= book.published %><br>
-            <%= t('.pages') %>: <%= book.pages %>
+            <%= Book.human_attribute_name(:published) %>: <%= book.published %><br>
+            <%= Book.human_attribute_name(:pages) %>: <%= book.pages %>
           </div>
         </div>
         <footer class="card-footer">

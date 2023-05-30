@@ -1,8 +1,10 @@
-<sidebar-column class="column is-one-quarter m-1 px-5 py-3 box">
-  <ul>
-    <%= link_to 'New Book', new_book_path %>
-    <li>New Story</li>
-    <li>New Artist</li>
-    <li>Print Inlay</li>
-  </ul>
+<sidebar-column class="column is-one-quarter m-1 px-5 py-3">
+  <aside class="menu">
+    <ul class="menu-list">
+      <li><%= link_to t('.new-book'), new_book_path %></li>
+      <li><%= link_to t('.new-story'), '#' %></li>
+      <li><%= link_to t('.new-artist'), '#' %></li>
+      <li><%= link_to t('.print-inlay'), '#' %></li>
+    </ul>
+  </aside>
 </sidebar-column>

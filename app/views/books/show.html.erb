@@ -10,7 +10,7 @@
         class: 'button is-danger is-small m-1',
         data: {
           turbo_method: :delete,
-          turbo_confirm: 'Delete this book?'
+          turbo_confirm: t('.delete-confirm')
         } %>
     </button-group>
   </div>
@@ -21,22 +21,22 @@
       <% if @book.cover.attached? %>
         <%= image_tag @book.cover, alt: @book.title %>
       <% else %>
-        <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+        <img src="https://bulma.io/images/placeholders/1280x960.png">
       <% end %>
     </figure>
   </main-column>
   <main-column class="column">
     <ul class="list">
-      <li class="list-item"><%= t('.published') %>: <%= @book.published %></li>
-      <li class="list-item"><%= t('.pages') %>: <%= @book.pages %></li>
+      <li class="list-item"><%= Book.human_attribute_name(:published) %>: <%= @book.published %></li>
+      <li class="list-item"><%= Book.human_attribute_name(:pages) %>: <%= @book.pages %></li>
     </ul>
     <h2 class="subtitle"><%= t('.story-table-title') %></h4>
     <table class="table is-hoverable is-fullwidth is-narrow">
       <thead>
         <tr>
-          <th><%= t('.story-id') %></th>
-          <th><%= t('.story-title') %></th>
-          <th><%= t('.story-pages') %></th>
+          <th><%= Story.human_attribute_name(:code) %></th>
+          <th><%= Story.human_attribute_name(:title) %></th>
+          <th><%= Story.human_attribute_name(:pages) %></th>
           <th><%= t('.story-credit-story') %></th>
           <th><%= t('.story-credit-drawings') %></th>
         </tr>

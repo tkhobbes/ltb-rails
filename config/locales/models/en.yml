@@ -1,35 +1,49 @@
 en:
-  artist:
-    artist: Artist
-    born: Born
-    died: Died
-    name: Name
-    nationality: Nationality
-  book_entry:
-    book_entry: Book Entry
-  book:
-    book: Book
-    issue: Issue
-    pages: Pages
-    published: Published
-    title: Title
-    original_title: Original Title
-    url: URL
-  role:
-    role: Role
-    task: Task
-  story:
-    story: Story
-    code: Code
-    origin: Origin
-    original_title: Original Title
-    pages: Pages
-    published: Published
-    title: Title
-    url: URL
-  user:
-    user: User
-    email: E-Mail
-    password: Password
-    password_confirmation: Password Confirmation
-    name: Name
+  activerecord:
+    models:
+      artist:
+        one: Artist
+        other: Artists
+      book_entry:
+        one: Book Entry
+        other: Book Entries
+      book:
+        one: Book
+        other: Books
+      role:
+        one: Role
+        other: Roles
+      story:
+        one: Story
+        other: Stories
+      user:
+        one: User
+        other: Users
+    attributes:
+      artist:
+        born: Born
+        died: Died
+        name: Name
+        nationality: Nationality
+      book:
+        issue: Issue
+        pages: Pages
+        published: Published
+        title: Title
+        original_title: Original Title
+        url: URL
+      role:
+        task: Task
+      story:
+        code: Code
+        origin: Origin
+        original_title: Original Title
+        pages: Pages
+        published: Published
+        title: Title
+        url: URL
+      user:
+        email: E-Mail
+        password: Password
+        password_confirmation: Password Confirmation
+        name: Name

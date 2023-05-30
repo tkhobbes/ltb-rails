@@ -3,20 +3,14 @@ de:
     index:
       destroy: Löschen
       edit: Bearbeiten
-      pages: Seiten
-      published: Veröffentlicht
       show: Anzeigen
     show:
-      published: Veröffentlicht
-      pages: Seiten
       story-credit-story: Story
       story-credit-drawings: Zeichnungen
-      story-id: ID
-      story-pages: Seiten
       story-table-title: Geschichten in diesem Buch
-      story-title: Titel
       edit: Buch bearbeiten
       delete: Buch löschen
+      delete-confirm: Dieses Buch wirklich löschen?
     edit:
       title: "'%{book}' bearbeiten"
       update: Aktualisieren

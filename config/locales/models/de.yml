@@ -1,35 +1,49 @@
 de:
-  artist:
-    artist: Künstler
-    born: Geboren
-    died: Gestorben
-    name: Name
-    nationality: Nationalität
-  book_entry:
-    book_entry: Bucheintrag
-  book:
-    book: Buch
-    issue: Ausgabe
-    pages: Seiten
-    published: Veröffentlicht
-    title: Titel
-    original_title: Originaltitel
-    url: URL
-  role:
-    role: Rolle
-    task: Aufgabe
-  story:
-    story: Geschichte
-    code: Code
-    origin: Herkunftsland
-    original_title: Originaltitel
-    pages: Seiten
-    published: Veröffentlicht
-    title: Titel
-    url: URL
-  user:
-    user: Benutzer
-    email: E-Mail
-    password: Passwort
-    password_confirmation: Passwortbestätigung
-    name: Name
+  activerecord:
+    models:
+      artist:
+        one: Künstler
+        other: Künstler
+      book_entry:
+        one: Bucheintrag
+        other: Bucheinträge
+      book:
+        one: Buch
+        other: Bücher
+      role:
+        one: Rolle
+        other: Rollen
+      story:
+        one: Geschichte
+        other: Geschichten
+      user:
+        one: Benutzer
+        other: Benutzer
+    attributes:
+      artist:
+        born: Geboren
+        died: Gestorben
+        name: Name
+        nationality: Nationalität
+      book:
+        issue: Ausgabe
+        pages: Seiten
+        published: Veröffentlicht
+        title: Titel
+        original_title: Originaltitel
+        url: URL
+      role:
+        task: Aufgabe
+      story:
+        code: Code
+        origin: Herkunftsland
+        original_title: Originaltitel
+        pages: Seiten
+        published: Veröffentlicht
+        title: Titel
+        url: URL
+      user:
+        email: E-Mail
+        password: Passwort
+        password_confirmation: Passwortbestätigung
+        name: Name

@@ -16,9 +16,9 @@
 
   <navbar-menu class="navbar-menu" data-navbar-target="menu">
     <div class="navbar-start">
-      <%= link_to 'Books', books_path, class: 'navbar-item' %>
-      <%= link_to 'Stories', '#', class: 'navbar-item' %>
-      <%= link_to 'Artists', '#', class: 'navbar-item' %>
+      <%= link_to Book.model_name.human(count: 10), books_path, class: 'navbar-item' %>
+      <%= link_to Story.model_name.human(count: 10), '#', class: 'navbar-item' %>
+      <%= link_to Artist.model_name.human(count: 10), '#', class: 'navbar-item' %>
     </div>
     <div class="navbar-end">
       <% if user_signed_in? %>

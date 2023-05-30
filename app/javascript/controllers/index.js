@@ -4,5 +4,8 @@
 
 import { application } from "./application"
 
+import CloseButtonController from "./close_button_controller"
+application.register("close-button", CloseButtonController)
+
 import NavbarController from "./navbar_controller"
 application.register("navbar", NavbarController)

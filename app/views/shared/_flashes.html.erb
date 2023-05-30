@@ -1,8 +1,15 @@
-<div class="container is-fluid mb-3" data-turbo-temporary>
+
   <% flash.each do |level, message| %>
-    <%= tag.div \
-      class: "notification is-#{level} is-light has-text-centered mt-4" do %>
-      <%= message %>
-    <% end %>
+    <% level = 'success' if level == 'notice' %>
+    <% level = 'danger' if level == 'alert' %>
+    <div class="is-overlay mx-5">
+      <div
+        class="notification is-<%= level %> is-light has-text-centered mt-4"
+        data-controller="close-button"
+        data-turbo-temporary>
+        <button class="delete" data-action="close-button#click"></button>
+        <%= message %>
+      </div>
+    </div>
   <% end %>
-</div>
+

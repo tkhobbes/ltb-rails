@@ -1,0 +1,15 @@
+<main-layout class="columns is-centered">
+  <main-box class="column box">
+    <h2 class="is-family-secondary is-size-4">
+      <%= t('.title', story: @story.title) %>
+    </h2>
+
+    <%= render 'stories/form', story: @story %>
+
+    <div class="buttons is-centered">
+      <%= submit_tag t('.update'), form: 'story_form', class: 'button is-primary' %>
+      <%= link_to t('.cancel'), story_path(@story), class: 'button is-light' %>
+    </div>
+
+  </main-box>
+</main-layout>

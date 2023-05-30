@@ -91,7 +91,8 @@ GEM
     concurrent-ruby (1.2.2)
     countries (5.4.0)
       unaccent (~> 0.3)
-    country-select (1.2.1)
+    country_select (8.0.1)
+      countries (~> 5.0)
     crass (1.0.6)
     cssbundling-rails (1.1.2)
       railties (>= 6.0.0)
@@ -365,7 +366,7 @@ DEPENDENCIES
   brakeman
   bullet
   countries
-  country-select
+  country_select
   cssbundling-rails
   database_consistency (>= 1.1.15)
   debug

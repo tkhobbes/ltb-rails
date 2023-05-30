@@ -1,6 +1,6 @@
 <hero-box class="hero is-primary">
   <div class="hero-body columns">
-    <p class="title is-family-secondary column">
+    <p class="title is-family-secondary column is-8">
       <%= @book.issue %> - <%= @book.title %>
     </p>
     <button-group class="buttons column is-right">
@@ -42,13 +42,9 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td><a href="#">abc</a></td>
-          <td><a href="#">Lorem ipsum dolor sit amet</a></td>
-          <td>25</td>
-          <td>Romano Scarpa</td>
-          <td>Romano Scarpa</td>
-        </tr>
+      <% @book.stories.each do |story| %>
+        <%= render 'stories/table', story: %>
+      <% end %>
       </tbody>
     </table>
   </main-column>

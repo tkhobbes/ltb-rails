@@ -1,0 +1,69 @@
+<hero-box class="hero is-primary">
+  <div class="hero-body columns">
+    <p class="title is-family-secondary column is-8">
+      <%= @story.code %> - <%= @story.title %>
+      <% "(#{@story.original_title})" if @story.original_title %>
+    </p>
+    <button-group class="buttons column is-right">
+      <%= link_to t('.edit'), edit_story_path(@story), class: 'button is-small is-info m-1' %>
+      <%= link_to t('.delete'),
+        story_path(@story),
+        class: 'button is-danger is-small m-1',
+        data: {
+          turbo_method: :delete,
+          turbo_confirm: t('.delete-confirm')
+        } %>
+    </button-group>
+  </div>
+</hero-box>
+<main-layout class="columns is-centered mt-2">
+  <main-column class="column is-one-third">
+    <figure class="media-left">
+      <% if @story.cover.attached? %>
+        <%= image_tag @story.cover, alt: @story.title %>
+      <% else %>
+        <img src="https://bulma.io/images/placeholders/1280x960.png">
+      <% end %>
+    </figure>
+  </main-column>
+  <main-column class="column">
+    <ul class="list">
+      <li class="list-item"><%= Story.human_attribute_name(:origin) %>: <%= @story.origin %></li>
+      <li class="list-item"><%= Story.human_attribute_name(:published) %>: <%= @story.published %></li>
+      <li class="list-item"><%= Story.human_attribute_name(:pages) %>: <%= @story.pages %></li>
+    </ul>
+    <h2 class="subtitle"><%= t('.artists-table-title') %></h4>
+    <table class="table is-hoverable is-fullwidth is-narrow">
+      <thead>
+        <tr>
+          <th><%= Role.human_attribute_name(:task) %></th>
+          <th><%= Artist.human_attribute_name(:name) %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Penciller</td>
+          <td>Romano Scarpa</td>
+        </tr>
+        <tr>
+          <td>Story</td>
+          <td>Romano Scarpa</td>
+        </tr>
+      </tbody>
+    </table>
+    <h2 class="subtitle"><%= t('.books-table-title') %></h4>
+    <table class="table is-hoverable is-fullwidth is-narrow">
+      <thead>
+        <tr>
+          <th><%= Book.human_attribute_name(:issue) %></th>
+          <th><%= Book.human_attribute_name(:title) %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @story.books.each do |book| %>
+          <%= render 'books/table', book: %>
+        <% end %>
+      </tbody>
+    </table>
+  </main-column>
+</main-layout>

@@ -1,0 +1,50 @@
+<hero-box class="hero is-primary">
+  <div class="hero-body">
+    <p class="title is-family-secondary">
+      <%= t('.title') %>
+    </p>
+  </div>
+</hero-box>
+<main-layout class="section is-centered mt-2">
+  <% @stories.each do |story| %>
+
+    <article class="media">
+      <figure class="media-left">
+        <p class="image is-64x64">
+          <% if story.cover.attached? %>
+            <%= image_tag story.cover %>
+          <% else %>
+            <img src="https://bulma.io/images/placeholders/128x128.png">
+          <% end %>
+        </p>
+      </figure>
+      <div class="media-content">
+        <div class="content">
+          <p>
+            <strong>
+              <%= link_to story.title, story_path(story) %>
+            </strong>
+            <small>
+              <%= story.published %>
+            </small>
+            <br>
+            <%= story.code %> | <%= story.origin %> | <%= story.pages %> <%= Story.human_attribute_name(:pages) %><br />
+            Penciller: Romano Scarpa | Story: Romano Scarpa
+          </p>
+        </div>
+      </div>
+      <div class="media-right">
+        <%= link_to t('.destroy'),
+          story_path(story),
+          class: 'delete',
+          data: {
+            turbo_method: :delete,
+            turbo_confirm: 'Delete this story?'
+        } %>
+      </div>
+    </article>
+
+
+  <% end %>
+</main-layout>
+<%== render 'shared/pagy', pagy: @pagy %>

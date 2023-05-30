@@ -1,24 +1,38 @@
-<%= form_with model: book, class: 'mt-2', id: 'book_form' do |form| %>
-
+<%= form_with model: story, class: 'mt-2', id: 'story_form' do |form| %>
   <form-main-columns class="columns">
     <form-form-column class="column is-8">
       <form-columns class="columns pb-0">
-        <div class="field column is-2">
-          <%= form.label :issue, class: 'label' %>
-          <%= form.text_field :issue, class: 'input' %>
-        </div>
         <div class="field column">
           <%= form.label :title, class: 'label' %>
           <%= form.text_field :title, class: 'input' %>
         </div>
+        <div class="field column">
+          <%= form.label :original_title, class: 'label' %>
+          <%= form.text_field :original_title, class: 'input' %>
+        </div>
       </form-columns>
       <form-sub-columns class="columns">
         <form-text-column class="column">
-          <div class="field">
-            <%= form.label :url, class: 'label' %>
-            <%= form.text_field :url, class: 'input' %>
-          </div>
           <form-columns class="columns">
+            <div class="field column is-4">
+              <%= form.label :code, class: 'label' %>
+              <%= form.text_field :code, class: 'input' %>
+            </div>
+            <div class="field column">
+              <%= form.label :url, class: 'label' %>
+              <%= form.text_field :url, class: 'input' %>
+            </div>
+          </form-columns>
+          <form-columns class="columns">
+            <div class="field column is-6">
+              <%= form.label :origin, class: 'label' %>
+              <div class="select">
+                <%= form.country_select :origin,
+                  include_blank: t('.country-select'),
+                  priority_countries: ["IT", "US", "SE", "DE"],
+                  sort_provided: false %>
+              </div>
+            </div>
             <div class="field column">
               <%= form.label :published, class: 'label' %>
               <%= form.number_field :published, class: 'input' %>
@@ -30,7 +44,7 @@
           </form-columns>
         </form-text-column>
         <form-cover-column class="column is-3">
-          <%= image_tag book.cover if book.cover.attached? %>
+          <%= image_tag story.cover if story.cover.attached? %>
         </form-cover-column>
       </form-sub-columns>
     </form-form-column>

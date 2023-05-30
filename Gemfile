@@ -63,7 +63,7 @@ end
 
 # Application gems: Data
 gem 'countries'
-gem 'country-select'
+gem 'country_select'
 gem 'i18n-country-translations'
 gem 'i18n-tasks'
 gem 'rails-i18n'

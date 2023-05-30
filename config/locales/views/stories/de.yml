@@ -1,0 +1,29 @@
+de:
+  stories:
+    edit:
+      title: "'%{story}' bearbeiten"
+      update: Aktualisieren
+      cancel: Abbrechen
+    new:
+      title: Neue Story
+      create: Erstellen
+      cancel: Abbrechen
+    index:
+      title: Alle Geschichten
+      destroy: Geschichte löschen
+    create:
+      created: Geschichte erstellt
+      not_created: Geschichte konnte nicht erstellt werden
+    destroy:
+      deleted: Geschichte gelöscht
+    update:
+      updated: Geschichte aktualisiert
+      not_updated: Geschichte konnte nicht aktualisiert werden
+    form:
+      country-select: Land wählen
+    show:
+      artists-table-title: Künstler
+      books-table-title: Enthalten in folgenden Büchern
+      edit: Bearbeiten
+      delete: Löschen
+      delete-confirm: Diese Story wirklich löschen?

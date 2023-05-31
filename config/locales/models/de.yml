@@ -42,6 +42,7 @@ de:
         published: Veröffentlicht
         title: Titel
         url: URL
+        book_ids: Geschichte enthalten in
       user:
         email: E-Mail
         password: Passwort

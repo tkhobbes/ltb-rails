@@ -8,7 +8,8 @@
     "bulma-extensions": "^6.2.7",
     "bulma-list": "^1.2.0",
     "esbuild": "^0.17.16",
-    "sass": "^1.62.0"
+    "sass": "^1.62.0",
+    "tom-select": "^2.2.2"
   },
   "scripts": {
     "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds --public-path=assets",

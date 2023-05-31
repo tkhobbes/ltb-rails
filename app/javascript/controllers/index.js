@@ -9,3 +9,6 @@ application.register("close-button", CloseButtonController)
 
 import NavbarController from "./navbar_controller"
 application.register("navbar", NavbarController)
+
+import TagsInputController from "./tags_input_controller"
+application.register("tags-input", TagsInputController)

@@ -12,33 +12,40 @@
           <%= form.text_field :title, class: 'input' %>
         </div>
       </form-columns>
-      <form-sub-columns class="columns">
-        <form-text-column class="column">
-          <div class="field">
-            <%= form.label :url, class: 'label' %>
-            <%= form.text_field :url, class: 'input' %>
+      <form-sub-columns class="column">
+        <div class="field">
+          <%= form.label :url, class: 'label' %>
+          <%= form.text_field :url, class: 'input' %>
+        </div>
+        <form-columns class="columns">
+          <div class="field column">
+            <%= form.label :published, class: 'label' %>
+            <%= form.number_field :published, class: 'input' %>
           </div>
-          <form-columns class="columns">
-            <div class="field column">
-              <%= form.label :published, class: 'label' %>
-              <%= form.number_field :published, class: 'input' %>
-            </div>
-            <div class="field column">
-              <%= form.label :pages, class: 'label' %>
-              <%= form.number_field :pages, class: 'input' %>
-            </div>
-          </form-columns>
-        </form-text-column>
-        <form-cover-column class="column is-3">
-          <%= image_tag book.cover if book.cover.attached? %>
-        </form-cover-column>
+          <div class="field column">
+            <%= form.label :pages, class: 'label' %>
+            <%= form.number_field :pages, class: 'input' %>
+          </div>
+        </form-columns>
       </form-sub-columns>
     </form-form-column>
     <form-image-column class="column">
-      <div class="field">
-        <%= form.label :cover, class: 'label' %>
-        <%= form.file_field :cover, class: 'input' %>
+      <div class="file">
+        <%= form.label :cover, class: 'file-label' do %>
+          <%= form.file_field :cover, type: 'file', class: 'file-input' %>
+          <span class="file-cta">
+            <span class="file-icon">
+              <i class="fas fa-upload"></i>
+            </span>
+            <span class="file-label">
+              Choose a cover
+            </span>
+          </span>
+        <% end %>
       </div>
+      <figure class="image py-4">
+        <%= image_tag book.cover if book.cover.attached? %>
+      </figure>
     </form-image-column>
   </form-main-columns>
 <% end %>

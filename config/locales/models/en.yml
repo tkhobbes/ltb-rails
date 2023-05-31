@@ -42,6 +42,7 @@ en:
         published: Published
         title: Title
         url: URL
+        book_ids: Books containing this story
       user:
         email: E-Mail
         password: Password

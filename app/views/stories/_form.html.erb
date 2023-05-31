@@ -1,6 +1,6 @@
 <%= form_with model: story, class: 'mt-2', id: 'story_form' do |form| %>
   <form-main-columns class="columns">
-    <form-form-column class="column is-8">
+    <form-form-column class="column is-9">
       <form-columns class="columns pb-0">
         <div class="field column">
           <%= form.label :title, class: 'label' %>
@@ -11,48 +11,70 @@
           <%= form.text_field :original_title, class: 'input' %>
         </div>
       </form-columns>
-      <form-sub-columns class="columns">
-        <form-text-column class="column">
-          <form-columns class="columns">
-            <div class="field column is-4">
-              <%= form.label :code, class: 'label' %>
-              <%= form.text_field :code, class: 'input' %>
+      <form-sub-columns class="column">
+        <form-columns class="columns">
+          <div class="field column is-4">
+            <%= form.label :code, class: 'label' %>
+            <%= form.text_field :code, class: 'input' %>
+          </div>
+          <div class="field column">
+            <%= form.label :url, class: 'label' %>
+            <%= form.text_field :url, class: 'input' %>
+          </div>
+        </form-columns>
+        <form-columns class="columns">
+          <div class="field column is-6">
+            <%= form.label :origin, class: 'label' %>
+            <div class="select">
+              <%= form.country_select :origin,
+                include_blank: t('.country-select'),
+                priority_countries: ["IT", "US", "SE", "DE"],
+                sort_provided: false %>
             </div>
-            <div class="field column">
-              <%= form.label :url, class: 'label' %>
-              <%= form.text_field :url, class: 'input' %>
+          </div>
+          <div class="field column">
+            <%= form.label :published, class: 'label' %>
+            <%= form.number_field :published, class: 'input' %>
+          </div>
+          <div class="field column">
+            <%= form.label :pages, class: 'label' %>
+            <%= form.number_field :pages, class: 'input' %>
+          </div>
+        </form-columns>
+        <form-columns class="columns">
+          <div class="field column">
+            <div class="select is-multiple">
+              <%= form.label :book_ids, class: 'label' %>
+              <%= form.collection_select(:book_ids, Book.order(:issue), :id, :long_title,
+                { prompt: true },
+                { multiple: true,
+                  data: {
+                    controller: 'tags-input'
+                  }
+                }
+              ) %>
             </div>
-          </form-columns>
-          <form-columns class="columns">
-            <div class="field column is-6">
-              <%= form.label :origin, class: 'label' %>
-              <div class="select">
-                <%= form.country_select :origin,
-                  include_blank: t('.country-select'),
-                  priority_countries: ["IT", "US", "SE", "DE"],
-                  sort_provided: false %>
-              </div>
-            </div>
-            <div class="field column">
-              <%= form.label :published, class: 'label' %>
-              <%= form.number_field :published, class: 'input' %>
-            </div>
-            <div class="field column">
-              <%= form.label :pages, class: 'label' %>
-              <%= form.number_field :pages, class: 'input' %>
-            </div>
-          </form-columns>
-        </form-text-column>
-        <form-cover-column class="column is-3">
-          <%= image_tag story.cover if story.cover.attached? %>
-        </form-cover-column>
+          </div>
+        </form-columns>
       </form-sub-columns>
     </form-form-column>
     <form-image-column class="column">
-      <div class="field">
-        <%= form.label :cover, class: 'label' %>
-        <%= form.file_field :cover, class: 'input' %>
+      <div class="file">
+        <%= form.label :cover, class: 'file-label' do %>
+          <%= form.file_field :cover, type: 'file', class: 'file-input' %>
+          <span class="file-cta">
+            <span class="file-icon">
+              <i class="fas fa-upload"></i>
+            </span>
+            <span class="file-label">
+              Choose a cover
+            </span>
+          </span>
+        <% end %>
       </div>
+      <figure class="image py-4">
+        <%= image_tag story.cover if story.cover.attached? %>
+      </figure>
     </form-image-column>
   </form-main-columns>
 <% end %>

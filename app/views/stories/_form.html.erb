@@ -45,9 +45,13 @@
           <div class="field column">
             <div class="select is-multiple">
               <%= form.label :book_ids, class: 'label' %>
-              <%= form.collection_select(:book_ids, Book.order(:title), :id, :title,
-                { prompt: true, :selected => story.books.map(&:id) },
-                { multiple: true }
+              <%= form.collection_select(:book_ids, Book.order(:issue), :id, :long_title,
+                { prompt: true },
+                { multiple: true,
+                  data: {
+                    controller: 'tags-input'
+                  }
+                }
               ) %>
             </div>
           </div>

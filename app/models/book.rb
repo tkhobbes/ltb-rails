@@ -23,4 +23,8 @@ class Book < ApplicationRecord
   validates :issue, presence: true, uniqueness: true
 
   has_one_attached :cover
+
+  def long_title
+    "#{issue} - #{title}"
+  end
 end

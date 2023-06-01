@@ -1,0 +1,16 @@
+{
+  "translations": {
+    "de": {
+      "hello": "Hallo",
+      "tags-input": {
+        "remove-tag": "Element entfernen"
+      }
+    },
+    "en": {
+      "hello": "Hi",
+      "tags-input": {
+        "remove-tag": "Remove element"
+      }
+    }
+  }
+}

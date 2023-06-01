@@ -1,0 +1,51 @@
+<%= form_with model: artist, class: 'mt-2', id: 'artist_form' do |form| %>
+  <form-main-columns class="columns">
+    <form-form-column class="column is-9">
+      <form-columns class="columns pb-0">
+        <div class="field column">
+          <%= form.label :name, class: 'label' %>
+          <%= form.text_field :name, class: 'input' %>
+        </div>
+      </form-columns>
+      <form-sub-columns class="column">
+        <form-columns class="columns">
+          <div class="field column is-6">
+            <%= form.label :nationality, class: 'label' %>
+            <div class="select">
+              <%= form.country_select :nationality,
+                include_blank: t('.country-select'),
+                priority_countries: ["IT", "US", "SE", "DE"],
+                sort_provided: false %>
+            </div>
+          </div>
+          <div class="field column">
+            <%= form.label :born, class: 'label' %>
+            <%= form.number_field :born, class: 'input' %>
+          </div>
+          <div class="field column">
+            <%= form.label :died, class: 'label' %>
+            <%= form.number_field :died, class: 'input' %>
+          </div>
+        </form-columns>
+      </form-sub-columns>
+    </form-form-column>
+    <form-image-column class="column">
+      <div class="file">
+        <%= form.label :portrait, class: 'file-label' do %>
+          <%= form.file_field :portrait, type: 'file', class: 'file-input' %>
+          <span class="file-cta">
+            <span class="file-icon">
+              <i class="fas fa-upload"></i>
+            </span>
+            <span class="file-label">
+              <%= t('.portrait-button') %>
+            </span>
+          </span>
+        <% end %>
+      </div>
+      <figure class="image py-4">
+        <%= image_tag artist.portrait if artist.portrait.attached? %>
+      </figure>
+    </form-image-column>
+  </form-main-columns>
+<% end %>

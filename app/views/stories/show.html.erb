@@ -41,14 +41,9 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>Penciller</td>
-          <td>Romano Scarpa</td>
-        </tr>
-        <tr>
-          <td>Story</td>
-          <td>Romano Scarpa</td>
-        </tr>
+        <% @story.artists.each do |artist| %>
+          <%= render 'artists/table', artist: %>
+        <% end %>
       </tbody>
     </table>
     <h2 class="subtitle"><%= t('.books-table-title') %></h4>

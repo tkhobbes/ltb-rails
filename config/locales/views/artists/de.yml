@@ -1,0 +1,30 @@
+de:
+  artists:
+    create:
+      created: Künstler erstellt
+      not_created: Künstler konnte nicht erstellt werden
+    destroy:
+      deleted: Künstler gelöscht
+    edit:
+      cancel: Abbrechen
+      title: "'%{artist}' bearbeiten"
+      update: Aktualisieren
+    form:
+      country-select: Nationalität wählen
+      portrait-button: Portrait wählen
+    new:
+      cancel: Abbrechen
+      create: Speichern
+      title: Neuen Künstler erstellen
+    show:
+      artists-table-title: Geschichten
+      delete: Künsler löschen
+      delete-confirm: Diesen Künstler wirklich löschen?
+      edit: Künstler bearbeiten
+    update:
+      updated: Künstler aktualisiert
+      not_updated: Künstler konnte nicht aktualisiert werden
+    index:
+      confirm-delete: Diesen Künstler wirklich löschen?
+      destroy: Löschen
+      title: Alle Künstler

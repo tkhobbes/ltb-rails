@@ -1,0 +1,57 @@
+<hero-box class="hero is-primary">
+  <div class="hero-body columns">
+    <p class="title is-family-secondary column is-8">
+      <%= @artist.name %>
+    </p>
+    <button-group class="buttons column is-right">
+      <%= link_to t('.edit'), edit_artist_path(@artist), class: 'button is-small is-info m-1' %>
+      <%= link_to t('.delete'),
+        artist_path(@artist),
+        class: 'button is-danger is-small m-1',
+        data: {
+          turbo_method: :delete,
+          turbo_confirm: t('.delete-confirm')
+        } %>
+    </button-group>
+  </div>
+</hero-box>
+<main-layout class="columns is-centered mt-2">
+  <main-column class="column is-one-third">
+    <figure class="media-left">
+      <% if @artist.portrait.attached? %>
+        <%= image_tag @artist.portrait, alt: @artist.name %>
+      <% else %>
+        <img src="https://bulma.io/images/placeholders/1280x960.png">
+      <% end %>
+    </figure>
+  </main-column>
+  <main-column class="column">
+    <ul class="list">
+      <li class="list-item">
+        <%= Artist.human_attribute_name(:nationality) %>:
+        <%= ISO3166::Country.new(@artist.nationality)&.translation(locale) %>
+        </li>
+      <li class="list-item"><%= Artist.human_attribute_name(:born) %>: <%= @artist.born %></li>
+      <li class="list-item"><%= Artist.human_attribute_name(:died) %>: <%= @artist.died %></li>
+    </ul>
+    <h2 class="subtitle"><%= t('.artists-table-title') %></h4>
+    <table class="table is-hoverable is-fullwidth is-narrow">
+      <thead>
+        <tr>
+          <th><%= Role.human_attribute_name(:task) %></th>
+          <th><%= Artist.human_attribute_name(:name) %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Penciller</td>
+          <td>Story A</td>
+        </tr>
+        <tr>
+          <td>Penciller</td>
+          <td>Story B</td>
+        </tr>
+      </tbody>
+    </table>
+  </main-column>
+</main-layout>

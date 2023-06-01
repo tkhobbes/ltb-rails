@@ -15,7 +15,7 @@ puts 'Seeding 20 Artists...'
     name: Faker::Name.name,
     born: birth,
     died: died,
-    nationality: Faker::Address.country,
+    nationality: ISO3166::Country.codes.sample,
   )
   temp = Down.download(Faker::Avatar.image)
   artist.portrait.attach(io: temp, filename: 'cover.png')
@@ -30,7 +30,7 @@ puts 'Seeding 200 Stories...'
     code: code,
     url: "https://inducks.org/story.php?c=#{code}",
     published: Random.rand(1950..2023),
-    origin: Faker::Address.country,
+    origin: ISO3166::Country.codes,
     pages: Random.rand(30..80),
     title: Faker::Movie.title,
     original_title: Faker::Movie.title,

@@ -34,6 +34,16 @@ en:
         url: URL
       role:
         task: Task
+        tasks:
+          not_given: not given
+          drawings: Drawings
+          pencil: Pencil
+          ink: Ink
+          color: Color
+          lettering: Lettering
+          story: Story
+          plot: Plot
+          script: Script
       story:
         code: Code
         origin: Origin
@@ -43,6 +53,7 @@ en:
         title: Title
         url: URL
         book_ids: Books containing this story
+        role_ids: Artists involved
       user:
         email: E-Mail
         password: Password

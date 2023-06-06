@@ -43,14 +43,9 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>Penciller</td>
-          <td>Story A</td>
-        </tr>
-        <tr>
-          <td>Penciller</td>
-          <td>Story B</td>
-        </tr>
+      <% @artist.roles.each do |role| %>
+        <%= render 'roles/actor_table', role: %>
+      <% end %>
       </tbody>
     </table>
   </main-column>

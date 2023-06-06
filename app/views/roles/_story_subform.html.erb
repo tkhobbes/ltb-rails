@@ -1,0 +1,21 @@
+<form-columns class="columns">
+  <div class="field column is-4">
+    <%= form.label :task, class: 'label is-small' %>
+    <div class="select is-small is-fullwidth">
+      <%= form.select(:task, Role.tasks.keys.map{ |k| [Role.human_enum_name(:task, k), k] }) %>
+    </div>
+  </div>
+  <div class="field column">
+    <%= form.label :artist_id, class: 'label is-small' %>
+    <div class="select is-small is-fullwidth">
+      <%= form.collection_select(:artist_id, Artist.order(:name), :id, :name,
+        { prompt: true },
+        { data: {
+            controller: 'tags-input',
+            tags_input_locale_value: I18n.locale,
+          }
+        }
+      ) %>
+    </div>
+  </div>
+</form-columns>

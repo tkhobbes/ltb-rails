@@ -26,4 +26,25 @@ class Story < ApplicationRecord
   validates :code, presence: true, uniqueness: true
 
   has_one_attached :cover
+
+  accepts_nested_attributes_for :roles
+
+  def drawings_role
+    Role.find(drawings_role_id) if drawings_role_id
+  end
+
+  def story_role
+    Role.find(story_role_id) if story_role_id
+  end
+
+  # if a story has a penciller, an inker and a drawer, we need to know whom to return as "main artist"
+  def drawings_role_id
+    all_roles = roles.pluck(:task, :id)
+    (all_roles.assoc('pencil') || all_roles.assoc('ink') || all_roles.assoc('drawings'))&.last
+  end
+
+  def story_role_id
+    all_roles = roles.pluck(:task, :id)
+    (all_roles.assoc('plot') || all_roles.assoc('script') || all_roles.assoc('story'))&.last
+  end
 end

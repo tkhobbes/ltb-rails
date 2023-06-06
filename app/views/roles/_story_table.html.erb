@@ -1,0 +1,4 @@
+<tr>
+  <td><%= link_to Role.human_enum_name(:task, role.task), artist_path(role.artist) %></td>
+  <td><%= link_to role.artist.name, artist_path(role.artist) %></td>
+</tr>

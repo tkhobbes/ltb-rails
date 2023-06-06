@@ -1,0 +1,4 @@
+<tr>
+  <td><%= link_to Role.human_enum_name(:task, role.task), story_path(role.story) %></td>
+  <td><%= link_to role.story.title, story_path(role.story) %></td>
+</tr>

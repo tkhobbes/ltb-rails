@@ -56,3 +56,9 @@ There are no special installation steps required at this point. Just clone the r
 # Testing
 
 For testing, RSpec with FactoryBot and Faker is used.
+
+# Credits
+
+## ENUM translations
+
+Found a solution here: https://www.kostolansky.sk/posts/localize-rails-enums

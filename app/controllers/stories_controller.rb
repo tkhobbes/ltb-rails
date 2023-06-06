@@ -9,17 +9,19 @@ class StoriesController < ApplicationController
 
   # show method is available for all users
   def show
-    @story = Story.find(params[:id])
+    @story = Story.includes(roles: :artist).find(params[:id])
   end
 
   # new method is only available for logged in users
   def new
     @story = Story.new
+    # @story.roles.build
   end
 
   # edit method is only available for logged in users
   def edit
     @story = Story.find(params[:id])
+    @roles = @story.roles.includes(:artists).all
   end
 
   # create method is only available for logged in users
@@ -64,7 +66,14 @@ class StoriesController < ApplicationController
       :title,
       :original_title,
       :cover,
-      book_ids: []
+      book_ids: [],
+      role_ids: [],
+      roles_attributes: %i[
+        id
+        task
+        artist_id
+        story_id
+      ]
     )
   end
 end

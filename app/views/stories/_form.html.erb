@@ -43,7 +43,7 @@
         </form-columns>
         <form-columns class="columns">
           <div class="field column">
-            <div class="select is-multiple">
+            <div class="select is-multiple is-fullwidth">
               <%= form.label :book_ids, class: 'label' %>
               <%= form.collection_select(:book_ids, Book.order(:issue), :id, :long_title,
                 { prompt: true },
@@ -57,6 +57,18 @@
             </div>
           </div>
         </form-columns>
+        <form-columns class="columns">
+          <div class="field column">
+            <div id="role-form">
+              <%= form.label :role_ids, class: 'label' %>
+              <%= form.fields_for :roles do |f| %>
+                <%= render 'roles/story_subform', form: f %>
+              <% end %>
+            </div>
+            <%= link_to t('.role-add'), '#',
+              class: 'button is-primary is-small is-light is-outline' %>
+          </div>
+        </form-columns>
       </form-sub-columns>
     </form-form-column>
     <form-image-column class="column">
@@ -68,7 +80,7 @@
               <i class="fas fa-upload"></i>
             </span>
             <span class="file-label">
-              Choose a cover
+              <%= t('.cover-choose') %>
             </span>
           </span>
         <% end %>

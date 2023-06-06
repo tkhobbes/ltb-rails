@@ -41,8 +41,8 @@
         </tr>
       </thead>
       <tbody>
-        <% @story.artists.each do |artist| %>
-          <%= render 'artists/table', artist: %>
+        <% @story.roles.each do |role| %>
+          <%= render 'roles/story_table', role: %>
         <% end %>
       </tbody>
     </table>

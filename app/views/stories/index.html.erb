@@ -29,7 +29,16 @@
             </small>
             <br>
             <%= story.code %> | <%= story.origin %> | <%= story.pages %> <%= Story.human_attribute_name(:pages) %><br />
-            Penciller: Romano Scarpa | Story: Romano Scarpa
+            Drawings:
+            <%= link_to(
+              story.drawings_role.artist.name,
+              artist_path(story.drawings_role.artist.name)
+            ) if story.drawings_role %>            |
+            Story:
+            <%= link_to(
+              story.story_role.artist.name,
+              artist_path(story.story_role.artist.name)
+            ) if story.story_role %>
           </p>
         </div>
       </div>

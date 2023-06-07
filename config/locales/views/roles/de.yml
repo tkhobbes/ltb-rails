@@ -1,0 +1,15 @@
+de:
+  roles:
+    story_table:
+      edit-role: Ändern
+      delete-role: Löschen
+    story_subform:
+      create: Übernehmen
+      cancel: Abbrechen
+    update:
+      updated: Rolle geändert
+      not_updated: Rolle konnte nicht geändert werden
+    destroy:
+      deleted: Rolle gelöscht
+    new_role:
+      add-role: Rolle hinzufügen

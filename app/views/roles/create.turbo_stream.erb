@@ -1,0 +1,6 @@
+<%= turbo_stream.append 'role-table' do %>
+  <%= render 'roles/story_table', role: @role %>
+<% end %>
+<%= turbo_stream.replace 'row_role' do %>
+  <%= render 'roles/new_role', story: Story.find(params[:role][:story_id]) %>
+<% end %>

@@ -1,0 +1,14 @@
+<%= turbo_frame_tag 'row_role' do %>
+<fake-row class="columns">
+  <% if current_user %>
+    <fake-cell class="column">
+      <%= link_to t('.add-role'),
+        new_role_path(story: story.id),
+        class: 'button is-primary is-small',
+        data: {
+          turbo_stream: true
+        } %>
+    </fake-cell>
+  <% end %>
+</fake-row>
+<% end %>

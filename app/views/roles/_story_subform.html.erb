@@ -1,21 +1,26 @@
-<form-columns class="columns">
-  <div class="field column is-4">
-    <%= form.label :task, class: 'label is-small' %>
-    <div class="select is-small is-fullwidth">
-      <%= form.select(:task, Role.tasks.keys.map{ |k| [Role.human_enum_name(:task, k), k] }) %>
-    </div>
-  </div>
-  <div class="field column">
-    <%= form.label :artist_id, class: 'label is-small' %>
-    <div class="select is-small is-fullwidth">
-      <%= form.collection_select(:artist_id, Artist.order(:name), :id, :name,
-        { prompt: true },
-        { data: {
-            controller: 'tags-input',
-            tags_input_locale_value: I18n.locale,
-          }
-        }
-      ) %>
-    </div>
-  </div>
-</form-columns>
+<%= turbo_frame_tag dom_id(role, :row) do %>
+  <%= form_with model: role, class: 'is-fullwidth' do |form| %>
+    <fake-row class="columns mb-1">
+        <fake-cell class="column">
+          <div class="select">
+            <%= form.select(:task, Role.tasks.keys.map{ |k| [Role.human_enum_name(:task, k), k] }) %>
+          </div>
+        </fake-cell>
+        <fake-cell class="column">
+          <%= form.collection_select(:artist_id, Artist.order(:name), :id, :name,
+            { prompt: true },
+            { data: {
+                controller: 'tags-input',
+                tags_input_locale_value: I18n.locale,
+              }
+            }
+          ) %>
+        </fake-cell>
+        <fake-cell class="column buttons">
+          <%= submit_tag t('.create'), class: 'button is-primary is-small' %>
+          <%= link_to t('.cancel'), '#', class: 'button is-light is-small' %>
+        </fake-cell>
+        <%= form.hidden_field :story_id, value: role&.story&.id || params[:story] %>
+    </fake-row>
+  <% end %>
+<% end %>

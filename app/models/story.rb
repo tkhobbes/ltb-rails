@@ -27,8 +27,6 @@ class Story < ApplicationRecord
 
   has_one_attached :cover
 
-  accepts_nested_attributes_for :roles
-
   def drawings_role
     Role.find(drawings_role_id) if drawings_role_id
   end

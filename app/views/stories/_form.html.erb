@@ -57,18 +57,6 @@
             </div>
           </div>
         </form-columns>
-        <form-columns class="columns">
-          <div class="field column">
-            <div id="role-form">
-              <%= form.label :role_ids, class: 'label' %>
-              <%= form.fields_for :roles do |f| %>
-                <%= render 'roles/story_subform', form: f %>
-              <% end %>
-            </div>
-            <%= link_to t('.role-add'), '#',
-              class: 'button is-primary is-small is-light is-outline' %>
-          </div>
-        </form-columns>
       </form-sub-columns>
     </form-form-column>
     <form-image-column class="column">

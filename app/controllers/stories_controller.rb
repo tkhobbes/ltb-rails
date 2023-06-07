@@ -15,7 +15,6 @@ class StoriesController < ApplicationController
   # new method is only available for logged in users
   def new
     @story = Story.new
-    # @story.roles.build
   end
 
   # edit method is only available for logged in users
@@ -66,14 +65,7 @@ class StoriesController < ApplicationController
       :title,
       :original_title,
       :cover,
-      book_ids: [],
-      role_ids: [],
-      roles_attributes: %i[
-        id
-        task
-        artist_id
-        story_id
-      ]
+      book_ids: []
     )
   end
 end

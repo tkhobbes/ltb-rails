@@ -21,7 +21,7 @@ de:
       not_updated: Geschichte konnte nicht aktualisiert werden
     form:
       country-select: Land wählen
-      role-add: Künstler hinzufügen
+      cover-choose: Cover wählen
     show:
       artists-table-title: Künstler
       books-table-title: Enthalten in folgenden Büchern
@@ -29,4 +29,3 @@ de:
       delete: Löschen
       delete-confirm: Diese Story wirklich löschen?
       actions: Aktionen
-      add-role: Rolle hinzufügen

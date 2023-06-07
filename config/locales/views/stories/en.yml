@@ -21,7 +21,7 @@ en:
       not_updated: Story could not be updated
     form:
       country-select: Select country
-      role add: Add an artist
+      cover-choose: Choose over
     show:
       artists-table-title: Artists
       books-table-title: Contained in the following books
@@ -29,4 +29,3 @@ en:
       delete: Delete
       delete-confirm: Really delete this story?
       actions: Actions
-      add-role: Add Role

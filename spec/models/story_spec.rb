@@ -20,4 +20,62 @@ RSpec.describe Story do
       end
     end
   end
+
+  describe 'model methods' do
+    context 'role methods' do
+      let(:story) { create(:story) }
+      let(:artist) { create(:artist) }
+      let(:artist2) { create(:artist, name: 'Test Test') }
+      let(:artist3) { create(:artist, name: 'Test1 Test1') }
+
+      it 'returns the drawings role when we have a pencil task' do
+        role = Role.create(story:, artist:, task: 'pencil')
+        Role.create(story:, artist: artist2, task: 'ink')
+        Role.create(story:, artist: artist3, task: 'drawings')
+        expect(story.drawings_role).to eq(role)
+      end
+
+      it 'returns the drawings role when we have a ink task' do
+        role = Role.create(story:, artist: artist2, task: 'ink')
+        Role.create(story:, artist:, task: 'drawings')
+        expect(story.drawings_role).to eq(role)
+      end
+
+      it 'returns the drawings role when we have a drawings task' do
+        role = Role.create(story:, artist:, task: 'drawings')
+        expect(story.drawings_role).to eq(role)
+      end
+
+      it 'does not return a drawings role if we have neither drawings, ink nor pencil task' do
+        Role.create(story:, artist:, task: 'story')
+        Role.create(story:, artist: artist2, task: 'plot')
+        expect(story.drawings_role).to be_nil
+      end
+
+      it 'returns the story role when we have a plot task' do
+        role = Role.create(story:, artist:, task: 'plot')
+        Role.create(story:, artist: artist2, task: 'script')
+        Role.create(story:, artist: artist3, task: 'story')
+        expect(story.story_role).to eq(role)
+      end
+
+      it 'returns the story role when we have a script task' do
+        role = Role.create(story:, artist: artist2, task: 'script')
+        Role.create(story:, artist:, task: 'story')
+        expect(story.story_role).to eq(role)
+      end
+
+      it 'returns the story role when we have a story task' do
+        role = Role.create(story:, artist:, task: 'story')
+        expect(story.story_role).to eq(role)
+      end
+
+      it 'does not return a story role if we have neither story, script nor plot task' do
+        Role.create(story:, artist: artist3, task: 'ink')
+        Role.create(story:, artist: artist2, task: 'pencil')
+        Role.create(story:, artist:, task: 'drawings')
+        expect(story.story_role).to be_nil
+      end
+    end
+  end
 end

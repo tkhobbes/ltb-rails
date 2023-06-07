@@ -9,7 +9,7 @@ class StoriesController < ApplicationController
 
   # show method is available for all users
   def show
-    @story = Story.find(params[:id])
+    @story = Story.includes(roles: :artist).find(params[:id])
   end
 
   # new method is only available for logged in users
@@ -20,6 +20,7 @@ class StoriesController < ApplicationController
   # edit method is only available for logged in users
   def edit
     @story = Story.find(params[:id])
+    @roles = @story.roles.includes(:artists).all
   end
 
   # create method is only available for logged in users

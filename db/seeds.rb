@@ -30,7 +30,7 @@ puts 'Seeding 200 Stories...'
     code: code,
     url: "https://inducks.org/story.php?c=#{code}",
     published: Random.rand(1950..2023),
-    origin: ISO3166::Country.codes,
+    origin: ISO3166::Country.codes.sample,
     pages: Random.rand(30..80),
     title: Faker::Movie.title,
     original_title: Faker::Movie.title,
@@ -42,11 +42,12 @@ end
 # Roles
 puts 'Connecting Artists and Stories through roles...'
 Story.all.each do |story|
+  roles = [*1..8].sample(3)
   3.times do |index|
     Role.create(
       story: story,
       artist: Artist.all.sample,
-      task: index
+      task: roles[index]
     )
   end
 end

@@ -4,16 +4,18 @@
       <%= @story.code %> - <%= @story.title %>
       <% "(#{@story.original_title})" if @story.original_title %>
     </p>
-    <button-group class="buttons column is-right">
-      <%= link_to t('.edit'), edit_story_path(@story), class: 'button is-small is-info m-1' %>
-      <%= link_to t('.delete'),
-        story_path(@story),
-        class: 'button is-danger is-small m-1',
-        data: {
-          turbo_method: :delete,
-          turbo_confirm: t('.delete-confirm')
-        } %>
-    </button-group>
+    <% if current_user %>
+      <button-group class="buttons column is-right">
+        <%= link_to t('.edit'), edit_story_path(@story), class: 'button is-small is-info m-1' %>
+        <%= link_to t('.delete'),
+          story_path(@story),
+          class: 'button is-danger is-small m-1',
+          data: {
+            turbo_method: :delete,
+            turbo_confirm: t('.delete-confirm')
+          } %>
+      </button-group>
+    <% end %>
   </div>
 </hero-box>
 <main-layout class="columns is-centered mt-2">
@@ -32,21 +34,27 @@
       <li class="list-item"><%= Story.human_attribute_name(:published) %>: <%= @story.published %></li>
       <li class="list-item"><%= Story.human_attribute_name(:pages) %>: <%= @story.pages %></li>
     </ul>
-    <h2 class="subtitle"><%= t('.artists-table-title') %></h4>
-    <table class="table is-hoverable is-fullwidth is-narrow">
-      <thead>
-        <tr>
-          <th><%= Role.human_attribute_name(:task) %></th>
-          <th><%= Artist.human_attribute_name(:name) %></th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @story.artists.each do |artist| %>
-          <%= render 'artists/table', artist: %>
+    <h2 class="subtitle"><%= t('.artists-table-title') %></h2>
+    <fake-table class="section mb-5" id="role-table">
+      <fake-header-row class="mb-1 has-text-weight-bold columns">
+        <fake-cell class="mr-1 column has-background-white-ter">
+          <%= Role.human_attribute_name(:task) %>
+        </fake-cell>
+        <fake-cell class="mr-1 column has-background-white-ter">
+          <%= Artist.human_attribute_name(:name) %>
+        </fake-cell>
+        <% if current_user %>
+          <fake-cell class="column has-background-white-ter">
+            <%= t('.actions') %>
+          </fake-cell>
         <% end %>
-      </tbody>
-    </table>
-    <h2 class="subtitle"><%= t('.books-table-title') %></h4>
+      </fake-header-row>
+      <%= render 'roles/new_role', story: @story %>
+      <% @story.roles.each do |role| %>
+        <%= render 'roles/story_table', role: %>
+      <% end %>
+    </fake-table>
+    <h2 class="subtitle"><%= t('.books-table-title') %></h2>
     <table class="table is-hoverable is-fullwidth is-narrow">
       <thead>
         <tr>

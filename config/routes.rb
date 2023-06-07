@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :books
   resources :stories
   resources :artists
+  resources :roles, only: %i[new create edit update destroy]
 
   devise_for :users
 end

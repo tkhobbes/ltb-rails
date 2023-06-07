@@ -9,7 +9,7 @@ class ArtistsController < ApplicationController
 
   # show method is available for all users
   def show
-    @artist = Artist.find(params[:id])
+    @artist = Artist.includes(roles: :story).find(params[:id])
   end
 
   # new method is only available for logged in users

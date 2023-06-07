@@ -23,4 +23,19 @@
 class Role < ApplicationRecord
   belongs_to :artist
   belongs_to :story
+
+  validates :task, uniqueness: { scope: %i[artist_id story_id] }
+
+  # ENUM for task encaptures the different roles an artist can have for a story
+  enum task: {
+    not_given: 0,
+    drawings: 1,
+    pencil: 2,
+    ink: 3,
+    color: 4,
+    lettering: 5,
+    story: 6,
+    plot: 7,
+    script: 8
+  }
 end

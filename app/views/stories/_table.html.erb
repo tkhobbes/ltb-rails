@@ -2,6 +2,16 @@
   <td><%= link_to story.code, story_path(story) %></td>
   <td><%= link_to story.title, story_path(story) %></td>
   <td><%= story.pages %></td>
-  <td>Romano Scarpa</td>
-  <td>Romano Scarpa</td>
+  <td>
+    <%= link_to(
+      story.story_role.artist.name,
+      artist_path(story.story_role.artist)
+    ) if story.story_role %>
+  </td>
+  <td>
+    <%= link_to(
+      story.drawings_role.artist.name,
+      artist_path(story.drawings_role.artist)
+    ) if story.drawings_role %>
+  </td>
 </tr>

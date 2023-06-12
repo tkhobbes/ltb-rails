@@ -29,8 +29,15 @@ RSpec.describe Book do
   describe 'model methods' do
     context 'core methods' do
       it 'returns the long title' do
-        book = Book.new(title: 'abc', issue: 1, published: 1970, pages: 260, url: 'abc')
-        expect(book.long_title).to eq('1 - abc')
+        book = Book.new(
+          title: 'abc',
+          issue: 1,
+          published: 1970,
+          publication: 'ltb',
+          pages: 260,
+          url: 'abc'
+        )
+        expect(book.long_title).to eq('LTB 1 - abc')
       end
     end
   end

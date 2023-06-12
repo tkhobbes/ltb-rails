@@ -1,0 +1,32 @@
+<article class="media">
+  <figure class="media-left">
+    <p class="image is-64x64">
+      <%= media_image %>
+    </p>
+  </figure>
+  <div class="media-content">
+    <div class="content">
+      <p>
+        <strong>
+          <%= link_to @story.title, story_path(@story) %>
+        </strong>
+        <small>
+          <%= @story.published %>
+        </small>
+        <br>
+        <%= information_list %>
+        <br>
+        <%= artists_list %>
+      </p>
+    </div>
+  </div>
+  <div class="media-right">
+    <%= link_to t('.destroy'),
+      story_path(@story),
+      class: 'delete',
+      data: {
+        turbo_method: :delete,
+        turbo_confirm: 'Delete this story?'
+    } %>
+  </div>
+</article>

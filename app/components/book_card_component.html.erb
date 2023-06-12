@@ -1,0 +1,26 @@
+<div class="card">
+  <header class="card-header">
+    <p class="card-header-title">
+      <%= @book.issue %> - <%= @book.title %>
+    </p>
+  </header>
+  <div class="card-image">
+    <%= cover_picture %>
+  </div>
+  <div class="card-content">
+    <div class="content">
+      <%= information_list %>
+    </div>
+  </div>
+  <footer class="card-footer">
+    <%= link_to t('.show'), book_path(@book), class: 'card-footer-item' %>
+    <%= link_to t('.edit'), edit_book_path(@book), class: 'card-footer-item' %>
+    <%= link_to t('.destroy'),
+      book_path(@book),
+      class: 'card-footer-item',
+      data: {
+        turbo_method: :delete,
+        turbo_confirm: t('.delete-confirm')
+    } %>
+  </footer>
+</div>

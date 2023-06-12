@@ -1,0 +1,30 @@
+<article class="media">
+  <figure class="media-left">
+    <p class="image is-64x64">
+      <%= media_image %>
+    </p>
+  </figure>
+  <div class="media-content">
+    <div class="content">
+      <p>
+        <strong>
+          <%= link_to @artist.name, artist_path(@artist) %>
+        </strong>
+        <small>
+          <%= ISO3166::Country.new(@artist.nationality)&.translation(locale) unless @artist.nationality.nil? %>
+        </small>
+        <br>
+        <%= life_dates %>
+      </p>
+    </div>
+  </div>
+  <div class="media-right">
+    <%= link_to t('.destroy'),
+      artist_path(@artist),
+      class: 'delete',
+      data: {
+        turbo_method: :delete,
+        turbo_confirm: t('.confirm-delete')
+    } %>
+  </div>
+</article>

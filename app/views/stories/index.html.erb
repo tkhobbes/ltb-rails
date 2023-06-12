@@ -7,53 +7,7 @@
 </hero-box>
 <main-layout class="section is-centered mt-2">
   <% @stories.each do |story| %>
-
-    <article class="media">
-      <figure class="media-left">
-        <p class="image is-64x64">
-          <% if story.cover.attached? %>
-            <%= image_tag story.cover %>
-          <% else %>
-            <%= inline_svg_tag('story.svg') %>
-          <% end %>
-        </p>
-      </figure>
-      <div class="media-content">
-        <div class="content">
-          <p>
-            <strong>
-              <%= link_to story.title, story_path(story) %>
-            </strong>
-            <small>
-              <%= story.published %>
-            </small>
-            <br>
-            <%= story.code %> | <%= story.origin %> | <%= story.pages %> <%= Story.human_attribute_name(:pages) %><br />
-            Drawings:
-            <%= link_to(
-              story.drawings_role.artist.name,
-              artist_path(story.drawings_role.artist.name)
-            ) if story.drawings_role %>            |
-            Story:
-            <%= link_to(
-              story.story_role.artist.name,
-              artist_path(story.story_role.artist.name)
-            ) if story.story_role %>
-          </p>
-        </div>
-      </div>
-      <div class="media-right">
-        <%= link_to t('.destroy'),
-          story_path(story),
-          class: 'delete',
-          data: {
-            turbo_method: :delete,
-            turbo_confirm: 'Delete this story?'
-        } %>
-      </div>
-    </article>
-
-
+    <%= render StoryListComponent.new(story:) %>
   <% end %>
 </main-layout>
 <%== render 'shared/pagy', pagy: @pagy %>

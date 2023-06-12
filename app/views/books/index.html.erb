@@ -18,13 +18,15 @@
           </p>
         </header>
         <div class="card-image">
-          <figure class="image is-4by3 is-flex is-flex-direction-column">
             <% if book.cover.attached? %>
-              <%= image_tag book.cover, alt: book.title, style: 'flex:1; object-fit:cover' %>
+              <figure class="image is-4by3 is-flex is-flex-direction-column">
+                <%= image_tag book.cover, alt: book.title, style: 'flex:1; object-fit: cover' %>
+              </figure>
             <% else %>
-              <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image" style="flex: 1; object-fit:cover">
+              <figure class="image has-text-centered">
+                <%= inline_svg_tag('book.svg', style: 'height: 16em;') %>
+              </figure>
             <% end %>
-          </figure>
         </div>
         <div class="card-content">
           <div class="content">

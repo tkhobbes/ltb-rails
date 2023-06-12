@@ -70,6 +70,7 @@ gem 'i18n-tasks'
 gem 'rails-i18n'
 
 # Application gems: Frontend functionality
+gem 'inline_svg'
 gem 'pagy'
 
 

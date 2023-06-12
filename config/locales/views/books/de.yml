@@ -25,6 +25,8 @@ de:
       title: Neues Buch
       create: Erstellen
       cancel: Abbrechen
+    form:
+      cover-choose: Cover auswählen
     create:
       created: Buch erstellt
       not_created: Buch konnte nicht erstellt werden.

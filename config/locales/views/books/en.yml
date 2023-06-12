@@ -25,6 +25,8 @@ en:
       title: New Book
       create: Create
       cancel: Cancel
+    form:
+      cover-choose: Choose cover
     create:
       created: Book created
       not_created: Book could not be created.

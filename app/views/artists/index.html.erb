@@ -14,7 +14,7 @@
           <% if artist.portrait.attached? %>
             <%= image_tag artist.portrait %>
           <% else %>
-            <img src="https://bulma.io/images/placeholders/128x128.png">
+            <%= inline_svg_tag('person.svg') %>
           <% end %>
         </p>
       </figure>

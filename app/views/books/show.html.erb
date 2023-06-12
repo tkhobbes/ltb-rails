@@ -23,7 +23,7 @@
       <% if @book.cover.attached? %>
         <%= image_tag @book.cover, alt: @book.title %>
       <% else %>
-        <img src="https://bulma.io/images/placeholders/1280x960.png">
+        <%= inline_svg_tag('book.svg') %>
       <% end %>
     </figure>
   </main-column>

@@ -4,6 +4,7 @@ de:
       destroy: Löschen
       edit: Bearbeiten
       show: Anzeigen
+      delete-confirm: Dieses Buch wirklich löschen?
     show:
       story-credit-story: Story
       story-credit-drawings: Zeichnungen

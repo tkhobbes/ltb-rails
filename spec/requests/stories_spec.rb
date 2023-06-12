@@ -46,17 +46,17 @@ RSpec.describe 'Stories' do
     context 'cannot perform CRUD actions when logged in' do
       let(:story) { create(:story) }
 
-      it 'cannot create a new book if not logged in' do
+      it 'cannot create a new story if not logged in' do
         get new_story_path
         expect(response).not_to have_http_status(:success)
       end
 
-      it 'cannot edit a book if not logged in' do
+      it 'cannot edit a story if not logged in' do
         get edit_story_path(story)
         expect(response).not_to have_http_status(:success)
       end
 
-      it 'cannot delete a book if not logged in' do
+      it 'cannot delete a story if not logged in' do
         delete story_path(story)
         expect(response).not_to have_http_status(:success)
       end

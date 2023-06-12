@@ -3,6 +3,7 @@
     <p class="title is-family-secondary column is-8">
       <%= @artist.name %>
     </p>
+    <% if current_user %>
     <button-group class="buttons column is-right">
       <%= link_to t('.edit'), edit_artist_path(@artist), class: 'button is-small is-info m-1' %>
       <%= link_to t('.delete'),
@@ -13,6 +14,7 @@
           turbo_confirm: t('.delete-confirm')
         } %>
     </button-group>
+    <% end %>
   </div>
 </hero-box>
 <main-layout class="columns is-centered mt-2">
@@ -44,7 +46,7 @@
       </thead>
       <tbody>
       <% @artist.roles.each do |role| %>
-        <%= render 'roles/actor_table', role: %>
+        <%= render 'roles/artist_table', role: %>
       <% end %>
       </tbody>
     </table>

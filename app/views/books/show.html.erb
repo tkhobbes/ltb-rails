@@ -3,16 +3,18 @@
     <p class="title is-family-secondary column is-8">
       <%= @book.issue %> - <%= @book.title %>
     </p>
-    <button-group class="buttons column is-right">
-      <%= link_to t('.edit'), edit_book_path(@book), class: 'button is-small is-info m-1' %>
-      <%= link_to t('.delete'),
-        book_path(@book),
-        class: 'button is-danger is-small m-1',
-        data: {
-          turbo_method: :delete,
-          turbo_confirm: t('.delete-confirm')
-        } %>
-    </button-group>
+    <% if current_user %>
+      <button-group class="buttons column is-right">
+        <%= link_to t('.edit'), edit_book_path(@book), class: 'button is-small is-info m-1' %>
+        <%= link_to t('.delete'),
+          book_path(@book),
+          class: 'button is-danger is-small m-1',
+          data: {
+            turbo_method: :delete,
+            turbo_confirm: t('.delete-confirm')
+          } %>
+      </button-group>
+    <% end %>
   </div>
 </hero-box>
 <main-layout class="columns is-centered mt-2">

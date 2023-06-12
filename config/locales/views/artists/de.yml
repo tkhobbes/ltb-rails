@@ -25,6 +25,4 @@ de:
       updated: Künstler aktualisiert
       not_updated: Künstler konnte nicht aktualisiert werden
     index:
-      confirm-delete: Diesen Künstler wirklich löschen?
-      destroy: Löschen
       title: Alle Künstler

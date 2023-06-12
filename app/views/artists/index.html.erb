@@ -7,43 +7,7 @@
 </hero-box>
 <main-layout class="section is-centered mt-2">
   <% @artists.each do |artist| %>
-
-    <article class="media">
-      <figure class="media-left">
-        <p class="image is-64x64">
-          <% if artist.portrait.attached? %>
-            <%= image_tag artist.portrait %>
-          <% else %>
-            <%= inline_svg_tag('person.svg') %>
-          <% end %>
-        </p>
-      </figure>
-      <div class="media-content">
-        <div class="content">
-          <p>
-            <strong>
-              <%= link_to artist.name, artist_path(artist) %>
-            </strong>
-            <small>
-              <%= ISO3166::Country.new(artist.nationality)&.translation(locale) %>
-            </small>
-            <br>
-            <%= "#{Artist.human_attribute_name(:born)} #{artist.born}" if artist.born %>
-            <%= '|' if artist.born && artist.died %>
-            <%= "#{Artist.human_attribute_name(:died)} #{artist.died}" if artist.died %>
-          </p>
-        </div>
-      </div>
-      <div class="media-right">
-        <%= link_to t('.destroy'),
-          artist_path(artist),
-          class: 'delete',
-          data: {
-            turbo_method: :delete,
-            turbo_confirm: t('.confirm-delete')
-        } %>
-      </div>
-    </article>
+    <%= render ArtistListComponent.new(artist:) %>
   <% end %>
 </main-layout>
 <%== render 'shared/pagy', pagy: @pagy %>

@@ -11,41 +11,7 @@
 <main-layout class="columns is-centered is-multiline mt-2">
   <% @books.each do |book| %>
     <main-box class="column is-12-tablet is-6-desktop is-4-fullhd">
-      <div class="card">
-        <header class="card-header">
-          <p class="card-header-title">
-            <%= book.issue %> - <%= book.title %>
-          </p>
-        </header>
-        <div class="card-image">
-            <% if book.cover.attached? %>
-              <figure class="image is-4by3 is-flex is-flex-direction-column">
-                <%= image_tag book.cover, alt: book.title, style: 'flex:1; object-fit: cover' %>
-              </figure>
-            <% else %>
-              <figure class="image has-text-centered">
-                <%= inline_svg_tag('book.svg', style: 'height: 16em;') %>
-              </figure>
-            <% end %>
-        </div>
-        <div class="card-content">
-          <div class="content">
-            <%= Book.human_attribute_name(:published) %>: <%= book.published %><br>
-            <%= Book.human_attribute_name(:pages) %>: <%= book.pages %>
-          </div>
-        </div>
-        <footer class="card-footer">
-          <%= link_to t('.show'), book_path(book), class: 'card-footer-item' %>
-          <%= link_to t('.edit'), edit_book_path(book), class: 'card-footer-item' %>
-          <%= link_to t('.destroy'),
-            book_path(book),
-            class: 'card-footer-item',
-            data: {
-              turbo_method: :delete,
-              turbo_confirm: t('.delete-confirm')
-          } %>
-        </footer>
-      </div>
+      <%= render BookCardComponent.new(book:) %>
     </main-box>
   <% end %>
 </main-layout>

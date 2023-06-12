@@ -10,7 +10,6 @@ de:
       cancel: Abbrechen
     index:
       title: Alle Geschichten
-      destroy: Geschichte löschen
     create:
       created: Geschichte erstellt
       not_created: Geschichte konnte nicht erstellt werden

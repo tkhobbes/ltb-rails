@@ -1,0 +1,11 @@
+de:
+  book_card_component:
+    destroy: Löschen
+    edit: Bearbeiten
+    show: Anzeigen
+    delete-confirm: Dieses Buch wirklich löschen?
+  artist_list_component:
+    confirm-delete: Diesen Künstler wirklich löschen?
+    destroy: Löschen
+  story_list_component:
+    destroy: Geschichte löschen

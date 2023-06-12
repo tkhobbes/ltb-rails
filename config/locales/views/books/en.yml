@@ -1,10 +1,5 @@
 en:
   books:
-    index:
-      destroy: Delete
-      edit: Edit
-      show: Show
-      delete-confirm: Really delete this book?
     show:
       story-credit-story: Story
       story-credit-drawings: Drawings

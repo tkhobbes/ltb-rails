@@ -20,7 +20,7 @@ RSpec.describe 'Roles' do
         expect(role.reload.task).to eq('ink')
       end
 
-      it 'can delete an artist if logged in' do
+      it 'can delete a role if logged in' do
         sign_in user
         delete role_path(role), as: :turbo_stream
         expect(Role.where(id: role.id).count).to eq(0)
@@ -30,17 +30,17 @@ RSpec.describe 'Roles' do
     context 'cannot perform CRUD actions when logged in' do
       let(:role) { create(:role) }
 
-      it 'cannot create a new artist if not logged in' do
+      it 'cannot create a new role if not logged in' do
         post roles_path, params: { role: { artist: role.artist, story: role.story, task: 'pencil' } }, as: :turbo_stream
         expect(Role.last.task).not_to eq('pencil')
       end
 
-      it 'cannot edit an artist if not logged in' do
+      it 'cannot edit an role if not logged in' do
         patch role_path(role), params: { role: { task: 'ink' } }, as: :turbo_stream
         expect(role.reload.task).to eq('not_given')
       end
 
-      it 'cannot delete an if not logged in' do
+      it 'cannot delete a role if not logged in' do
         delete role_path(role), as: :turbo_stream
         expect(Role.where(id: role.id).count).to eq(1)
       end

@@ -8,7 +8,7 @@ RSpec.describe 'Artists' do
         expect(response).to have_http_status(:success)
       end
 
-      it 'can access the story show path' do
+      it 'can access the artist show path' do
         artist = create(:artist)
         get artist_path(artist)
         expect(response).to have_http_status(:success)
@@ -56,7 +56,7 @@ RSpec.describe 'Artists' do
         expect(response).not_to have_http_status(:success)
       end
 
-      it 'cannot delete an if not logged in' do
+      it 'cannot delete an artist if not logged in' do
         delete artist_path(artist)
         expect(response).not_to have_http_status(:success)
       end

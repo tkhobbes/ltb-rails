@@ -1,7 +1,7 @@
 <%= turbo_frame_tag dom_id(role, :row) do %>
-  <fake-row class="columns mb-1" id="<%= dom_id(role) %>-row">
+  <fake-row class="columns my-2" id="<%= dom_id(role) %>-row">
     <fake-cell class="column"><%= Role.human_enum_name(:task, role.task) %></fake-cell>
-    <fake-cell class="column"><%= link_to role.artist.name, artist_path(role.artist) %></fake-cell>
+    <fake-cell class="column"><%= link_to role.artist.name, artist_path(role.artist), data: { turbo_frame: '_top' } %></fake-cell>
     <% if current_user %>
       <fake-cell class="column is-flex">
         <p class="mr-1"><%= link_to t('.edit-role'),

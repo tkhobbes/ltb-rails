@@ -60,6 +60,7 @@ puts 'Seeding 50 books...'
     issue: index+1,
     title: Faker::DcComics.title,
     published: Random.rand(1950..2023),
+    publication: Random.rand(0..9),
     pages: Random.rand(250..300),
     url: "https://inducks.org/issue.php?c=de%2FLTB+++#{index}",
   )

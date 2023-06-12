@@ -26,12 +26,24 @@ en:
         name: Name
         nationality: Nationality
       book:
-        issue: Issue
+        issue: No
         pages: Pages
         published: Published
         title: Title
         original_title: Original Title
         url: URL
+        publication: Publication
+        publications:
+          ltb: LTB
+          micky_maus: Micky Maus
+          disney_masters: Disney Masters
+          floyd_gottfredson_library: Floyd Gottfredson Library
+          ltb_collection: LTB Collection
+          ltb_exklusiv: LTB Exklusiv
+          ltb_extra: LTB Extra
+          ltb_ostern: LTB Sonderband Ostern
+          ltb_jubilaeum: LTB Sonderedition Jubilaeum
+          ltb_spezial: LTB Spezial
       role:
         task: Task
         tasks:

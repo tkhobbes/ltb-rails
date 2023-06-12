@@ -1,4 +1,5 @@
 <tr>
+  <td><%= link_to Book.human_enum_name(:publication, book.publication), book_path(book) %></td>
   <td><%= link_to book.issue, book_path(book) %></td>
   <td><%= link_to book.title, book_path(book) %></td>
 </tr>

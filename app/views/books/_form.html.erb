@@ -2,17 +2,23 @@
 
   <form-main-columns class="columns">
     <form-form-column class="column is-8">
-      <form-columns class="columns pb-0">
+      <form-columns class="columns pb-0 mb-0">
+        <div class="field column">
+          <%= form.label :publication, class: 'label' %>
+          <div class="select is-fullwidth">
+            <%= form.select(:publication, Book.publications.keys.map{ |k| [Book.human_enum_name(:publication, k), k] }) %>
+          </div>
+        </div>
         <div class="field column is-2">
           <%= form.label :issue, class: 'label' %>
           <%= form.text_field :issue, class: 'input' %>
         </div>
-        <div class="field column">
+      </form-columns>
+      <form-sub-columns class="column p-0">
+        <div class="field">
           <%= form.label :title, class: 'label' %>
           <%= form.text_field :title, class: 'input' %>
         </div>
-      </form-columns>
-      <form-sub-columns class="column">
         <div class="field">
           <%= form.label :url, class: 'label' %>
           <%= form.text_field :url, class: 'input' %>

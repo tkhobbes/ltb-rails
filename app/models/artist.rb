@@ -15,10 +15,23 @@
 #  index_artists_on_name  (name) UNIQUE
 #
 class Artist < ApplicationRecord
+  # extends
+  # includes
+  #  constants
+  #  class methods
+  # relationships
   has_many :roles, dependent: :destroy
   has_many :stories, through: :roles
 
+  has_one_attached :portrait
+
+  #  validations
   validates :name, presence: true, uniqueness: true
 
-  has_one_attached :portrait
+  # callbacks
+  #  scopes
+  # additional config
+  # public instance methods
+  # protected instance methods
+  # private instance methods
 end

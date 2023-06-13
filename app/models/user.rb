@@ -19,10 +19,23 @@
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
 class User < ApplicationRecord
+  # extends
+  # includes
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  # constants
+  #  class methods
+  # relationships
+  # validations
   validates :email, presence: true, uniqueness: true
+
+  #  callbacks
+  # scopes
+  #  additional config
+  # public instance methods
+  # protected instance methods
+  # private instance methods
 end

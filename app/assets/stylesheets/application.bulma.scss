@@ -40,3 +40,18 @@ $danger: $pink;
 @import "bulma-extensions/bulma-switch/src/sass";
 @import "bulma-list/sass/bulma-list";
 @import "tom-select/dist/css/tom-select";
+
+// inlay printing
+@media print {
+  nav#nav-head {
+    display: none;
+  }
+
+  sidebar-column#sidebar-menu {
+    display: none;
+  }
+
+  footer#main-footer {
+    display: none;
+  }
+}

@@ -1,0 +1,5 @@
+<ul>
+  <% books.each do |book| %>
+    <li><%= link_to book.long_title, inlay_path(book), data: { turbo_frame: '_top' } %></li>
+  <% end %>
+</ul>

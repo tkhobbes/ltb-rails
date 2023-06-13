@@ -11,5 +11,5 @@ en:
     label:
       book:
         publication: Publication
-        issue: No
-        filter: Filter
+        issue: "No"
+        Filter: Filter

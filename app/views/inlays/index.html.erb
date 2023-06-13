@@ -1,0 +1,21 @@
+<%= form_with model: Book, class: 'mt-2 mb-2', url: inlays_path do |form| %>
+  <form-columns class="columns">
+    <div class="field column">
+      <%= form.label :publication, class: 'label' %>
+      <div class="select is-fullwidth">
+        <%= form.select(:publication, Book.publications.keys.map{ |k| [Book.human_enum_name(:publication, k), k] }) %>
+      </div>
+    </div>
+    <div class="field column">
+      <%= form.label :issue, class: 'label' %>
+      <%= form.number_field :issue, class: 'input' %>
+    </div>
+    <div class="field column">
+      <%= form.label t('.filter-label'), class: 'label' %>
+      <%= submit_tag t('.filter'), class: 'button is-primary' %>
+    </div>
+  </form-columns>
+<% end %>
+<%= turbo_frame_tag 'book_results' do %>
+  <%= render 'books/inlay_table', books: @books %>
+<% end %>

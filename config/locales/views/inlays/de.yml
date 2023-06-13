@@ -1,0 +1,15 @@
+de:
+  inlays:
+    index:
+      filter: Bücher filtern
+      filter-label: Filter
+    show:
+      story-name: Geschichte
+      drawings: Zeichnungen von
+      story: Geschichte von
+  helpers:
+    label:
+      book:
+        publication: Publikation
+        issue: Nr
+        filter: Filter

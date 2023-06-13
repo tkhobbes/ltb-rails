@@ -1,0 +1,15 @@
+en:
+  inlays:
+    index:
+      filter: Filter Books
+      filter-label: Filter
+    show:
+      story-name: Story
+      drawings: Drawings by
+      story: Story by
+  helpers:
+    label:
+      book:
+        publication: Publication
+        issue: No
+        filter: Filter

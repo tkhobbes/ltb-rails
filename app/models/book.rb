@@ -44,9 +44,9 @@ class Book < ApplicationRecord
   validates :issue, presence: true, uniqueness: true
   validates :publication, presence: true
 
-  #  callbacks
+  # callbacks
   # scopes
-  #  additional config (accepts_nested_attributes_for etc.)
+  # additional config (accepts_nested_attributes_for etc.)
   # public instance methods
   def long_title
     "#{Book.human_enum_name(:publication, publication)} #{issue} - #{title}"

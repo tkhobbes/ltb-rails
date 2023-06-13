@@ -14,7 +14,7 @@
 #
 # Indexes
 #
-#  index_books_on_issue  (issue) UNIQUE
+#  index_books_on_publication_and_issue  (publication,issue) UNIQUE
 #
 class Book < ApplicationRecord
   # extends
@@ -41,7 +41,7 @@ class Book < ApplicationRecord
   has_one_attached :cover
   # validations
   validates :title, presence: true
-  validates :issue, presence: true, uniqueness: true
+  validates :issue, presence: true, uniqueness: { scope: :publication }
   validates :publication, presence: true
 
   # callbacks

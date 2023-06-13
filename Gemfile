@@ -32,6 +32,7 @@ group :development, :test do
   # testing
   gem 'factory_bot_rails'
   gem 'faker'
+  gem 'model_probe'
   gem 'pry-rails'
   gem 'rspec-rails'
   gem 'webdrivers'

@@ -195,6 +195,8 @@ GEM
     mini_magick (4.12.0)
     mini_mime (1.1.2)
     minitest (5.18.0)
+    model_probe (1.1.2)
+      rainbow
     net-imap (0.3.4)
       date
       net-protocol
@@ -404,6 +406,7 @@ DEPENDENCIES
   inline_svg
   jsbundling-rails
   letter_opener
+  model_probe
   pagy
   pg (~> 1.1)
   pg_query

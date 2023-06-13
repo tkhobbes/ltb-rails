@@ -5,7 +5,7 @@
 #  id          :bigint           not null, primary key
 #  issue       :integer          not null
 #  pages       :integer          default(0)
-#  publication :integer          default(0), not null
+#  publication :integer          default("ltb"), not null
 #  published   :integer
 #  title       :string           not null
 #  url         :string
@@ -17,15 +17,9 @@
 #  index_books_on_issue  (issue) UNIQUE
 #
 class Book < ApplicationRecord
-  has_many :book_entries, dependent: :destroy
-  has_many :stories, through: :book_entries
-
-  validates :title, presence: true
-  validates :issue, presence: true, uniqueness: true
-  validates :publication, presence: true
-
-  has_one_attached :cover
-
+  # extends
+  # includes
+  # constants
   enum publication: {
     ltb: 0,
     micky_maus: 1,
@@ -39,7 +33,25 @@ class Book < ApplicationRecord
     ltb_spezial: 9
   }
 
+  # class methods
+  # relationships
+  has_many :book_entries, dependent: :destroy
+  has_many :stories, through: :book_entries
+
+  has_one_attached :cover
+  # validations
+  validates :title, presence: true
+  validates :issue, presence: true, uniqueness: true
+  validates :publication, presence: true
+
+  #  callbacks
+  # scopes
+  #  additional config (accepts_nested_attributes_for etc.)
+  # public instance methods
   def long_title
     "#{Book.human_enum_name(:publication, publication)} #{issue} - #{title}"
   end
+
+  # protected instance methods
+  # private instance methods
 end

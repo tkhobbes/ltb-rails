@@ -20,6 +20,19 @@
 #  fk_rails_...  (story_id => stories.id)
 #
 class BookEntry < ApplicationRecord
+  # extends
+  # includes
+  # constants
+  # class methods
+  # relationships
   belongs_to :book
   belongs_to :story
+
+  # validations
+  # callbacks
+  #  scopes
+  # additional config
+  # public instance methods
+  # protected instance methods
+  # private instance methods
 end

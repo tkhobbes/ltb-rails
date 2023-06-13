@@ -21,11 +21,9 @@
 #  fk_rails_...  (story_id => stories.id)
 #
 class Role < ApplicationRecord
-  belongs_to :artist
-  belongs_to :story
-
-  validates :task, uniqueness: { scope: %i[artist_id story_id] }
-
+  # extends
+  # includes
+  # constants
   # ENUM for task encaptures the different roles an artist can have for a story
   enum task: {
     not_given: 0,
@@ -38,4 +36,19 @@ class Role < ApplicationRecord
     plot: 7,
     script: 8
   }
+
+  # class methods
+  # relationships
+  belongs_to :artist
+  belongs_to :story
+
+  # validations
+  validates :task, uniqueness: { scope: %i[artist_id story_id] }
+
+  # callbacks
+  # scopes
+  #  additional config
+  # public instance methods
+  # protected instance methods
+  # private instance methods
 end

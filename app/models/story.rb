@@ -18,15 +18,25 @@
 #  index_stories_on_code  (code) UNIQUE
 #
 class Story < ApplicationRecord
+  # extends
+  # includes
+  # constants
+  #  class methods
+  # relationships
   has_many :roles, dependent: :destroy
   has_many :artists, through: :roles
   has_many :book_entries, dependent: :destroy
   has_many :books, through: :book_entries
 
-  validates :code, presence: true, uniqueness: true
-
   has_one_attached :cover
 
+  #  validations
+  validates :code, presence: true, uniqueness: true
+
+  # callbacks
+  # scopes
+  # additional config
+  # public instance methods
   def drawings_role
     Role.find(drawings_role_id) if drawings_role_id
   end
@@ -34,6 +44,10 @@ class Story < ApplicationRecord
   def story_role
     Role.find(story_role_id) if story_role_id
   end
+
+  # protected instance methods
+  # private instance methods
+  private
 
   # if a story has a penciller, an inker and a drawer, we need to know whom to return as "main artist"
   def drawings_role_id

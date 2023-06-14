@@ -89,5 +89,6 @@ test:
 production:
   <<: *default
   database: ltb_rails_production
-  username: ltb_rails
+  host: <%= ENV["LTB_RAILS_DATABASE_HOST"] %>
+  username: <%= ENV["LTB_RAILS_DATABASE_USER"] %>
   password: <%= ENV["LTB_RAILS_DATABASE_PASSWORD"] %>

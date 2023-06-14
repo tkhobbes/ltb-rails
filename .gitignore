@@ -26,3 +26,8 @@
 
 # Ignore important secret files
 /.env
+
+# ignore deployment related stuff
+/config/deployment
+Dockerfile
+docker-build.sh

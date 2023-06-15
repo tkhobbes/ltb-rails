@@ -147,6 +147,9 @@ GEM
       activesupport (>= 5.0)
     google-protobuf (3.22.3-arm64-darwin)
     highline (2.1.0)
+    httparty (0.21.0)
+      mini_mime (>= 1.0.0)
+      multi_xml (>= 0.5.2)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
     i18n-country-translations (1.4.1)
@@ -197,6 +200,7 @@ GEM
     minitest (5.18.0)
     model_probe (1.1.2)
       rainbow
+    multi_xml (0.6.0)
     net-imap (0.3.4)
       date
       net-protocol
@@ -399,6 +403,7 @@ DEPENDENCIES
   erb_lint
   factory_bot_rails
   faker
+  httparty
   i18n-country-translations
   i18n-debug
   i18n-tasks
@@ -407,6 +412,7 @@ DEPENDENCIES
   jsbundling-rails
   letter_opener
   model_probe
+  nokogiri
   pagy
   pg (~> 1.1)
   pg_query

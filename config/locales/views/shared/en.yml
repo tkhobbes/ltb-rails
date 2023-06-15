@@ -1,7 +1,15 @@
 en:
   shared:
     sidebar:
-      new-book: New Book
-      new-story: New Story
-      new-artist: New Artist
+      all-books: All Books
+      add-book: Add Book
+      scrape-book: Add Book from INDUCKS
+      all-stories: All Stories
+      add-story: Add Story
+      scrape-story: Add Story from INDUCKS
+      all-artists: All Artists
+      add-artist: Add Artist
+      scrape-artist: Add Artist from INDUCKS
+    navbar:
       print-inlay: Print Inlay
+      search: Search

@@ -2,7 +2,7 @@
   <div class="hero-body columns">
     <p class="title is-family-secondary column is-8">
       <%= @story.code %> - <%= @story.title %>
-      <% "(#{@story.original_title})" if @story.original_title %>
+      <%= "(#{@story.original_title})" if @story.original_title %>
     </p>
     <% if current_user %>
       <button-group class="buttons column is-right">

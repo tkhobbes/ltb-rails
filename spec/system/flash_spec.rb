@@ -54,9 +54,8 @@ RSpec.describe 'Flashes' do
         click_button I18n.t('devise.sessions.new.sign_in')
 
         click_on Book.model_name.human(count: 10)
-        accept_alert(I18n.t('book_card_component.delete-confirm')) do
-          click_link I18n.t('book_card_component.destroy'), match: :first
-        end
+        click_link I18n.t('book_card_component.destroy'), match: :first
+        accept_alert(I18n.t('book_card_component.delete-confirm'))
         expect(page).to have_css('.notification.is-success')
         expect(page).to have_content(I18n.t('books.destroy.deleted'))
       end

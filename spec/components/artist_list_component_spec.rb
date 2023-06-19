@@ -6,8 +6,8 @@ RSpec.describe ArtistListComponent, type: :component do
   describe 'rendering the component' do
     context 'attributes' do
       let(:artist) { create(:artist) }
-      let(:artist_no_born) { create(:artist, name: 'Paul Murphy', born: nil) }
-      let(:artist_no_died) { create(:artist, name: 'Floyd Gottfredson', died: nil) }
+      let(:artist_no_born) { create(:artist, code: 'PMu', name: 'Paul Murphy', born: nil) }
+      let(:artist_no_died) { create(:artist, code: 'FGo', name: 'Floyd Gottfredson', died: nil) }
 
       it 'shows life dates as provided' do
         render_inline(described_class.new(artist:))

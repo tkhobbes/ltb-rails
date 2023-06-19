@@ -21,6 +21,7 @@ en:
       delete: Delete Artist
       delete-confirm: Are you sure you want to delete this artist?
       edit: Edit Artist
+      download-portrait: Download Portrait
     update:
       updated: Artist updated
       not_updated: Artist could not be updated

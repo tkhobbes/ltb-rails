@@ -1,0 +1,24 @@
+<main-layout class="columns is-centered">
+  <main-box class="column box">
+    <h2 class="is-family-secondary is-size-4">
+      <%= t('.title') %>
+    </h2>
+    <%= turbo_frame_tag 'add-artist' do %>
+      <p>
+        <%= t('.howto') %>
+      </p>
+      <%= form_with url: artist_scrapers_path, class: 'mt-2 mb-2' do |form| %>
+        <form-columns class="columns">
+          <div class="field column">
+            <%= form.label t('.code'), for: :code, class: 'label' %>
+            <%= form.text_field :code, class: 'input' %>
+          </div>
+          <div class="field column">
+            <%= form.label t('.submit-label'), class: 'label' %>
+            <%= submit_tag t('.submit'), class: 'button is-primary' %>
+          </div>
+        </form-columns>
+      <% end %>
+    <% end %>
+  </main-box>
+</main-layout>

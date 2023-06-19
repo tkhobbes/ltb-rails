@@ -2,17 +2,19 @@
 #
 # Table name: artists
 #
-#  id          :bigint           not null, primary key
-#  born        :integer
-#  died        :integer
-#  name        :string           not null
-#  nationality :string
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
+#  id           :bigint           not null, primary key
+#  born         :integer
+#  code         :string           not null
+#  died         :integer
+#  name         :string           not null
+#  nationality  :string
+#  portrait_url :string
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
 #
 # Indexes
 #
-#  index_artists_on_name  (name) UNIQUE
+#  index_artists_on_code  (code) UNIQUE
 #
 class Artist < ApplicationRecord
   # extends
@@ -26,7 +28,8 @@ class Artist < ApplicationRecord
   has_one_attached :portrait
 
   #  validations
-  validates :name, presence: true, uniqueness: true
+  validates :code, presence: true, uniqueness: true
+  validates :name, presence: true
 
   # callbacks
   #  scopes

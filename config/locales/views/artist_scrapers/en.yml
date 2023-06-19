@@ -1,0 +1,12 @@
+en:
+  artist_scrapers:
+    new:
+      title: Add artist from INDUCKS
+      howto: Enter the artist's code you want to add.
+      submit: Add
+      code: Code
+      submit-label: Add artist
+    create:
+      not-found: No artist with this code found.
+      again: Try again
+      add-artist: Add Artist

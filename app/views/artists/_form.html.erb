@@ -1,15 +1,19 @@
 <%= form_with model: artist, class: 'mt-2', id: 'artist_form' do |form| %>
   <form-main-columns class="columns">
     <form-form-column class="column is-9">
-      <form-columns class="columns pb-0">
+      <form-sub-columns class="columns pb-0">
+        <div class="field column is-3">
+          <%= form.label :code, class: 'label' %>
+          <%= form.text_field :code, class: 'input' %>
+        </div>
         <div class="field column">
           <%= form.label :name, class: 'label' %>
           <%= form.text_field :name, class: 'input' %>
         </div>
-      </form-columns>
+      </form-sub-columns>
       <form-sub-columns class="column">
         <form-columns class="columns">
-          <div class="field column is-6">
+          <div class="field column p-0 is-6">
             <%= form.label :nationality, class: 'label' %>
             <div class="select">
               <%= form.country_select :nationality,
@@ -18,11 +22,11 @@
                 sort_provided: false %>
             </div>
           </div>
-          <div class="field column">
+          <div class="field column py-0">
             <%= form.label :born, class: 'label' %>
             <%= form.number_field :born, class: 'input' %>
           </div>
-          <div class="field column">
+          <div class="field column py-0 pr-0">
             <%= form.label :died, class: 'label' %>
             <%= form.number_field :died, class: 'input' %>
           </div>

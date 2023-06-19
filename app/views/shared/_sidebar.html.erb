@@ -37,7 +37,7 @@
           <% if user_signed_in? %>
             <ul>
               <li><%= link_to t('.add-artist'), new_artist_path %></li>
-              <li><%= link_to t('.scrape-artist'), '#' %></li>
+              <li><%= link_to t('.scrape-artist'), new_artist_scraper_path %></li>
             </ul>
           <% end %>
       </li>

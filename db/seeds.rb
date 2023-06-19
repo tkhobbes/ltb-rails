@@ -16,6 +16,7 @@ puts 'Seeding 20 Artists...'
     born: birth,
     died: died,
     nationality: ISO3166::Country.codes.sample,
+    code: Faker::Alphanumeric.unique.alphanumeric(number: 3)
   )
   temp = Down.download(Faker::Avatar.image)
   artist.portrait.attach(io: temp, filename: 'cover.png')

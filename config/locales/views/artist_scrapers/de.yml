@@ -1,0 +1,12 @@
+de:
+  artist_scrapers:
+    new:
+      title: Künstler von INDUCKS hinzufügen
+      howto: Kürzel des Künstlers eingeben, der hinzugefügt werden soll.
+      submit: Hinzufügen
+      code: Kürzel
+      submit-label: Künstler hinzufügen
+    create:
+      not-found: Kein Künstler mit diesem Code gefunden.
+      again: Nochmal versuchen
+      add-artist: Künstler hinzufügen

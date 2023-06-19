@@ -25,6 +25,7 @@ en:
         died: Died
         name: Name
         nationality: Nationality
+        code: Code
       book:
         issue: No
         pages: Pages

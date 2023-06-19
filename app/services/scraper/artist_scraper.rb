@@ -4,12 +4,14 @@ module Scraper
   class ArtistScraper < ApplicationScraper
     def initialize(artist_id)
       super('creator', artist_id)
+      @artist_id = artist_id
     end
 
     # this method returns a hash of the scraped data.
     # Data will be nil if nothing found
     def scrape
       {
+        code: @artist_id,
         name: artist_name,
         born: artist_born,
         died: artist_died,

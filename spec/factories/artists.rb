@@ -4,5 +4,6 @@ FactoryBot.define do
     born { 1927 }
     died { 2005 }
     nationality { 'Italy' }
+    code { 'RSc' }
   end
 end

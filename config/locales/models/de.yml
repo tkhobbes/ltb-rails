@@ -25,6 +25,7 @@ de:
         died: Gestorben
         name: Name
         nationality: Nationalität
+        code: Kürzel
       book:
         issue: Nr
         pages: Seiten

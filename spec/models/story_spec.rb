@@ -25,8 +25,8 @@ RSpec.describe Story do
     context 'role methods' do
       let(:story) { create(:story) }
       let(:artist) { create(:artist) }
-      let(:artist2) { create(:artist, name: 'Test Test') }
-      let(:artist3) { create(:artist, name: 'Test1 Test1') }
+      let(:artist2) { create(:artist, name: 'Test Test', code: 'TTe') }
+      let(:artist3) { create(:artist, name: 'Test1 Test1', code: 'TT1') }
 
       it 'returns the drawings role when we have a pencil task' do
         role = Role.create(story:, artist:, task: 'pencil')

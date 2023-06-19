@@ -23,7 +23,7 @@ RSpec.describe 'Artists' do
         sign_in user
         get new_artist_path
         expect(response).to have_http_status(:success)
-        post artists_path, params: { artist: { name: 'Test Test' } }
+        post artists_path, params: { artist: { code: 'TT1', name: 'Test Test' } }
         expect(Artist.last.name).to eq('Test Test')
       end
 

@@ -24,6 +24,9 @@
         <%= image_tag @artist.portrait, alt: @artist.name %>
       <% else %>
         <%= inline_svg_tag('person.svg') %>
+        <% if @artist.portrait_url.present? %>
+          <%= link_to t('.download-portrait'), '#', class: 'button is-small is-info' %>
+        <% end %>
       <% end %>
     </figure>
   </main-column>

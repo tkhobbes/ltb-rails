@@ -25,7 +25,12 @@
       <% else %>
         <%= inline_svg_tag('person.svg') %>
         <% if @artist.portrait_url.present? %>
-          <%= link_to t('.download-portrait'), '#', class: 'button is-small is-info' %>
+          <%= form_with model: Artist, url: artist_portraits_path, method: :post, data: {
+            turbo_frame: '_top' } do |form| %>
+            <%= form.hidden_field :id, value: @artist.id %>
+            <%= form.hidden_field :portrait_url, value: @artist.portrait_url %>
+            <%= form.submit t('.download-portrait'), class: 'button is-small is-info' %>
+          <% end %>
         <% end %>
       <% end %>
     </figure>

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :roles, only: %i[new create edit update destroy]
 
   resources :artist_scrapers, only: %i[new create]
+  resources :artist_portraits, only: :create
 
   resources :inlays, only: %i[index show] do
     post :index, on: :collection

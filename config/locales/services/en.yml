@@ -1,0 +1,6 @@
+en:
+  services:
+    picture_attach:
+      no-url: No URL given
+      not-found: Picture not found
+      attached: Picture attached

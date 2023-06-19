@@ -6,13 +6,15 @@ RSpec.describe 'Roles' do
       let(:user) { create(:user) }
       let(:role) { create(:role) }
 
-      # it 'can create a new role if logged in' do
-      #   sign_in user
-      #   post roles_path, params: { role: { artist: role.artist, story: role.story, task: 'pencil' } }, as: :turbo_stream
-      #   expect(Role.last.artist.id).to eq(role.artist.id)
-      #   expect(Role.last.story.id).to eq(role.story.id)
-      #   expect(Role.last.task).to eq('pencil')
-      # end
+      it 'can create a new role if logged in' do
+        sign_in user
+        post roles_path, params: {
+          role: { artist_id: role.artist.id, story_id: role.story.id, task: 'pencil' }
+        }, as: :turbo_stream
+        expect(Role.last.artist.id).to eq(role.artist.id)
+        expect(Role.last.story.id).to eq(role.story.id)
+        expect(Role.last.task).to eq('pencil')
+      end
 
       it 'can edit a role if logged in' do
         sign_in user
@@ -31,8 +33,11 @@ RSpec.describe 'Roles' do
       let(:role) { create(:role) }
 
       it 'cannot create a new role if not logged in' do
-        post roles_path, params: { role: { artist: role.artist, story: role.story, task: 'pencil' } }, as: :turbo_stream
+        post roles_path, params: {
+          role: { artist_id: role.artist.id, story_id: role.story.id, task: 'pencil' }
+        }, as: :turbo_stream
         expect(Role.last.task).not_to eq('pencil')
+        expect(Role.count).to eq(1)
       end
 
       it 'cannot edit an role if not logged in' do

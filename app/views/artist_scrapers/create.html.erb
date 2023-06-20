@@ -4,6 +4,11 @@
     <%= link_to t('.again'), new_artist_scraper_path, class: 'button is-primary', data: {
       turbo_frame: '_top'
     } %>
+  <% elsif Artist.find_by(code: @artist_scraper[:code]).present? %>
+    <p class="mb2"><%= t('.exists') %></p>
+    <%= link_to t('.again'), new_artist_scraper_path, class: 'button is-primary', data: {
+      turbo_frame: '_top'
+    } %>
   <% else %>
     <table class="table">
       <thead>

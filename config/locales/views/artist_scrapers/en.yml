@@ -9,4 +9,5 @@ en:
     create:
       not-found: No artist with this code found.
       again: Try again
+      exists: Artist already exists.
       add-artist: Add Artist

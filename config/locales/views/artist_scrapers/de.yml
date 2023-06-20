@@ -9,4 +9,5 @@ de:
     create:
       not-found: Kein Künstler mit diesem Code gefunden.
       again: Nochmal versuchen
+      exists: Künstler existiert bereits.
       add-artist: Künstler hinzufügen

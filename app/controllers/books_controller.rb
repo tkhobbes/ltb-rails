@@ -1,7 +1,6 @@
 # This is the main controller - the index action is the main page of the app
 class BooksController < ApplicationController
   before_action :authenticate_user!, except: %i[index show]
-  before_action { @pagy_locale = params[:locale] || I18n.default_locale }
 
   # this is the root path and can be accessed also for non-logged in users
   def index

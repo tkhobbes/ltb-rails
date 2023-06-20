@@ -1,6 +1,7 @@
 # Standard Rails Application Controller
 class ApplicationController < ActionController::Base
   include Pagy::Backend
+  before_action { @pagy_locale = params[:locale] || I18n.default_locale }
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 

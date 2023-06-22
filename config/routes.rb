@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   resources :artist_scrapers, only: %i[new create]
   resources :artist_portraits, only: :create
+  resources :story_scrapers, only: %i[new create]
+  resources :story_covers, only: :create
 
   resources :inlays, only: %i[index show] do
     post :index, on: :collection

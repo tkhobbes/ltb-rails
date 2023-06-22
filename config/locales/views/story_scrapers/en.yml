@@ -1,0 +1,13 @@
+en:
+  artist_scrapers:
+    new:
+      title: Add story from INDUCKS
+      howto: Enter the story's code you want to add.
+      submit: Add
+      code: Code
+      submit-label: Add Story
+    create:
+      not-found: No story with this code found.
+      again: Try again
+      exists: Story already exists.
+      add-story: Add Story

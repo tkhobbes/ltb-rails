@@ -494,6 +494,12 @@
           null
         ]
       },
+      "/Users/thomas/Programming/ltb-rails/config/initializers/down.rb": {
+        "lines": [
+          null,
+          1
+        ]
+      },
       "/Users/thomas/Programming/ltb-rails/config/initializers/filter_parameter_logging.rb": {
         "lines": [
           null,
@@ -885,6 +891,8 @@
           1,
           1,
           null,
+          1,
+          1,
           1,
           1,
           null,
@@ -1698,6 +1706,7 @@
           null,
           null,
           null,
+          null,
           1,
           null,
           null,
@@ -2259,6 +2268,6 @@
         ]
       }
     },
-    "timestamp": 1687250568
+    "timestamp": 1687428474
   }
 }

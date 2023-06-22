@@ -65,6 +65,7 @@ class StoriesController < ApplicationController
       :title,
       :original_title,
       :cover,
+      :cover_url,
       book_ids: []
     )
   end

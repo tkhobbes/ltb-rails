@@ -1,0 +1,51 @@
+<%= turbo_frame_tag 'add-story' do %>
+  <% if @story_scraper[:name] == "" %>
+    <p class="mb-2"><%= t('.not-found') %></p>
+    <%= link_to t('.again'), new_story_scraper_path, class: 'button is-primary', data: {
+      turbo_frame: '_top'
+    } %>
+  <% elsif Story.find_by(code: @story_scraper[:code]).present? %>
+    <p class="mb2"><%= t('.exists') %></p>
+    <%= link_to t('.again'), new_story_scraper_path, class: 'button is-primary', data: {
+      turbo_frame: '_top'
+    } %>
+  <% else %>
+    <table class="table">
+      <thead>
+        <th>Code</th>
+        <th>Title</th>
+        <th>Original Title</th>
+        <th>Published</th>
+        <th>Origin</th>
+        <th>Pages</th>
+        <th>Cover</th>
+      </thead>
+      <tbody>
+        <td><%= @story_scraper[:code] %></td>
+        <td><%= @story_scraper[:title] %></td>
+        <td><%= @story_scraper[:original_title] %></td>
+        <td><%= @story_scraper[:published] %></td>
+        <td><%= @story_scraper[:origin] %></td>
+        <td><%= @story_scraper[:pages] %></td>
+        <td>
+          <% if @story_scraper[:cover_url] %>
+            <%= image_tag @story_scraper[:cover_url] %>
+          <% else %>
+            <%= inline_svg_tag('story.svg') %>
+          <% end %>
+        </td>
+      </tbody>
+    </table>
+    <%= form_with model: Story, url: stories_path, method: :post, data: {
+      turbo_frame: '_top' } do |form| %>
+      <%= form.hidden_field :code, value: @story_scraper[:code] %>
+      <%= form.hidden_field :title, value: @story_scraper[:title] %>
+      <%= form.hidden_field :original_title, value: @story_scraper[:original_title] %>
+      <%= form.hidden_field :published, value: @story_scraper[:published] %>
+      <%= form.hidden_field :origin, value: @story_scraper[:origin] %>
+      <%= form.hidden_field :pages, value: @story_scraper[:pages] %>
+      <%= form.hidden_field :cover_url, value: @story_scraper[:cover_url] %>
+      <%= form.submit t('.add-story'), class: 'button is-primary is-small' %>
+    <% end %>
+  <% end %>
+<% end %>

@@ -25,12 +25,23 @@
         <%= image_tag @story.cover, alt: @story.title %>
       <% else %>
         <%= inline_svg_tag('story.svg') %>
+        <% if @story.cover_url.present? %>
+          <%= form_with model: Story, url: story_covers_path, method: :post, data: {
+            turbo_frame: '_top' } do |form| %>
+            <%= form.hidden_field :id, value: @story.id %>
+            <%= form.hidden_field :cover_url, value: @story.cover_url %>
+            <%= form.submit t('.download-cover'), class: 'button is-small is-info' %>
+          <% end %>
+        <% end %>
       <% end %>
     </figure>
   </main-column>
   <main-column class="column">
     <ul class="list">
-      <li class="list-item"><%= Story.human_attribute_name(:origin) %>: <%= @story.origin %></li>
+      <li class="list-item">
+        <%= Story.human_attribute_name(:origin) %>:
+        <%= ISO3166::Country.new(@story.origin)&.translation(locale) %>
+      </li>
       <li class="list-item"><%= Story.human_attribute_name(:published) %>: <%= @story.published %></li>
       <li class="list-item"><%= Story.human_attribute_name(:pages) %>: <%= @story.pages %></li>
     </ul>

@@ -672,3 +672,10 @@ may consider it more useful to permit linking proprietary applications with
 the library. If this is what you want to do, use the GNU Lesser General
 Public License instead of this License. But first, please read
 <https://www.gnu.org/licenses/why-not-lgpl.html>.
+
+Additional Licensing Terms
+
+This web application makes use of data from inducks.org. According to their license, public use of the Inducks database is allowed, as long as the following conditions are met:
+
+- Acknowledge your source: Data is taken from the inducks website at https://inducks.org
+- Return the favour: This web application can be freely used, incorporated, or redistributed under the terms of the GNU General Public License, as well as the terms of the inducks.org license (https://inducks.org/bolderbast/xxlicence.html).

@@ -1,41 +1,41 @@
 <sidebar-column class="column is-one-quarter m-1 px-5 py-3" id="sidebar-menu">
   <aside class="menu">
-    <p class="menu-label">
+    <p class="menu-label has-text-primary-dark is-size-5 mb-0">
       <%= Book.model_name.human(count: 10) %>
     </p>
     <ul class="menu-list">
       <li>
         <%= link_to t('.all-books'), books_path %>
       <% if user_signed_in? %>
-        <ul>
+        <ul class="mt-0">
           <li><%= link_to t('.add-book'), new_book_path %></li>
           <li><%= link_to t('.scrape-book'), '#' %></li>
         </ul>
       </li>
       <% end %>
     </ul>
-    <p class="menu-label">
+    <p class="menu-label has-text-primary-dark is-size-5 mb-0">
       <%= Story.model_name.human(count: 10) %>
     </p>
     <ul class="menu-list">
       <li>
         <%= link_to t('.all-stories'), stories_path %>
         <% if user_signed_in? %>
-          <ul>
+          <ul class="mt-0">
             <li><%= link_to t('.add-story'), new_story_path %></li>
             <li><%= link_to t('.scrape-story'), new_story_scraper_path %></li>
           </ul>
         <% end %>
       </li>
     </ul>
-    <p class="menu-label">
+    <p class="menu-label has-text-primary-dark is-size-5 mb-0">
       <%= Artist.model_name.human(count: 10) %>
     </p>
     <ul class="menu-list">
       <li>
           <%= link_to t('.all-artists'), artists_path %>
           <% if user_signed_in? %>
-            <ul>
+            <ul class="mt-0">
               <li><%= link_to t('.add-artist'), new_artist_path %></li>
               <li><%= link_to t('.scrape-artist'), new_artist_scraper_path %></li>
             </ul>

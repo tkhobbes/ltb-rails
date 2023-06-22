@@ -1,0 +1,13 @@
+de:
+  story_scrapers:
+    new:
+      title: Story von INDUCKS hinzufügen
+      howto: Code der Story eingeben, die hinzugefügt werden soll.
+      submit: Hinzufügen
+      code: Code
+      submit-label: Story hinzufügen
+    create:
+      not-found: Keine Story mit diesem Code gefunden.
+      again: Nochmal versuchen
+      exists: Story existiert bereits.
+      add-story: Story hinzufügen

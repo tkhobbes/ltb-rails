@@ -82,5 +82,6 @@ gem 'devise-i18n'
 
 # Application gems: Network and scraping
 gem 'down' # download files
+gem 'http'
 gem 'httparty' # http client
 gem 'nokogiri' # html parser

@@ -23,7 +23,7 @@
         <% if user_signed_in? %>
           <ul>
             <li><%= link_to t('.add-story'), new_story_path %></li>
-            <li><%= link_to t('.scrape-story'), '#' %></li>
+            <li><%= link_to t('.scrape-story'), new_story_scraper_path %></li>
           </ul>
         <% end %>
       </li>

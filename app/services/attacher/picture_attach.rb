@@ -12,11 +12,11 @@ module Attacher
       return ReturnPicture.new(created: false, msg: I18n.t('services.picture_attach.no-url')) if @picture_url.blank?
 
       begin
-        tempfile = Down.download(URI::DEFAULT_PARSER.escape(@picture_url))
+        tempfile = Down.download(@picture_url, extension: 'jpg')
       rescue Down::Error
         return ReturnPicture.new(created: false, msg: I18n.t('services.picture_attach.not-found'))
       end
-      picture = @attach_field.attach(io: tempfile, filename: tempfile.original_filename)
+      picture = @attach_field.attach(io: tempfile, filename: 'picture.jpg')
       ReturnPicture.new(created: true, msg: I18n.t('services.picture_attach.attached'), picture:)
     end
   end

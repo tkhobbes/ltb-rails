@@ -4,6 +4,7 @@
 #
 #  id             :bigint           not null, primary key
 #  code           :string           not null
+#  cover_url      :string
 #  origin         :string
 #  original_title :string
 #  pages          :integer          default(0)

@@ -8,3 +8,5 @@ de:
       cancel: Abbrechen
     new_role:
       add-role: Rolle hinzufügen
+    role_table:
+      actions: Actions

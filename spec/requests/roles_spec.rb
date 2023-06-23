@@ -9,11 +9,11 @@ RSpec.describe 'Roles' do
       it 'can create a new role if logged in' do
         sign_in user
         post roles_path, params: {
-          role: { artist_id: role.artist.id, story_id: role.story.id, task: 'pencil' }
+          role: { artist_id: role.artist.id, story_id: role.story.id, task: 'pencils' }
         }, as: :turbo_stream
         expect(Role.last.artist.id).to eq(role.artist.id)
         expect(Role.last.story.id).to eq(role.story.id)
-        expect(Role.last.task).to eq('pencil')
+        expect(Role.last.task).to eq('pencils')
       end
 
       it 'can edit a role if logged in' do
@@ -34,9 +34,9 @@ RSpec.describe 'Roles' do
 
       it 'cannot create a new role if not logged in' do
         post roles_path, params: {
-          role: { artist_id: role.artist.id, story_id: role.story.id, task: 'pencil' }
+          role: { artist_id: role.artist.id, story_id: role.story.id, task: 'pencils' }
         }, as: :turbo_stream
-        expect(Role.last.task).not_to eq('pencil')
+        expect(Role.last.task).not_to eq('pencils')
         expect(Role.count).to eq(1)
       end
 

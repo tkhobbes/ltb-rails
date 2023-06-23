@@ -27,12 +27,14 @@ class Role < ApplicationRecord
   # ENUM for task encaptures the different roles an artist can have for a story
   enum task: {
     not_given: 0,
-    drawings: 1,
-    pencil: 2,
+    # drawings: 1,
+    art: 1,
+    pencils: 2,
     ink: 3,
     color: 4,
     lettering: 5,
-    story: 6,
+    # story: 6,
+    writing: 6,
     plot: 7,
     script: 8
   }

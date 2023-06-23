@@ -27,5 +27,5 @@ en:
       edit: Edit
       delete: Delete
       delete-confirm: Really delete this story?
-      actions: Actions
       download-cover: Download cover
+      scrape-roles: Import roles from INDUCKS

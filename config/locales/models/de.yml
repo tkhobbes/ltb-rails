@@ -49,12 +49,13 @@ de:
         task: Aufgabe
         tasks:
           not_given: nicht angegeben
-          drawings: Zeichnungen
-          pencil: Bleistift
+          art: Zeichnungen
+          pencils: Bleistift
           ink: Tusche
           color: Kolorierung
           lettering: Lettering
           story: Story
+          writing: Story
           plot: Plot
           script: Script
       story:

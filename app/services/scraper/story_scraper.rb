@@ -25,7 +25,7 @@ module Scraper
     private
 
     def story_title
-      page_data.css('.subHeader span').text
+      (page_data.css('.subHeader span').text.presence || page_data.css('.topHeader h1').text)
     end
 
     def story_original_title

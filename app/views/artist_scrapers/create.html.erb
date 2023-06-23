@@ -40,6 +40,7 @@
       <%= form.hidden_field :name, value: @artist_scraper[:name] %>
       <%= form.hidden_field :born, value: @artist_scraper[:born] %>
       <%= form.hidden_field :died, value: @artist_scraper[:died] %>
+      <%= form.hidden_field :nationality, value: @artist_scraper[:nationality] %>
       <%= form.hidden_field :portrait_url, value: @artist_scraper[:portrait_url] %>
       <%= form.submit t('.add-artist'), class: 'button is-primary is-small' %>
     <% end %>

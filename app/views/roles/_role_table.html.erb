@@ -1,0 +1,19 @@
+<fake-table class="section mb-1" id="role-table">
+  <fake-header-row class="mb-1 has-text-weight-bold columns">
+    <fake-cell class="mr-1 column has-background-white-ter">
+      <%= Role.human_attribute_name(:task) %>
+    </fake-cell>
+    <fake-cell class="mr-1 column has-background-white-ter">
+      <%= Artist.human_attribute_name(:name) %>
+    </fake-cell>
+    <% if current_user %>
+      <fake-cell class="column has-background-white-ter">
+        <%= t('.actions') %>
+      </fake-cell>
+    <% end %>
+  </fake-header-row>
+  <%= render 'roles/new_role', story: %>
+  <% story.roles.each do |role| %>
+    <%= render 'roles/story_table', role: %>
+  <% end %>
+</fake-table>

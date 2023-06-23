@@ -8,3 +8,5 @@ en:
       cancel: Cancel
     new_role:
       add-role: Add Role
+    role_table:
+      actions: Actions

@@ -53,11 +53,11 @@ class Story < ApplicationRecord
   # if a story has a penciller, an inker and a drawer, we need to know whom to return as "main artist"
   def drawings_role_id
     all_roles = roles.pluck(:task, :id)
-    (all_roles.assoc('pencil') || all_roles.assoc('ink') || all_roles.assoc('drawings'))&.last
+    (all_roles.assoc('pencils') || all_roles.assoc('ink') || all_roles.assoc('art'))&.last
   end
 
   def story_role_id
     all_roles = roles.pluck(:task, :id)
-    (all_roles.assoc('plot') || all_roles.assoc('script') || all_roles.assoc('story'))&.last
+    (all_roles.assoc('plot') || all_roles.assoc('script') || all_roles.assoc('writing'))&.last
   end
 end

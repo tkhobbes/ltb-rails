@@ -49,12 +49,13 @@ en:
         task: Task
         tasks:
           not_given: not given
-          drawings: Drawings
-          pencil: Pencil
+          art: Drawings
+          pencils: Pencil
           ink: Ink
           color: Color
           lettering: Lettering
           story: Story
+          writing: Story
           plot: Plot
           script: Script
       story:

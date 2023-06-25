@@ -64,6 +64,7 @@ puts 'Seeding 50 books...'
     publication: Random.rand(0..9),
     pages: Random.rand(250..300),
     url: "https://inducks.org/issue.php?c=de%2FLTB+++#{index}",
+    code: Faker::Alphanumeric.unique.alphanumeric(number: 4)
   )
   temp = Down.download(Faker::LoremFlickr.image(size: '300x400', search_terms: ['comic']))
   book.cover.attach(io: temp, filename: 'cover.jpg')

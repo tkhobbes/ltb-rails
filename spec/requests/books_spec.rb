@@ -23,7 +23,7 @@ RSpec.describe 'Books' do
         sign_in user
         get new_book_path
         expect(response).to have_http_status(:success)
-        post books_path, params: { book: { issue: 25, title: 'Test Title' } }
+        post books_path, params: { book: { code: 'abcd', issue: 25, title: 'Test Title' } }
         expect(Book.last.title).to eq('Test Title')
       end
 

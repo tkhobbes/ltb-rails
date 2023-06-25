@@ -3,6 +3,7 @@
 # Table name: books
 #
 #  id          :bigint           not null, primary key
+#  code        :string           not null
 #  issue       :integer          not null
 #  pages       :integer          default(0)
 #  publication :integer          default("ltb"), not null
@@ -14,7 +15,7 @@
 #
 # Indexes
 #
-#  index_books_on_publication_and_issue  (publication,issue) UNIQUE
+#  index_books_on_code  (code) UNIQUE
 #
 class Book < ApplicationRecord
   # extends
@@ -40,8 +41,9 @@ class Book < ApplicationRecord
 
   has_one_attached :cover
   # validations
+  validates :code, presence: true, uniqueness: true
   validates :title, presence: true
-  validates :issue, presence: true, uniqueness: { scope: :publication }
+  validates :issue, presence: true
   validates :publication, presence: true
 
   # callbacks

@@ -27,7 +27,8 @@ en:
         nationality: Nationality
         code: Code
       book:
-        issue: No
+        issue: "No"
+        code: Code
         pages: Pages
         published: Published
         title: Title

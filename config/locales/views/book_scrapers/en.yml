@@ -1,0 +1,13 @@
+en:
+  book_scrapers:
+    new:
+      title: Add story from INDUCKS
+      howto: Enter the book's code you want to add.
+      submit: Add
+      code: Code
+      submit-label: Add Book
+    create:
+      not-found: No book with this code found.
+      again: Try again
+      exists: Book already exists.
+      add-book: Add Book

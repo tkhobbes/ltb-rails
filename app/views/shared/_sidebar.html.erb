@@ -9,7 +9,7 @@
       <% if user_signed_in? %>
         <ul class="mt-0">
           <li><%= link_to t('.add-book'), new_book_path %></li>
-          <li><%= link_to t('.scrape-book'), '#' %></li>
+          <li><%= link_to t('.scrape-book'), new_book_scraper_path %></li>
         </ul>
       </li>
       <% end %>

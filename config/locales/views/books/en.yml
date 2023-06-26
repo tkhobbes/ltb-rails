@@ -7,6 +7,7 @@ en:
       edit: Edit Book
       delete: Delete Book
       delete-confirm: Really delete this book?
+      download-cover: Download cover
     edit:
       title: Edit '%{book}'
       update: Update

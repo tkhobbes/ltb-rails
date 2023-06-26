@@ -1,0 +1,50 @@
+<%= turbo_frame_tag 'add-book' do %>
+  <% if @book_scraper[:name] == "" %>
+    <p class="mb-2"><%= t('.not-found') %></p>
+    <%= link_to t('.again'), new_book_scraper_path, class: 'button is-primary', data: {
+      turbo_frame: '_top'
+    } %>
+  <% elsif Book.find_by(code: @book_scraper[:code]).present? %>
+    <p class="mb2"><%= t('.exists') %></p>
+    <%= link_to t('.again'), new_book_scraper_path, class: 'button is-primary', data: {
+      turbo_frame: '_top'
+    } %>
+  <% else %>
+    <table class="table">
+      <thead>
+        <th>Code</th>
+        <th>Title</th>
+        <th>Issue</th>
+        <th>Pages</th>
+        <th>Publication</th>
+        <th>Year</th>
+      </thead>
+      <tbody>
+        <td><%= @book_scraper[:code] %></td>
+        <td><%= @book_scraper[:title] %></td>
+        <td><%= @book_scraper[:issue] %></td>
+        <td><%= @book_scraper[:pages] %></td>
+        <td><%= @book_scraper[:publication] %></td>
+        <td><%= @book_scraper[:year] %></td>
+        <td>
+          <% if @book_scraper[:cover_url] %>
+            <%= image_tag @book_scraper[:cover_url] %>
+          <% else %>
+            <%= inline_svg_tag('book.svg') %>
+          <% end %>
+        </td>
+      </tbody>
+    </table>
+    <%= form_with model: Book, url: books_path, method: :post, data: {
+      turbo_frame: '_top' } do |form| %>
+      <%= form.hidden_field :code, value: @book_scraper[:code] %>
+      <%= form.hidden_field :title, value: @book_scraper[:title] %>
+      <%= form.hidden_field :issue, value: @book_scraper[:issue] %>
+      <%= form.hidden_field :pages, value: @book_scraper[:pages] %>
+      <%= form.hidden_field :publication, value: @book_scraper[:publication] %>
+      <%= form.hidden_field :published, value: @book_scraper[:year] %>
+      <%= form.hidden_field :cover_url, value: @book_scraper[:cover_url] %>
+      <%= form.submit t('.add-book'), class: 'button is-primary is-small' %>
+    <% end %>
+  <% end %>
+<% end %>

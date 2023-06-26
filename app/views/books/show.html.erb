@@ -24,6 +24,15 @@
         <%= image_tag @book.cover, alt: @book.title %>
       <% else %>
         <%= inline_svg_tag('book.svg') %>
+        <% if @book.cover_url.present? %>
+          <%= form_with model: Book, url: book_covers_path, method: :post, data: {
+            turbo_frame: '_top' } do |form| %>
+            <%= form.hidden_field :id, value: @book.id %>
+            <%= form.hidden_field :cover_url, value: @book.cover_url %>
+            <%= form.submit t('.download-cover'), class: 'button is-small is-info' %>
+          <% end %>
+        <% end %>
+
       <% end %>
     </figure>
   </main-column>

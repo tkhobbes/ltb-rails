@@ -28,6 +28,7 @@ de:
         code: Kürzel
       book:
         issue: Nr
+        code: Code
         pages: Seiten
         published: Veröffentlicht
         title: Titel

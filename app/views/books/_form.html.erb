@@ -3,6 +3,10 @@
   <form-main-columns class="columns">
     <form-form-column class="column is-8">
       <form-columns class="columns pb-0 mb-0">
+        <div class="field column is-3">
+          <%= form.label :code, class: 'label' %>
+          <%= form.text_field :code, class: 'input' %>
+        </div>
         <div class="field column">
           <%= form.label :publication, class: 'label' %>
           <div class="select is-fullwidth">

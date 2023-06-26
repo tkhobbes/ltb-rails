@@ -9,10 +9,27 @@ module Scraper
 
     private
 
+    # nokogiri-based scraping
     def page_data
       url = URI::DEFAULT_PARSER.escape(@page)
       raw_html = HTTParty.get(url)
       Nokogiri::HTML(raw_html.body)
+    end
+
+    # selenium-based scraping
+    def setup_selenium
+      options = Selenium::WebDriver::Chrome::Options.new
+      options.add_argument('--headless')
+      Selenium::WebDriver.for(:chrome, options:)
+    end
+
+    # if using selenium-based scraping, more methods to find elements
+    def css_element(driver, identifier)
+      driver.find_elements(:css, identifier)&.first
+    end
+
+    def xpath_element(driver, xpath)
+      driver.find_elements(:xpath, xpath)&.first
     end
   end
 end

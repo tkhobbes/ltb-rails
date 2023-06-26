@@ -1,49 +1,59 @@
 # module for all scrapers
 module Scraper
   # scrape book details
-  class BookScraper
+  class BookScraper < ApplicationScraper
     def initialize(book_id)
       super('issue', book_id)
       @book_id = book_id
+      @driver = setup_selenium
     end
 
     # method to scraper book data
     def scrape
       {
         code: @book_id,
-        issue: book_issue,
-        pages: book_pages,
-        publication: book_publication,
-        published: book_year,
-        title: book_title,
         url: book_url
-      }
+      }.merge(request_page)
     end
 
     private
 
-    def book_title
-      ''
-    end
-
-    def book_issue
-      0
-    end
-
-    def book_pages
-      0
-    end
-
-    def book_publication
-      0
-    end
-
-    def book_year
-      0
-    end
-
     def book_url
-      ''
+      page
+    end
+
+    def request_page
+      @driver.navigate.to @page
+      title = short_title(css_element(@driver, '.topHeader h1')&.text)
+      subheader = css_element(@driver, '.subHeader')&.text
+      publication = publication_name(subheader)
+      issue = issue_number(subheader)
+      pages = xpath_element(
+        @driver,
+        '//dt[contains(text(), "Pages")]/following-sibling::dd'
+      )&.text&.to_i
+      year = xpath_element(
+        @driver,
+        '//dt[contains(text(), "Date")]/following-sibling::dd/time/a'
+      )&.text&.to_i
+      @driver.quit
+      { title:, issue:, pages:, publication:, year: }
+    end
+
+    def short_title(title)
+      title.gsub(/^.*:/, '').strip! if title.present?
+    end
+
+    def publication_name(subheader)
+      return if subheader.blank?
+
+      pos = subheader.index('#') - 1
+      result = subheader[0..pos].strip!
+      result == 'Lustiges Taschenbuch' ? 'ltb' : result.tr(' ', '_').downcase!
+    end
+
+    def issue_number(subheader)
+      subheader.gsub(/^.*#/, '').strip!.to_i if subheader.present?
     end
   end
 end

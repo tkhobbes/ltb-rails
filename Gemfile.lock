@@ -450,6 +450,7 @@ DEPENDENCIES
   rubocop-performance
   rubocop-rails
   rubocop-rspec (>= 2.11.1)
+  selenium-webdriver
   simplecov
   stimulus-rails
   turbo-rails

@@ -1,0 +1,16 @@
+<table class="table is-hoverable is-fullwidth is-narrow" id="story-table">
+  <thead>
+    <tr>
+      <th><%= Story.human_attribute_name(:code) %></th>
+      <th><%= Story.human_attribute_name(:title) %></th>
+      <th><%= Story.human_attribute_name(:pages) %></th>
+      <th><%= t('.story-credit-story') %></th>
+      <th><%= t('.story-credit-drawings') %></th>
+    </tr>
+  </thead>
+  <tbody>
+  <% book.stories.each do |story| %>
+    <%= render 'stories/table', story: %>
+  <% end %>
+  </tbody>
+</table>

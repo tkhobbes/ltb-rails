@@ -42,21 +42,11 @@
       <li class="list-item"><%= Book.human_attribute_name(:pages) %>: <%= @book.pages %></li>
     </ul>
     <h2 class="subtitle"><%= t('.story-table-title') %></h4>
-    <table class="table is-hoverable is-fullwidth is-narrow">
-      <thead>
-        <tr>
-          <th><%= Story.human_attribute_name(:code) %></th>
-          <th><%= Story.human_attribute_name(:title) %></th>
-          <th><%= Story.human_attribute_name(:pages) %></th>
-          <th><%= t('.story-credit-story') %></th>
-          <th><%= t('.story-credit-drawings') %></th>
-        </tr>
-      </thead>
-      <tbody>
-      <% @book.stories.each do |story| %>
-        <%= render 'stories/table', story: %>
-      <% end %>
-      </tbody>
-    </table>
+    <%= form_with model: Book, url: book_stories_scrapers_path, method: :post,
+      class: 'mt-0 mb-5' do |form| %>
+      <%= form.hidden_field :id, value: @book.id %>
+      <%= form.submit t('.scrape-stories'), class: 'button is-small is-info' %>
+    <% end %>
+    <%= render 'stories/story_table', book: @book %>
   </main-column>
 </main-layout>

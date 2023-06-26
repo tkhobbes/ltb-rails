@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_25_111259) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_26_085203) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -74,6 +74,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_25_111259) do
     t.datetime "updated_at", null: false
     t.integer "publication", default: 0, null: false
     t.string "code", null: false
+    t.string "cover_url"
     t.index ["code"], name: "index_books_on_code", unique: true
   end
 

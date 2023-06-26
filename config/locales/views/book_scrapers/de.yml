@@ -1,0 +1,13 @@
+de:
+  book_scrapers:
+    new:
+      title: Buch von INDUCKS hinzufügen
+      howto: Code des Buches eingeben, die hinzugefügt werden soll.
+      submit: Hinzufügen
+      code: Code
+      submit-label: Buch hinzufügen
+    create:
+      not-found: Kein Buch mit diesem Code gefunden.
+      again: Nochmal versuchen
+      exists: Buch existiert bereits.
+      add-book: Buch hinzufügen

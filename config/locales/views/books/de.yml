@@ -7,6 +7,7 @@ de:
       edit: Buch bearbeiten
       delete: Buch löschen
       delete-confirm: Dieses Buch wirklich löschen?
+      download-cover: Cover herunterladen
     edit:
       title: "'%{book}' bearbeiten"
       update: Aktualisieren

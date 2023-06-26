@@ -2,6 +2,8 @@
 module Scraper
   # scrape book details
   class BookScraper < ApplicationScraper
+    attr_reader :page
+
     def initialize(book_id)
       super('issue', book_id)
       @book_id = book_id
@@ -36,8 +38,9 @@ module Scraper
         @driver,
         '//dt[contains(text(), "Date")]/following-sibling::dd/time/a'
       )&.text&.to_i
+      cover_url = book_cover_url(@driver)
       @driver.quit
-      { title:, issue:, pages:, publication:, year: }
+      { title:, issue:, pages:, publication:, year:, cover_url: }
     end
 
     def short_title(title)
@@ -54,6 +57,11 @@ module Scraper
 
     def issue_number(subheader)
       subheader.gsub(/^.*#/, '').strip!.to_i if subheader.present?
+    end
+
+    def book_cover_url(driver)
+      css_element(driver, '.issueImageHighlight .scan figure img')&.[]('src')
+      # "https://inducks.org/#{img_url}" if img_url.present?
     end
   end
 end

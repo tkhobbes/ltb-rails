@@ -63,7 +63,8 @@ class BooksController < ApplicationController
       :pages,
       :url,
       :cover,
-      :publication
+      :publication,
+      :cover_url
     )
   end
 end

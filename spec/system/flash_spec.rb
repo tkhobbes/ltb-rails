@@ -39,6 +39,7 @@ RSpec.describe 'Flashes' do
         click_button I18n.t('devise.sessions.new.sign_in')
 
         click_link I18n.t('shared.sidebar.add-book')
+        fill_in Book.human_attribute_name(:code), with: 'aaabbc'
         fill_in Book.human_attribute_name(:issue), with: '987xyz'
         fill_in Book.human_attribute_name(:title), with: 'Test'
         click_button I18n.t('books.new.create')

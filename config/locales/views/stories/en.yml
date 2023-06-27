@@ -29,3 +29,6 @@ en:
       delete-confirm: Really delete this story?
       download-cover: Download cover
       scrape-roles: Import roles from INDUCKS
+    story_table:
+      story-credit-story: Story
+      story-credit-drawings: Drawings

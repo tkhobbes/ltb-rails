@@ -1,8 +1,6 @@
 de:
   books:
     show:
-      story-credit-story: Story
-      story-credit-drawings: Zeichnungen
       story-table-title: Geschichten in diesem Buch
       edit: Buch bearbeiten
       delete: Buch löschen

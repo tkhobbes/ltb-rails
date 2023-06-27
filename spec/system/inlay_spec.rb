@@ -1,10 +1,10 @@
 require 'rails_helper'
 
-RSpec.describe 'Tags' do
+RSpec.describe 'Inlays' do
   describe 'filtering' do
     let!(:book) { create(:book, publication: 'ltb', issue: 1, title: 'Micky Maus') }
-    let!(:book2) { create(:book, publication: 'ltb', issue: 2, title: 'Micky Maus und Donald Duck') }
-    let!(:book3) { create(:book, publication: 'micky_maus', issue: 1, title: 'test') }
+    let!(:book2) { create(:book, code: 'zzddee', publication: 'ltb', issue: 2, title: 'Micky Maus und Donald Duck') }
+    let!(:book3) { create(:book, code: '12345a', publication: 'micky_maus', issue: 1, title: 'test') }
 
     context 'issues and publications' do
       it 'can filter by publication' do

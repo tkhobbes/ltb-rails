@@ -9,7 +9,7 @@
     </tr>
   </thead>
   <tbody>
-  <% book.stories.each do |story| %>
+  <% book.stories.order(position: :ASC).each do |story| %>
     <%= render 'stories/table', story: %>
   <% end %>
   </tbody>

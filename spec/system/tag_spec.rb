@@ -5,7 +5,7 @@ RSpec.describe 'Tags' do
     context 'in books' do
       let(:user) { create(:user) }
       let!(:book) { create(:book) }
-      let!(:book2) { create(:book, title: 'Book 2', issue: 25) }
+      let!(:book2) { create(:book, code: '12345a', title: 'Book 2', issue: 25) }
       let!(:story) { create(:story) }
 
       it 'displays a tag for the book if selected' do

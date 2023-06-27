@@ -77,7 +77,8 @@ Book.all.each do |book|
   5.times do |index|
     BookEntry.create(
       book: book,
-      story: stories[index]
+      story: stories[index],
+      position: index+1
     )
   end
 end

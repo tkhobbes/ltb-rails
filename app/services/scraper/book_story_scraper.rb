@@ -13,7 +13,7 @@ module Scraper
     def scrape
       @driver.navigate.to @page
       result = []
-      codes = css_elements(@driver, '.codeidentifier')
+      codes = css_elements(@driver, 'tr.normal .code .storycode .codeidentifier')
       codes.each do |code|
         url = code.find_element(:css, 'a').attribute('href')
         result << story_code(url) if url.present?

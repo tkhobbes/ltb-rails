@@ -24,10 +24,17 @@ module Scraper
     end
 
     # if using selenium-based scraping, more methods to find elements
+    # find the first element matching a css identifier
     def css_element(driver, identifier)
       driver.find_elements(:css, identifier)&.first
     end
 
+    # find all elements matching a css identifier
+    def css_elements(driver, identifier)
+      driver.find_elements(:css, identifier)
+    end
+
+    # find the first element matching an xpath
     def xpath_element(driver, xpath)
       driver.find_elements(:xpath, xpath)&.first
     end

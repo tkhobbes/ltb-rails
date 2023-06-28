@@ -1,0 +1,28 @@
+<main-layout class="columns is-centered">
+  <main-box class="column box">
+    <h2 class="is-family-secondary is-size-4">
+      <%= t('.title') %>
+    </h2>
+    <%= turbo_frame_tag 'search-book' do %>
+      <p>
+        <%= t('.howto') %>
+      </p>
+      <%= form_with url: book_searches_path, class: 'mt-2 mb-2' do |form| %>
+        <form-columns class="columns">
+          <div class="field column">
+            <%= form.label t('.book_title'), for: :title, class: 'label' %>
+            <%= form.text_field :title, class: 'input' %>
+          </div>
+          <div class="field column is-2">
+            <%= form.label t('.book_number'), for: :number, class: 'label' %>
+            <%= form.text_field :number, class: 'input' %>
+          </div>
+          <div class="field column">
+            <%= form.label t('.submit-label'), class: 'label' %>
+            <%= submit_tag t('.submit'), class: 'button is-primary' %>
+          </div>
+        </form-columns>
+      <% end %>
+    <% end %>
+  </main-box>
+</main-layout>

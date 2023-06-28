@@ -1,8 +1,18 @@
 <sidebar-column class="column is-one-quarter m-1 px-5 py-3" id="sidebar-menu">
   <aside class="menu">
-    <p class="menu-label has-text-primary-dark is-size-5 mb-0">
-      <%= Book.model_name.human(count: 10) %>
-    </p>
+    <% if user_signed_in? %>
+      <p class="menu-label has-text-primary-dark is-size-5 mb-0">
+        <%= t('.big-tasks') %>
+      </p>
+      <ul class="menu-list">
+        <li>
+          <%= link_to t('.search-all'), new_book_search_path %>
+        </li>
+      </ul>
+      <p class="menu-label has-text-primary-dark is-size-5 mb-0">
+        <%= Book.model_name.human(count: 10) %>
+      </p>
+    <% end %>
     <ul class="menu-list">
       <li>
         <%= link_to t('.all-books'), books_path %>

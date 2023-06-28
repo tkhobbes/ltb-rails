@@ -1,6 +1,8 @@
 en:
   shared:
     sidebar:
+      big-tasks: Issues
+      search-all: Search Book in INDUCKS
       all-books: All Books
       add-book: Add Book
       scrape-book: Add Book from INDUCKS

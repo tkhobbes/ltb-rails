@@ -5,12 +5,13 @@ module Scraper
   class ApplicationScraper
     def initialize(scrape_type, scrape_id)
       @page = "http://inducks.org/#{scrape_type}.php?c=#{scrape_id}"
+      @page_data = scrape_data
     end
 
     private
 
     # nokogiri-based scraping
-    def page_data
+    def scrape_data
       url = URI::DEFAULT_PARSER.escape(@page)
       raw_html = HTTParty.get(url)
       Nokogiri::HTML(raw_html.body)

@@ -23,7 +23,7 @@ module Scraper
 
     # scrape artist link (url) for a role
     def one_role(role_type)
-      dt_node = page_data.xpath("//dt[contains(text(), '#{role_type.humanize}')]")
+      dt_node = @page_data.xpath("//dt[contains(text(), '#{role_type.humanize}')]")
       dt_node.css('+dd').css('a').first['href'] if dt_node.present?
     end
 

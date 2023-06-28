@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   resources :book_scrapers, only: %i[new create]
   resources :book_covers, only: :create
   resources :book_stories_scrapers, only: :create
+  resources :holistic_scrapers, only: :create
 
   resources :inlays, only: %i[index show] do
     post :index, on: :collection

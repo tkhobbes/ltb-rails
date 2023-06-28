@@ -42,7 +42,7 @@
       <%= form.hidden_field :issue, value: @book_scraper[:issue] %>
       <%= form.hidden_field :pages, value: @book_scraper[:pages] %>
       <%= form.hidden_field :publication, value: @book_scraper[:publication] %>
-      <%= form.hidden_field :published, value: @book_scraper[:year] %>
+      <%= form.hidden_field :published, value: @book_scraper[:published] %>
       <%= form.hidden_field :cover_url, value: @book_scraper[:cover_url] %>
       <%= form.submit t('.add-book'), class: 'button is-primary is-small' %>
     <% end %>

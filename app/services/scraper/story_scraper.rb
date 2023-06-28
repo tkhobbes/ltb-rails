@@ -29,28 +29,28 @@ module Scraper
     end
 
     def story_original_title
-      @page_data.css('.topHeader h1').text
+      @page_data.css('.topHeader h1')&.text
     end
 
     def story_url
-      @page_data.css('.itemNavigation').css('li').last.css('a').first['href']
+      @page_data.css('.itemNavigation')&.css('li')&.last&.css('a')&.first&.[]('href')
     end
 
     def story_published
       dt_node = @page_data.xpath('//dt[contains(text(), "Date of first publication")]')
-      date_string = dt_node.css('+dd').text if dt_node.present?
+      date_string = dt_node.css('+dd')&.text if dt_node.present?
       date_string.split.last.to_i if date_string.present?
     end
 
     def story_origin
       dt_node = @page_data.xpath('//dt[contains(text(), "Origin")]')
-      country_string = dt_node.css('+dd').text if dt_node.present?
-      ISO3166::Country.find_country_by_iso_short_name(country_string).alpha2
+      country_string = dt_node.css('+dd')&.text if dt_node.present?
+      ISO3166::Country.find_country_by_iso_short_name(country_string)&.alpha2
     end
 
     def story_pages
       dt_node = @page_data.xpath('//dt[contains(text(), "Pages")]')
-      pages_text = dt_node.css('+dd').text if dt_node.present?
+      pages_text = dt_node.css('+dd')&.text if dt_node.present?
       pages_text.to_i if pages_text.present?
     end
 
@@ -60,7 +60,7 @@ module Scraper
     end
 
     def artist_died
-      year = @page_data.css('time').last&.css('a')&.text
+      year = @page_data.css('time')&.last&.css('a')&.text
       year.to_i if year.present? && @page_data.css('time').count > 1
     end
 

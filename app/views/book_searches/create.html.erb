@@ -12,7 +12,12 @@
         <td>
           <%= result[:title] %><%= ": #{result[:subtitle]}" if result[:subtitle].present? %>
         </td>
-        <td><%= button_to t('.add-this'), '#', class: 'button is-primary is-small' %>
+        <td>
+          <%= form_with url: holistic_scrapers_path, method: :post, data: {
+            turbo_frame: '_top' } do |form| %>
+            <%= form.hidden_field :code, value: result[:code] %>
+            <%= form.submit t('.add-this'), class: 'button is-primary is-small' %>
+          <% end %>
       </tr>
     <% end %>
     </tbody>

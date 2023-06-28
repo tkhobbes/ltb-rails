@@ -34,13 +34,13 @@ module Scraper
         @driver,
         '//dt[contains(text(), "Pages")]/following-sibling::dd'
       )&.text&.to_i
-      year = xpath_element(
+      published = xpath_element(
         @driver,
         '//dt[contains(text(), "Date")]/following-sibling::dd/time/a'
       )&.text&.to_i
       cover_url = book_cover_url(@driver)
       @driver.quit
-      { title:, issue:, pages:, publication:, year:, cover_url: }
+      { title:, issue:, pages:, publication:, published:, cover_url: }
     end
 
     def short_title(title)

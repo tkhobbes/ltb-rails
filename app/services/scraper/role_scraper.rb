@@ -24,7 +24,7 @@ module Scraper
     # scrape artist link (url) for a role
     def one_role(role_type)
       dt_node = @page_data.xpath("//dt[contains(text(), '#{role_type.humanize}')]")
-      dt_node.css('+dd').css('a').first['href'] if dt_node.present?
+      dt_node.css('+dd').css('a')&.first&.[]('href') if dt_node.present?
     end
 
     # return the artist code from a string like https://inducks.org/creator.php?c=RSc

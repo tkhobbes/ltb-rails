@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   resources :artists
   resources :roles, only: %i[new create edit update destroy]
 
+  resources :book_searches, only: %i[new create]
+
   resources :artist_scrapers, only: %i[new create]
   resources :artist_portraits, only: :create
   resources :story_scrapers, only: %i[new create]

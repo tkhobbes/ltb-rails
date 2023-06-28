@@ -1,0 +1,12 @@
+de:
+  book_searches:
+    new:
+      title: Publikation auf INDUCKS suchen
+      howto: Titel und Nummer der Publikation möglichst genau eingeben
+      book_title: Titel
+      book_number: Nummer
+      submit-label: Publikation suchen
+      submit: Suchen
+    create:
+      add-book: Hinzufügen
+      add-this: Publikation Hinzufügen

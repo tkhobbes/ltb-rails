@@ -1,0 +1,12 @@
+en:
+  book_searches:
+    new:
+      title: Search an Issue in INDUCKS
+      howto: Enter title and number of issue as concise as possible
+      book_title: Publication title
+      book_number: Issue number
+      submit-label: Search Issue
+      submit: Search
+    create:
+      add-book: Add
+      add-this: Add this Issue

@@ -1,0 +1,20 @@
+<%= turbo_frame_tag 'search-book' do %>
+  <table class="table is-hoverable is-fullwidth is-narrow" id="story-table">
+    <thead>
+      <tr>
+        <th><%= Book.human_attribute_name(:title) %></th>
+        <th><%= t('.add-book') %></th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @results.each do |result| %>
+      <tr>
+        <td>
+          <%= result[:title] %><%= ": #{result[:subtitle]}" if result[:subtitle].present? %>
+        </td>
+        <td><%= button_to t('.add-this'), '#', class: 'button is-primary is-small' %>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+<% end %>

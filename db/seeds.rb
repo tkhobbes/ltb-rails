@@ -18,8 +18,8 @@ puts 'Seeding 20 Artists...'
     nationality: ISO3166::Country.codes.sample,
     code: Faker::Alphanumeric.unique.alphanumeric(number: 3)
   )
-  temp = Down.download(Faker::Avatar.image)
-  artist.portrait.attach(io: temp, filename: 'cover.png')
+  portrait_no = index.modulo(10) + 1
+  artist.portrait.attach(io: File.open("db/sample/portraits/portrait-#{portrait_no}.jpg"), filename: 'cover.png')
 end
 
 # Stories
@@ -36,8 +36,8 @@ puts 'Seeding 200 Stories...'
     title: Faker::Movie.title,
     original_title: Faker::Movie.title,
   )
-  temp = Down.download(Faker::LoremFlickr.image(size: '300x400', search_terms: ['comic']))
-  story.cover.attach(io: temp, filename: 'cover.jpg')
+  cover_no = index.modulo(10) + 1
+  story.cover.attach(io: File.open("db/sample/covers/cover-#{cover_no}.jpg"), filename: 'cover.jpg')
 end
 
 # Roles
@@ -66,8 +66,8 @@ puts 'Seeding 50 books...'
     url: "https://inducks.org/issue.php?c=de%2FLTB+++#{index}",
     code: Faker::Alphanumeric.unique.alphanumeric(number: 4)
   )
-  temp = Down.download(Faker::LoremFlickr.image(size: '300x400', search_terms: ['comic']))
-  book.cover.attach(io: temp, filename: 'cover.jpg')
+  cover_no = index.modulo(10) + 1
+  book.cover.attach(io: File.open("db/sample/covers/cover-#{cover_no}.jpg"), filename: 'cover.jpg')
 end
 
 # Book Entries

@@ -11,6 +11,11 @@ module Attacher
     def attach
       return ReturnPicture.new(created: false, msg: I18n.t('services.picture_attach.no-url')) if @picture_url.blank?
 
+      unless @attach_field.respond_to?(:attach)
+        return ReturnPicture.new(created: false,
+                                 msg: I18n.t('services.picture_attach.cannot-attach'))
+      end
+
       begin
         tempfile = Down.download(@picture_url, extension: 'jpg')
       rescue Down::Error

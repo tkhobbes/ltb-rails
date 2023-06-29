@@ -48,7 +48,7 @@ module Scraper
     end
 
     def publication_name(subheader)
-      return if subheader.blank?
+      return if subheader.blank? || subheader.index('#').blank?
 
       pos = subheader.index('#') - 1
       result = subheader[0..pos].strip!

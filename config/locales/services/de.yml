@@ -4,3 +4,8 @@ de:
       no-url: Keine URL gefunden
       not-found: Kein Bild gefunden
       attached: Bild angehängt
+      cannot-attach: Beim Anhängen des Bildes ist ein Fehler aufgetreten.
+  holistic_scrapers:
+    create:
+      all-added: Alle Geschichten und Autoren für dieses Buch wurden hinzugefügt.
+      not-added: Einige oder alle Geschichten und Autoren für dieses Buch konnten nicht hinzugefügt werden.

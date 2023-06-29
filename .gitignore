@@ -27,6 +27,10 @@
 # Ignore important secret files
 /.env
 
+# ignore sample images
+/db/sample/*
+/spec/fixtures/files/*
+
 # ignore deployment related stuff
 /config/deployment
 Dockerfile

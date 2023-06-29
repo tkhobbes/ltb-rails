@@ -34,7 +34,11 @@ The following environment variables are used:
 
 ## Installation steps
 
-There are no special installation steps required at this point. Just clone the repository and set it up as any other Rails app.
+Clone the repository and set it up as any other Rails app.
+To run the application in dev mode, you need to have 10 images in db/sample/covers, labelled "cover-{n}.jpg" where {n} is a number from 1 to 10. These images are used to display the covers of the LTBs in the sample data. You also need 10 images in db/sample/portraits, labelled "portrait-{n}.jpg", where {n} is a number from 1 to 10. These images are used to display the portraits of the artists in the sample data.
+Finally, you need tow files in spec/fixtures/files: cover-1.jpg and portrait-1.jpg.
+The db/sample directory and the spec/fixtures/files directory are excluded from the repository to avoid any potential copyright issues.
+(This is used in specs and in the db:seed task. If you want to use different image types, you will need to adjust the code accordingly.)
 
 # Dependencies used
 

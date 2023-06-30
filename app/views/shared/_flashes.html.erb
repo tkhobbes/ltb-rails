@@ -2,14 +2,24 @@
   <% flash.each do |level, message| %>
     <% level = 'success' if level == 'notice' %>
     <% level = 'danger' if level == 'alert' %>
+    <div class="flash"
+      data-controller="close-button"
+      data-close-button-message-value="<%= message %>"
+      data-close-button-type-value="<%= "is-#{level}" %>"
+      data-turbo-temporary>
+    </div>
+    <!--
     <div class="is-overlay mx-5">
       <div
         class="notification is-<%= level %> is-light has-text-centered mt-4"
         data-controller="close-button"
+        data-close-button-message-value="<%= message %>"
+        data-close-button-type-value="<%= "is-#{level}" %>"
         data-turbo-temporary>
         <button class="delete" data-action="close-button#click"></button>
         <%= message %>
       </div>
     </div>
+    -->
   <% end %>
 

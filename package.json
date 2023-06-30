@@ -7,6 +7,7 @@
     "bulma": "^0.9.4",
     "bulma-extensions": "^6.2.7",
     "bulma-list": "^1.2.0",
+    "bulma-toast": "^2.4.2",
     "esbuild": "^0.17.16",
     "i18n-js": "^4.2.3",
     "sass": "^1.62.0",

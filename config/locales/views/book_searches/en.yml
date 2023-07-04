@@ -10,3 +10,5 @@ en:
     create:
       add-book: Add
       add-this: Add this Issue
+      no-results: No results found
+      try-again: Try another search

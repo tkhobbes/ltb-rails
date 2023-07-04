@@ -28,8 +28,12 @@ module Scraper
       @driver.navigate.to @page
       title = short_title(css_element(@driver, '.topHeader h1')&.text)
       subheader = css_element(@driver, '.subHeader')&.text
-      publication = publication_name(subheader)
-      issue = issue_number(subheader)
+      temp_publication = xpath_element(
+        @driver,
+        '//dt[contains(text(), "Publication")]/following-sibling::dd'
+      )&.text
+      publication = publication_name(temp_publication)
+      issue = issue_number(subheader) || issue_number(title)
       pages = xpath_element(
         @driver,
         '//dt[contains(text(), "Pages")]/following-sibling::dd'
@@ -47,16 +51,14 @@ module Scraper
       title.gsub(/^.*:/, '').strip! if title.present?
     end
 
-    def publication_name(subheader)
-      return if subheader.blank? || subheader.index('#').blank?
+    def publication_name(publication)
+      return if publication.blank?
 
-      pos = subheader.index('#') - 1
-      result = subheader[0..pos].strip!
-      result == 'Lustiges Taschenbuch' ? 'ltb' : result.tr(' ', '_').downcase!
+      publication == 'Lustiges Taschenbuch' ? 'ltb' : publication.tr(' ', '_').downcase!
     end
 
     def issue_number(subheader)
-      subheader.gsub(/^.*#/, '').strip!.to_i if subheader.present?
+      subheader.gsub(/^.*#/, '').strip! if subheader.present?
     end
 
     def book_cover_url(driver)

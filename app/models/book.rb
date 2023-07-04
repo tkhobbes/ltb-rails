@@ -5,7 +5,7 @@
 #  id          :bigint           not null, primary key
 #  code        :string           not null
 #  cover_url   :string
-#  issue       :integer          not null
+#  issue       :string           not null
 #  pages       :integer          default(0)
 #  publication :integer          default("ltb"), not null
 #  published   :integer

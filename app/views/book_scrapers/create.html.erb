@@ -12,12 +12,12 @@
   <% else %>
     <table class="table">
       <thead>
-        <th>Code</th>
-        <th>Title</th>
-        <th>Issue</th>
-        <th>Pages</th>
-        <th>Publication</th>
-        <th>Year</th>
+        <th><%= Book.human_attribute_name(:code) %></th>
+        <th><%= Book.human_attribute_name(:title) %></th>
+        <th><%= Book.human_attribute_name(:issue) %></th>
+        <th><%= Book.human_attribute_name(:pages) %></th>
+        <th><%= Book.human_attribute_name(:publication) %></th>
+        <th><%= Book.human_attribute_name(:year) %></th>
       </thead>
       <tbody>
         <td><%= @book_scraper[:code] %></td>
@@ -25,7 +25,7 @@
         <td><%= @book_scraper[:issue] %></td>
         <td><%= @book_scraper[:pages] %></td>
         <td><%= @book_scraper[:publication] %></td>
-        <td><%= @book_scraper[:year] %></td>
+        <td><%= @book_scraper[:published] %></td>
         <td>
           <% if @book_scraper[:cover_url] %>
             <%= image_tag @book_scraper[:cover_url] %>

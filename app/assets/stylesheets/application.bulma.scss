@@ -41,6 +41,16 @@ $danger: $pink;
 @import "bulma-list/sass/bulma-list";
 @import "tom-select/dist/css/tom-select";
 
+// turbo progress bar
+.turbo-progress-bar {
+  height: 1em;
+  @extend .has-background-warning;
+
+  & + body {
+    cursor: progress;
+  }
+}
+
 // inlay printing
 @media print {
   nav#nav-head {

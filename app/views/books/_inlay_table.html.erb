@@ -1,5 +1,9 @@
+<% if books %>
 <ul>
   <% books.each do |book| %>
-    <li><%= link_to book.long_title, inlay_path(book), data: { turbo_frame: '_top' } %></li>
+    <li><%= book.long_title %></li>
   <% end %>
 </ul>
+<% else %>
+  No results
+<% end %>

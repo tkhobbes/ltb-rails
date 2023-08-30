@@ -1,0 +1,32 @@
+<fake-table class="p-5 columns is-multiline">
+  <% if @books.present? %>
+    <% @books.each do |book| %>
+      <fake-cell class="fake-border p-3 column is-half">
+        <h1 class="is-size-4 mb-2">
+          <%= book.long_title %>
+        </h1>
+
+        <table class="table is-narrow is-bordered">
+          <thead>
+            <tr>
+              <th><%= (t'.story-name') %></th>
+              <th><%= (t'.drawings') %></th>
+              <th><%= (t'.story') %></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% book.stories.each do |story| %>
+              <tr>
+                <td><%= story.title %></td>
+                <td><%= story.drawings_role&.artist&.name %></td>
+                <td><%= story.story_role&.artist&.name %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </fake-cell>
+    <% end %>
+  <% else %>
+    <%= link_to t('.retry'), inlays_path %>
+  <% end %>
+</fake-table>

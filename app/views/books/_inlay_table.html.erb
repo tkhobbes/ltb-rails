@@ -1,9 +1,11 @@
 <% if books %>
-<ul>
-  <% books.each do |book| %>
-    <li><%= book.long_title %></li>
-  <% end %>
-</ul>
+<div data-controller="inlay-select">
+  <ul data-inlay-select-list-value="<%= list %>">
+    <% books.each do |book| %>
+      <li><a href='#' data-action="inlay-select#toggle"><%= book.long_title %></a></li>
+    <% end %>
+  </ul>
+</div>
 <% else %>
   No results
 <% end %>

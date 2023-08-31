@@ -14,7 +14,7 @@
       <%= form.label t('.filter-label'), class: 'label' %>
       <%= submit_tag t('.filter'), class: 'button is-primary' %>
     </div>
-    <%= form.hidden_field(:book_ids, value: '357,374,415,365,363,362') %>
+    <%#= form.hidden_field(:book_ids, value: '357,374,415,365,363,362') %>
   </form-columns>
 <% end %>
 <form-columns class="columns">
@@ -22,7 +22,7 @@
     <div class="box">
       <h3 class="title is-4"><%= t('.book-list') %></h3>
       <%= turbo_frame_tag 'book_results' do %>
-        <%= render 'books/inlay_table', books: @books %>
+        <%= render 'books/inlay_table', books: @books, list: 'full' %>
       <% end %>
     </div>
   </div>
@@ -30,7 +30,7 @@
     <div class="box">
       <h3 class="title is-4"><%= t('.book-selected') %></h3>
       <%= turbo_frame_tag 'selected_books' do %>
-        <%= render 'books/inlay_table', books: nil %>
+        <%= render 'books/inlay_table', books: nil, list: 'selected' %>
       <% end %>
       <%= form_with url: print_inlays_path, class: 'mt-2 mb-2', method: :post, data: {
       turbo: 'false' } do |form| %>

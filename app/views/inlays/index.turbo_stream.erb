@@ -1,13 +1,12 @@
 
 <%= turbo_stream.update 'book_results' do %>
-<%= render 'books/inlay_table', books: Book.where(
+<%= render 'books/inlay_table', books: Book.where.not(id: params[:book_ids]).where(
     params[:book]
       .permit(:publication, :issue)
       .compact_blank
-  ) %>
+  ), list: 'full' %>
 <% end %>
 
 <%= turbo_stream.update 'selected_books' do %>
-  <% book_ids = [357,374,415,365,363,362] %>
-  <%= render 'books/inlay_table', books: Book.where(id: book_ids) %>
+  <%= render 'books/inlay_table', books: Book.where(id: params[:book_ids]), list: 'selected' %>
 <% end %>

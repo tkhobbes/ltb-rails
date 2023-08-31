@@ -52,6 +52,14 @@ $danger: $pink;
 }
 
 // inlay printing
+
+.fake-border {
+  border-color: $grey-lighter;
+  border-width: 1px;
+  border-style: solid;
+  border-collapse: collapse;
+}
+
 @media print {
   nav#nav-head {
     display: none;

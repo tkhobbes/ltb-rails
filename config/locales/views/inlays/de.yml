@@ -3,10 +3,14 @@ de:
     index:
       filter: Bücher filtern
       filter-label: Filter
-    show:
+      book-list: Bücher
+      book-selected: Ausgewählte Bücher
+      print-books: Inlays drucken
+    print:
       story-name: Geschichte
       drawings: Zeichnungen von
       story: Geschichte von
+      retry: Keine Bücher ausgewählt. Erneut versuchen...
   helpers:
     label:
       book:

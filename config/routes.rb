@@ -18,8 +18,9 @@ Rails.application.routes.draw do
   resources :book_stories_scrapers, only: :create
   resources :holistic_scrapers, only: :create
 
-  resources :inlays, only: %i[index show] do
+  resources :inlays, only: %i[index] do
     post :index, on: :collection
+    post :print, to: 'inlays#print', on: :collection
   end
 
   devise_for :users

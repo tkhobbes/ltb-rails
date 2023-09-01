@@ -34,7 +34,7 @@
       <% end %>
       <%= form_with url: print_inlays_path, class: 'mt-2 mb-2', method: :post, data: {
       turbo: 'false' } do |form| %>
-        <%= form.text_field :ids, class: 'input' %>
+        <%= form.hidden_field :ids, id: 'bookids' %>
         <%= submit_tag t('.print-books'), class: 'button is-primary' %>
       <% end %>
     </div>

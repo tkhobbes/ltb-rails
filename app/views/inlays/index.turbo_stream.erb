@@ -6,7 +6,3 @@
       .compact_blank
   ), list: 'full' %>
 <% end %>
-
-<%= turbo_stream.update 'selected_books' do %>
-  <%= render 'books/inlay_table', books: Book.where(id: params[:book_ids]), list: 'selected' %>
-<% end %>

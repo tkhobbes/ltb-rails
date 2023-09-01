@@ -8,13 +8,8 @@ class InlaysController < ApplicationController
   end
 
   def print
-    # example ids: 357,374,415,365,363,362
     respond_to do |format|
       format.html { @books = Book.where(id: params[:ids].split(',')).includes(:stories) }
     end
   end
-
-  # def inlay_params
-  #   params.require(:book).permit(:publication, :issue)
-  # end
 end

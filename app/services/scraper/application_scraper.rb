@@ -20,11 +20,11 @@ module Scraper
     # selenium-based scraping
     def setup_selenium
       options = Selenium::WebDriver::Chrome::Options.new
-      # options.add_argument('--headless')
-      # options.add_argument('--no-sandbox')
+      options.add_argument('--headless')
+      options.add_argument('--no-sandbox')
       # options.add_argument('--disable-dev-shm-usage')
       # options.add_argument('--remote-debugging-port=9222')
-      Selenium::WebDriver.for(:remote, url: 'http://192.168.0.40:4444/wd/hub', options:)
+      Selenium::WebDriver.for(:remote, url: Settings.selenium_path, options:)
     end
 
     # if using selenium-based scraping, more methods to find elements

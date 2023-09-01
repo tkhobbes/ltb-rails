@@ -64,6 +64,68 @@
           1
         ]
       },
+      "/Users/thomas/Programming/ltb-rails/config/initializers/config.rb": {
+        "lines": [
+          1,
+          null,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
       "/Users/thomas/Programming/ltb-rails/config/environments/test.rb": {
         "lines": [
           1,
@@ -2300,8 +2362,8 @@
           null,
           1,
           0,
-          null,
-          null,
+          0,
+          0,
           null,
           null,
           0,
@@ -2973,6 +3035,6 @@
         ]
       }
     },
-    "timestamp": 1693555247
+    "timestamp": 1693577143
   }
 }

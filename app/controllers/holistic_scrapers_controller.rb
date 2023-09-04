@@ -2,15 +2,17 @@
 class HolisticScrapersController < ApplicationController
   # create a new holistic scraper, get everything, and redirect
   def create
-    book = Scraper::HolisticScraper.new(params[:code]).scrape
-    respond_to do |format|
-      format.html do
-        if book.id.present?
-          redirect_to book_path(book), notice: t('.all-added')
-        else
-          redirect_to new_books_search_path, notice: t('.not-added')
-        end
-      end
-    end
+    AddBookJob.perform_async(params[:code])
+    redirect_to root_path, notice: t('.job-started')
+    # book = Scraper::HolisticScraper.new(params[:code]).scrape
+    # respond_to do |format|
+    #   format.html do
+    #     if book.id.present?
+    #       redirect_to book_path(book), notice: t('.all-added')
+    #     else
+    #       redirect_to new_books_search_path, notice: t('.not-added')
+    #     end
+    #   end
+    # end
   end
 end

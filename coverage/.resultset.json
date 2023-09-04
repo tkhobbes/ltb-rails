@@ -872,6 +872,17 @@
           null
         ]
       },
+      "/Users/thomas/Programming/ltb-rails/config/initializers/sidekiq.rb": {
+        "lines": [
+          1,
+          0,
+          null,
+          null,
+          1,
+          1,
+          null
+        ]
+      },
       "/Users/thomas/Programming/ltb-rails/spec/factories/artists.rb": {
         "lines": [
           1,
@@ -948,6 +959,12 @@
       "/Users/thomas/Programming/ltb-rails/config/routes.rb": {
         "lines": [
           1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
           1,
           null,
           1,
@@ -2831,6 +2848,26 @@
           null
         ]
       },
+      "/Users/thomas/Programming/ltb-rails/spec/sidekiq/add_book_job_spec.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/thomas/Programming/ltb-rails/app/sidekiq/add_book_job.rb": {
+        "lines": [
+          null,
+          1,
+          1,
+          null,
+          1,
+          0,
+          null,
+          null
+        ]
+      },
       "/Users/thomas/Programming/ltb-rails/spec/support/factories_spec.rb": {
         "lines": [
           null,
@@ -3035,6 +3072,6 @@
         ]
       }
     },
-    "timestamp": 1693577143
+    "timestamp": 1693812310
   }
 }

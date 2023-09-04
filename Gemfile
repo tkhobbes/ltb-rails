@@ -12,11 +12,12 @@ gem 'cssbundling-rails'
 gem 'image_processing', '~> 1.2'
 gem 'jsbundling-rails'
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
-# gem 'kredis'
+gem 'kredis'
 gem 'pg', '~> 1.1'
 gem 'pg_query'
 gem 'propshaft'
 gem 'puma', '~> 5.0'
+gem 'sidekiq'
 gem 'stimulus-rails'
 gem 'turbo-rails'
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -86,6 +87,5 @@ gem 'down' # download files
 gem 'http'
 gem 'httparty' # http client
 gem 'nokogiri' # html parser
-# experiment
 gem 'selenium-webdriver'
 

@@ -101,6 +101,7 @@ GEM
     config (4.2.1)
       deep_merge (~> 1.2, >= 1.2.1)
       dry-validation (~> 1.0, >= 1.0.0)
+    connection_pool (2.4.1)
     countries (5.4.0)
       unaccent (~> 0.3)
     country_select (8.0.1)
@@ -229,6 +230,10 @@ GEM
     jsbundling-rails (1.1.1)
       railties (>= 6.0.0)
     json (2.6.3)
+    kredis (1.5.0)
+      activemodel (>= 6.0.0)
+      activesupport (>= 6.0.0)
+      redis (>= 4.2, < 6)
     launchy (2.5.2)
       addressable (~> 2.8)
     letter_opener (1.8.1)
@@ -328,6 +333,10 @@ GEM
       zeitwerk (~> 2.5)
     rainbow (3.1.1)
     rake (13.0.6)
+    redis (5.0.7)
+      redis-client (>= 0.9.0)
+    redis-client (0.16.0)
+      connection_pool
     regexp_parser (2.7.0)
     reline (0.3.3)
       io-console (~> 0.5)
@@ -390,6 +399,11 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    sidekiq (7.1.2)
+      concurrent-ruby (< 2)
+      connection_pool (>= 2.3.0)
+      rack (>= 2.2.4)
+      redis-client (>= 0.14.0)
     simplecov (0.22.0)
       docile (~> 1.1)
       simplecov-html (~> 0.11)
@@ -467,6 +481,7 @@ DEPENDENCIES
   image_processing (~> 1.2)
   inline_svg
   jsbundling-rails
+  kredis
   letter_opener
   model_probe
   nokogiri
@@ -488,6 +503,7 @@ DEPENDENCIES
   rubocop-rails
   rubocop-rspec (>= 2.11.1)
   selenium-webdriver
+  sidekiq
   simplecov
   stimulus-rails
   turbo-rails

@@ -35,6 +35,7 @@
 /config/deployment
 Dockerfile
 docker-build.sh
+start.sh
 
 config/settings.local.yml
 config/settings/*.local.yml

@@ -87,5 +87,6 @@ gem 'down' # download files
 gem 'http'
 gem 'httparty' # http client
 gem 'nokogiri' # html parser
-gem 'selenium-webdriver'
+# gem 'selenium-webdriver'
+gem 'vessel'
 

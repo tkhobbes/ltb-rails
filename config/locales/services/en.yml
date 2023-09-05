@@ -7,6 +7,4 @@ en:
       cannot-attach: Something went wrong when trying to attach the picture.
   holistic_scrapers:
     create:
-      all-added: All stories and authors for this book have been added.
-      not-added: Some or all stories and authors for this book could not be added.
       job-started: Book is being added in the background.

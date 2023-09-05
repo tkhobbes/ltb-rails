@@ -36,7 +36,7 @@ group :development, :test do
   gem 'model_probe'
   gem 'pry-rails'
   gem 'rspec-rails'
-  gem 'webdrivers'
+  gem 'selenium-webdriver'
 end
 
 group :development do

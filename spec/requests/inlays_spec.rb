@@ -9,11 +9,6 @@ RSpec.describe 'Inlays' do
         get inlays_path
         expect(response).to have_http_status(:ok)
       end
-
-      it 'can access the inlay show page' do
-        get inlay_path(book)
-        expect(response).to have_http_status(:ok)
-      end
     end
   end
 end

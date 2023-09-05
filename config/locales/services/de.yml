@@ -7,6 +7,4 @@ de:
       cannot-attach: Beim Anhängen des Bildes ist ein Fehler aufgetreten.
   holistic_scrapers:
     create:
-      all-added: Alle Geschichten und Autoren für dieses Buch wurden hinzugefügt.
-      not-added: Einige oder alle Geschichten und Autoren für dieses Buch konnten nicht hinzugefügt werden.
       job-started: Buch wird im Hintegrund hinzugefügt.

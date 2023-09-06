@@ -9,6 +9,7 @@ gem 'rails', '~> 7.0.4', '>= 7.0.4.3'
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem 'bcrypt', '~> 3.1.7'
 gem 'cssbundling-rails'
+gem 'exception_notification'
 gem 'image_processing', '~> 1.2'
 gem 'jsbundling-rails'
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]

@@ -83,14 +83,21 @@ RSpec.configure do |config|
   config.include ViewComponent::SystemTestHelpers, type: :component
   config.include Capybara::RSpecMatchers, type: :component
 
-  Capybara.register_driver :chrome do |app|
-    Capybara::Selenium::Driver.new(app, browser: :chrome)
-  end
+  # Capybara.register_driver :chrome do |app|
+  #   Capybara::Selenium::Driver.new(app, browser: :chrome)
+  # end
 
-  Capybara.register_driver :headless_chrome do |app|
-    options = Selenium::WebDriver::Remote::Options.chrome(
-      'goog:chromeOptions': { args: %w(window-size=1400,1400) }
+  # Capybara.register_driver :headless_chrome do |app|
+  #   options = Selenium::WebDriver::Remote::Options.chrome(
+  #     'goog:chromeOptions': { args: %w(window-size=1400,1400) }
+  #   )
+  #   Capybara::Selenium::Driver.new app, browser: :chrome, options:
+  # end
+  options = Selenium::WebDriver::Options.chrome
+
+  Capybara.register_driver :headless do |app|
+    Capybara::Selenium::Driver.new(
+      app, browser: :chrome, options:
     )
-    Capybara::Selenium::Driver.new app, browser: :chrome, options:
   end
 end

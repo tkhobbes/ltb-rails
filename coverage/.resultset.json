@@ -562,6 +562,70 @@
           1
         ]
       },
+      "/Users/thomas/Programming/ltb-rails/config/initializers/exception_notification.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
       "/Users/thomas/Programming/ltb-rails/config/initializers/filter_parameter_logging.rb": {
         "lines": [
           null,
@@ -3025,6 +3089,6 @@
         ]
       }
     },
-    "timestamp": 1693994645
+    "timestamp": 1694160352
   }
 }

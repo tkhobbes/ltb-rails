@@ -11,7 +11,7 @@ module Scraper
       book = {}
       url = "https://inducks.org/issue.php?c=#{@book_id}"
       BookAttrs.start_urls(url)
-      BookAttrs.run { |b| book = b }
+      BookAttrs.run(driver_options: { process_timeout: 30 }) { |b| book = b }
       book.merge({ code: @book_id, url: })
     end
 

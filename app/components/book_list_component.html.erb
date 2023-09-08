@@ -8,21 +8,19 @@
     <div class="content">
       <p>
         <strong>
-          <%= link_to @story.title, story_path(@story) %>
+          <%= link_to @book.title, book_path(@book) %>
         </strong>
         <small>
-          <%= @story.published %>
+          <%= @book.published %>
         </small>
         <br>
         <%= information_list %>
-        <br>
-        <%= artists_list %>
       </p>
     </div>
   </div>
   <div class="media-right">
     <%= link_to t('.destroy'),
-      story_path(@story),
+      book_path(@book),
       class: 'delete',
       data: {
         turbo_method: :delete,

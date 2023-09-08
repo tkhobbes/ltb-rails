@@ -9,3 +9,7 @@ de:
     destroy: Löschen
   story_list_component:
     destroy: Geschichte löschen
+    confirm-delete: Diese Geschichte wirklich löschen?
+  book_list_component:
+    destroy: Buch löschen
+    confirm-delete: Dieses Buch wirklich löschen?

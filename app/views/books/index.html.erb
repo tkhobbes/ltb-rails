@@ -8,11 +8,19 @@
     </p>
   </div>
 </hero-box>
-<main-layout class="columns is-centered is-multiline mt-2">
-  <% @books.each do |book| %>
-    <main-box class="column is-12-tablet is-6-desktop is-4-fullhd">
-      <%= render BookCardComponent.new(book:) %>
-    </main-box>
-  <% end %>
-</main-layout>
+<% if request.path == root_path %>
+  <main-layout class="columns is-centered is-multiline mt-2">
+    <% @books.each do |book| %>
+      <main-box class="column is-12-tablet is-6-desktop is-4-fullhd">
+        <%= render BookCardComponent.new(book:) %>
+      </main-box>
+    <% end %>
+  </main-layout>
+<% else %>
+  <main-layout class="section is-centered mt-2">
+    <% @books.each do |book| %>
+      <%= render BookListComponent.new(book:) %>
+    <% end %>
+  </main-layout>
+<% end %>
 <%== render 'shared/pagy', pagy: @pagy %>

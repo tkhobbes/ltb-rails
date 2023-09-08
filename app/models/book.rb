@@ -9,6 +9,7 @@
 #  pages       :integer          default(0)
 #  publication :integer          default("ltb"), not null
 #  published   :integer
+#  sort_title  :string
 #  title       :string           not null
 #  url         :string
 #  created_at  :datetime         not null
@@ -48,11 +49,16 @@ class Book < ApplicationRecord
   validates :publication, presence: true
 
   # callbacks
+  before_save :set_sort_title
   # scopes
   # additional config (accepts_nested_attributes_for etc.)
   # public instance methods
   def long_title
     "#{Book.human_enum_name(:publication, publication)} #{issue} - #{title}"
+  end
+
+  def set_sort_title
+    self.sort_title = long_title
   end
 
   # protected instance methods

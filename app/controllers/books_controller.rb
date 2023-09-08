@@ -4,7 +4,7 @@ class BooksController < ApplicationController
 
   # this is the root path and can be accessed also for non-logged in users
   def index
-    @pagy, @books = pagy(Book.all.with_attached_cover.order(issue: :asc))
+    @pagy, @books = pagy(Book.all.with_attached_cover.order(sort_title: :asc))
   end
 
   # the show method can also be accessed for non-logged in users

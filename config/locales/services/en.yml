@@ -5,6 +5,10 @@ en:
       not-found: Picture not found
       attached: Picture attached
       cannot-attach: Something went wrong when trying to attach the picture.
+    scraper:
+      httperror: "Error: %{error}"
+      success: Data collected
+      nokogirierror: "Error: %{error}"
   holistic_scrapers:
     create:
       job-started: Book is being added in the background.

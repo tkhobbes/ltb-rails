@@ -1,35 +1,43 @@
 # everything for scrapers goes into one module
 module Scraper
   # scrape all stories in a book
-  # class BookStoryScraper < ApplicationScraper
   class BookStoryScraper
     # initialisation is the same as for book scrapers
     def initialize(book_id)
-      # super('issue', book_id)
       @book_id = book_id
-      # @driver = setup_selenium
     end
 
     # iterate through all different stories and get an array of codes
     def scrape
       result = []
       url = "https://inducks.org/issue.php?c=#{@book_id}"
-      BookStories.start_urls(url)
-      BookStories.run { |s| result << story_code(s[:url]) }
+      begin
+        BookStories.start_urls(url)
+        BookStories.run { |s| result << story_code(s[:url]) }
+        ReturnScraper.new(created: true, data: result, msg: I18n.t('services.scraper.success')).data
+      rescue Vessel::Error, Ferrum::Error => e
+        ReturnScraper.new(created: false, data: result, msg: I18n.t('services.scraper.httperror', error: e)).data
+      end
       result
-
-      # @driver.navigate.to @page
-      # result = []
-      # codes = css_elements(@driver, 'tr.normal .code .storycode .codeidentifier')
-      # codes.each do |code|
-      #   url = code.find_element(:css, 'a')&.attribute('href')
-      #   result << story_code(url) if url.present?
-      # end
-      # @driver.quit
-      # result
     end
 
     # return class
+    class ReturnScraper
+      attr_reader :data, :message
+
+      # this method smells of :reek:BooleanParameter
+      def initialize(created: false, data: nil, msg: '')
+        @created = created
+        @data = data
+        @message = msg
+      end
+
+      def created?
+        @created
+      end
+    end
+
+    # vessel parser class
     class BookStories < Vessel::Cargo
       domain 'inducks.org'
 

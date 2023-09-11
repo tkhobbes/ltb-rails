@@ -10,12 +10,33 @@ module Scraper
     def scrape
       book = {}
       url = "https://inducks.org/issue.php?c=#{@book_id}"
-      BookAttrs.start_urls(url)
-      BookAttrs.run(driver_options: { process_timeout: 30 }) { |b| book = b }
-      book.merge({ code: @book_id, url: })
+      begin
+        BookAttrs.start_urls(url)
+        BookAttrs.run(driver_options: { process_timeout: 30 }) { |b| book = b }
+        book.merge({ code: @book_id, url: })
+        ReturnScraper.new(created: true, data: book, msg: I18n.t('services.scraper.success')).data
+      rescue Vessel::Error, Ferrum::Error => e
+        ReturnScraper.new(created: false, data: book, msg: I18n.t('services.scraper.httperror', error: e)).data
+      end
     end
 
     # return class
+    class ReturnScraper
+      attr_reader :data, :message
+
+      # this method smells of :reek:BooleanParameter
+      def initialize(created: false, data: nil, msg: '')
+        @created = created
+        @data = data
+        @message = msg
+      end
+
+      def created?
+        @created
+      end
+    end
+
+    # vessel scraper class
     class BookAttrs < Vessel::Cargo
       domain 'inducks.org'
 

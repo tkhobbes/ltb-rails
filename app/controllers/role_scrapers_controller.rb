@@ -8,7 +8,7 @@ class RoleScrapersController < ApplicationController
     roles.each do |task, artist_code|
       # check whether all artists are there otherwise create them
       artist_id = Artist.find_by(code: artist_code)&.id ||
-                  Artist.create(Scraper::ArtistScraper.new(artist_code).scrape).id
+                  Artist.create(Scraper::ArtistScraper.new(artist_code).scrape.artist).id
       # create all roles for all artists based on the hash
       Role.create(story_id: @story.id, task:, artist_id:) unless artist_id.nil?
       respond_to do |format|

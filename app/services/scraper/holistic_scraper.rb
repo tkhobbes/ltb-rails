@@ -72,7 +72,7 @@ module Scraper
       roles = Scraper::RoleScraper.new(story.code).scrape
       roles.each do |task, artist_code|
         artist_id = Artist.find_by(code: artist_code)&.id ||
-                    Artist.create(Scraper::ArtistScraper.new(artist_code).scrape).id
+                    Artist.create(Scraper::ArtistScraper.new(artist_code).scrape.artist).id
         Role.create(story_id: story.id, task:, artist_id:) unless artist_id.nil?
         artists << artist_id
       end

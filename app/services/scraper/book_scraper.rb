@@ -13,7 +13,8 @@ module Scraper
       begin
         BookAttrs.start_urls(url)
         BookAttrs.run(driver_options: { process_timeout: 30 }) { |b| book = b }
-        book.merge({ code: @book_id, url: })
+        book[:code] = @book_id
+        book[:url] = url
         ReturnScraper.new(created: true, data: book, msg: I18n.t('services.scraper.success')).data
       rescue Vessel::Error, Ferrum::Error => e
         ReturnScraper.new(created: false, data: book, msg: I18n.t('services.scraper.httperror', error: e)).data

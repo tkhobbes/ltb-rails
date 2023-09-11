@@ -9,6 +9,8 @@ de:
       httperror: "Fehler: %{error}"
       success: Daten gesammelt
       nokogirierror: "Fehler: %{error}"
+      no-scraper: Keine Daten gefunden
+      no-artist: Kein Künstler gefunden
   holistic_scrapers:
     create:
       job-started: Buch wird im Hintegrund hinzugefügt.

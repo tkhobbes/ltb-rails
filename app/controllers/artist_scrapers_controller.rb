@@ -7,11 +7,13 @@ class ArtistScrapersController < ApplicationController
   def create
     result = Scraper::ArtistScraper.new(params[:code]).scrape
     if result.valid?
-      @artist_scraper = result.artist
-    else
-      respond_to do |format|
-        format.html { redirect_to new_artist_scraper_path, alert: result.message }
+      if Artist.find_by(code: @artist_scraper[:code]).present?
+        redirect_to new_artist_scraper_path, alert: I18n.t('.artist_scrapers.create.exists')
+      else
+        @artist_scraper = result.artist
       end
+    else
+      redirect_to new_artist_scraper_path, alert: result.message
     end
   end
 end

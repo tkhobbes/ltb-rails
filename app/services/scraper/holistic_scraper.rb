@@ -53,7 +53,7 @@ module Scraper
       story_codes = Scraper::BookStoryScraper.new(book.code).scrape
       story_codes.each_with_index do |story_code, index|
         story_id = Story.find_by(code: story_code)&.id ||
-                   Story.create(Scraper::StoryScraper.new(story_code).scrape).id
+                   Story.create(Scraper::StoryScraper.new(story_code).scrape.story).id
         BookEntry.create(book_id: book.id, story_id:, position: index + 1) unless story_id.nil?
         story_ids << story_id
       end

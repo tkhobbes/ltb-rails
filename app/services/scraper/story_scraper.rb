@@ -10,9 +10,10 @@ module Scraper
     # this method returns a hash of the scraped data.
     # Data will be nil if nothing found
     def scrape
-      return unless @scraper.created?
+      return ReturnStory.new(message: I18n.t('.services.scraper.no-scraper')) unless @scraper.created?
+      return ReturnStory.new(message: I18n.t('services.scraper.no-story')) if story_title.blank?
 
-      {
+      story = {
         code: @story_id,
         url: story_url,
         published: story_published,
@@ -22,17 +23,25 @@ module Scraper
         original_title: story_original_title,
         cover_url: story_cover_url
       }
-    end
-
-    def message
-      @scraper.message
-    end
-
-    def created?
-      @scraper.created?
+      ReturnStory.new(valid: true, story:, message: @scraper.message)
     end
 
     private
+
+    # return object
+    class ReturnStory
+      attr_reader :story, :message
+
+      def initialize(valid: false, story: nil, message: '')
+        @valid = valid
+        @story = story
+        @message = message
+      end
+
+      def valid?
+        @valid
+      end
+    end
 
     def story_title
       (@scraper.data.css('.subHeader span').text.presence || @scraper.data.css('.topHeader h1').text)

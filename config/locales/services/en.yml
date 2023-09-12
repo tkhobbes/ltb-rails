@@ -11,6 +11,7 @@ en:
       nokogirierror: "Error: %{error}"
       no-scraper: No data found
       no-artist: No artist found
+      no-story: No story found
   holistic_scrapers:
     create:
       job-started: Book is being added in the background.

@@ -30,6 +30,8 @@ module Scraper
         artist = Artist.find(artist_id)
         retrieve_artist_portrait(artist)
       end
+
+      puts "Book #{book.title} created"
       # return the created book
       book
     end
@@ -69,7 +71,7 @@ module Scraper
 
     def retrieve_roles(story)
       artists = []
-      roles = Scraper::RoleScraper.new(story.code).scrape
+      roles = Scraper::RoleScraper.new(story.code).scrape.roles
       roles.each do |task, artist_code|
         artist_id = Artist.find_by(code: artist_code)&.id ||
                     Artist.create(Scraper::ArtistScraper.new(artist_code).scrape.artist).id

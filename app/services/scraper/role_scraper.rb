@@ -12,22 +12,32 @@ module Scraper
     # iterate through all different tasks (enum in Role model) and get artist code
     # for each role present
     def scrape
-      result = {}
+      roles = {}
       Role.tasks.each_key do |task|
-        result[task] = artist_code(one_role(task)) if one_role(task).present?
+        roles[task] = artist_code(one_role(task)) if one_role(task).present?
       end
-      result
-    end
+      return ReturnRoles.new(message: I18n.t('.services.scraper.no-scraper')) unless @scraper.created?
+      return ReturnRoles.new(message: I18n.t('services.scraper.no-roles')) if roles.blank?
 
-    def message
-      @scraper.message
-    end
-
-    def created?
-      @scraper.created?
+      ReturnRoles.new(valid: true, roles:, message: @scraper.message)
     end
 
     private
+
+    # Return object with Roles data
+    class ReturnRoles
+      attr_reader :roles, :message
+
+      def initialize(valid: false, roles: {}, message: '')
+        @valid = valid
+        @roles = roles
+        @message = message
+      end
+
+      def valid?
+        @valid
+      end
+    end
 
     # scrape artist link (url) for a role
     def one_role(role_type)

@@ -13,7 +13,7 @@ module Scraper
       url = "https://inducks.org/issue.php?c=#{@book_id}"
       begin
         BookStories.start_urls(url)
-        BookAttrs.run(driver: :ferrum, process_timeout: 30, xvfb: true) { |s| stories << story_code(s[:url]) }
+        BookStories.run(driver: :ferrum, process_timeout: 30, xvfb: true) { |s| stories << story_code(s[:url]) }
         if stories.blank?
           ReturnScraper.new(created: false, msg: I18n.t('services.scraper.no-stories'))
         else

@@ -39,7 +39,7 @@ module Scraper
     private
 
     def retrieve_book(code)
-      book_attributes = Scraper::BookScraper.new(code).scrape
+      book_attributes = Scraper::BookScraper.new(code).scrape.data
       Book.create(book_attributes)
     end
 

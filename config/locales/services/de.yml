@@ -12,6 +12,8 @@ de:
       no-scraper: Keine Daten gefunden
       no-artist: Kein Künstler gefunden
       no-story: Keine Geschichte gefunden
+      no-roles: Keine Rollen gefunden
+      no-book: Kein Buch gefunden
   holistic_scrapers:
     create:
       job-started: Buch wird im Hintegrund hinzugefügt.

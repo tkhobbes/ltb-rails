@@ -10,7 +10,7 @@ module Scraper
     # this method returns a hash of the scraped data.
     # Data will be nil if nothing found
     def scrape
-      return ReturnStory.new(message: I18n.t('.services.scraper.no-scraper')) unless @scraper.created?
+      return ReturnStory.new(message: I18n.t('services.scraper.no-scraper')) unless @scraper.created?
       return ReturnStory.new(message: I18n.t('services.scraper.no-story')) if story_title.blank?
 
       story = {

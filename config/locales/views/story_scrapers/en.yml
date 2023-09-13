@@ -7,7 +7,5 @@ en:
       code: Code
       submit-label: Add Story
     create:
-      not-found: No story with this code found.
-      again: Try again
       exists: Story already exists.
       add-story: Add Story

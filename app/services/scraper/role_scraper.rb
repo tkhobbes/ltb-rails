@@ -16,7 +16,7 @@ module Scraper
       Role.tasks.each_key do |task|
         roles[task] = artist_code(one_role(task)) if one_role(task).present?
       end
-      return ReturnRoles.new(message: I18n.t('.services.scraper.no-scraper')) unless @scraper.created?
+      return ReturnRoles.new(message: I18n.t('services.scraper.no-scraper')) unless @scraper.created?
       return ReturnRoles.new(message: I18n.t('services.scraper.no-roles')) if roles.blank?
 
       ReturnRoles.new(valid: true, roles:, message: @scraper.message)

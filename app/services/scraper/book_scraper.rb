@@ -12,12 +12,16 @@ module Scraper
       url = "https://inducks.org/issue.php?c=#{@book_id}"
       begin
         BookAttrs.start_urls(url)
-        BookAttrs.run(driver_options: { process_timeout: 30 }) { |b| book = b }
+        BookAttrs.run(driver: :ferrum, process_timeout: 30) { |b| book = b }
         book[:code] = @book_id
         book[:url] = url
-        ReturnScraper.new(created: true, data: book, msg: I18n.t('services.scraper.success')).data
+        if book[:title].blank?
+          ReturnScraper.new(created: false, msg: I18n.t('services.scraper.no-book'))
+        else
+          ReturnScraper.new(created: true, data: book, msg: I18n.t('services.scraper.success'))
+        end
       rescue Vessel::Error, Ferrum::Error => e
-        ReturnScraper.new(created: false, data: book, msg: I18n.t('services.scraper.httperror', error: e)).data
+        ReturnScraper.new(created: false, msg: I18n.t('services.scraper.httperror', error: e))
       end
     end
 

@@ -52,7 +52,7 @@ module Scraper
 
     def retrieve_story_entries(book)
       story_ids = []
-      story_codes = Scraper::BookStoryScraper.new(book.code).scrape
+      story_codes = Scraper::BookStoryScraper.new(book.code).scrape.data
       story_codes.each_with_index do |story_code, index|
         story_id = Story.find_by(code: story_code)&.id ||
                    Story.create(Scraper::StoryScraper.new(story_code).scrape.story).id

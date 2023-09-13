@@ -12,7 +12,7 @@ module Scraper
       url = "https://inducks.org/issue.php?c=#{@book_id}"
       begin
         BookAttrs.start_urls(url)
-        BookAttrs.run(driver: :ferrum, process_timeout: 30) { |b| book = b }
+        BookAttrs.run(driver: :ferrum, process_timeout: 30, xvfb: true) { |b| book = b }
         book[:code] = @book_id
         book[:url] = url
         if book[:title].blank?

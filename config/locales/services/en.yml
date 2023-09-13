@@ -14,6 +14,7 @@ en:
       no-story: No story found
       no-roles: No roles found
       no-book: No book found
+      no-stories: No stories found
   holistic_scrapers:
     create:
       job-started: Book is being added in the background.

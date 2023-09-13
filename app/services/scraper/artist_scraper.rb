@@ -10,9 +10,10 @@ module Scraper
     # this method returns a hash of the scraped data.
     # Data will be nil if nothing found
     def scrape
-      return unless @scraper.created?
+      return ReturnArtist.new(message: I18n.t('services.scraper.no-scraper')) unless @scraper.created?
+      return ReturnArtist.new(message: I18n.t('services.scraper.no-artist')) if artist_name.blank?
 
-      {
+      artist = {
         code: @artist_id,
         name: artist_name,
         born: artist_born,
@@ -20,17 +21,25 @@ module Scraper
         nationality: artist_nationality,
         portrait_url: artist_portrait_url
       }
-    end
-
-    def message
-      @scraper.message
-    end
-
-    def created?
-      @scraper.created?
+      ReturnArtist.new(valid: true, artist:, message: @scraper.message)
     end
 
     private
+
+    # Return object with Artist data
+    class ReturnArtist
+      attr_reader :artist, :message
+
+      def initialize(valid: false, artist: nil, message: '')
+        @valid = valid
+        @artist = artist
+        @message = message
+      end
+
+      def valid?
+        @valid
+      end
+    end
 
     # method must not return nil - we set a default name just in case
     def artist_name

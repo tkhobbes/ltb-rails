@@ -1,48 +1,36 @@
 <%= turbo_frame_tag 'add-artist' do %>
-  <% if @artist_scraper[:name] == "" %>
-    <p class="mb-2"><%= t('.not-found') %></p>
-    <%= link_to t('.again'), new_artist_scraper_path, class: 'button is-primary', data: {
-      turbo_frame: '_top'
-    } %>
-  <% elsif Artist.find_by(code: @artist_scraper[:code]).present? %>
-    <p class="mb2"><%= t('.exists') %></p>
-    <%= link_to t('.again'), new_artist_scraper_path, class: 'button is-primary', data: {
-      turbo_frame: '_top'
-    } %>
-  <% else %>
-    <table class="table">
-      <thead>
-        <th>Code</th>
-        <th>Name</th>
-        <th>Born</th>
-        <th>Died</th>
-        <th>Nationality</th>
-        <th>Portrait</th>
-      </thead>
-      <tbody>
-        <td><%= @artist_scraper[:code] %></td>
-        <td><%= @artist_scraper[:name] %></td>
-        <td><%= @artist_scraper[:born] %></td>
-        <td><%= @artist_scraper[:died] %></td>
-        <td><%= @artist_scraper[:nationality] %></td>
-        <td>
-          <% if @artist_scraper[:portrait_url] %>
-            <%= image_tag @artist_scraper[:portrait_url] %>
-          <% else %>
-            <%= inline_svg_tag('person.svg') %>
-          <% end %>
-        </td>
-      </tbody>
-    </table>
-    <%= form_with model: Artist, url: artists_path, method: :post, data: {
-      turbo_frame: '_top' } do |form| %>
-      <%= form.hidden_field :code, value: @artist_scraper[:code] %>
-      <%= form.hidden_field :name, value: @artist_scraper[:name] %>
-      <%= form.hidden_field :born, value: @artist_scraper[:born] %>
-      <%= form.hidden_field :died, value: @artist_scraper[:died] %>
-      <%= form.hidden_field :nationality, value: @artist_scraper[:nationality] %>
-      <%= form.hidden_field :portrait_url, value: @artist_scraper[:portrait_url] %>
-      <%= form.submit t('.add-artist'), class: 'button is-primary is-small' %>
-    <% end %>
+  <table class="table">
+    <thead>
+      <th>Code</th>
+      <th>Name</th>
+      <th>Born</th>
+      <th>Died</th>
+      <th>Nationality</th>
+      <th>Portrait</th>
+    </thead>
+    <tbody>
+      <td><%= @artist_scraper[:code] %></td>
+      <td><%= @artist_scraper[:name] %></td>
+      <td><%= @artist_scraper[:born] %></td>
+      <td><%= @artist_scraper[:died] %></td>
+      <td><%= @artist_scraper[:nationality] %></td>
+      <td>
+        <% if @artist_scraper[:portrait_url] %>
+          <%= image_tag @artist_scraper[:portrait_url] %>
+        <% else %>
+          <%= inline_svg_tag('person.svg') %>
+        <% end %>
+      </td>
+    </tbody>
+  </table>
+  <%= form_with model: Artist, url: artists_path, method: :post, data: {
+    turbo_frame: '_top' } do |form| %>
+    <%= form.hidden_field :code, value: @artist_scraper[:code] %>
+    <%= form.hidden_field :name, value: @artist_scraper[:name] %>
+    <%= form.hidden_field :born, value: @artist_scraper[:born] %>
+    <%= form.hidden_field :died, value: @artist_scraper[:died] %>
+    <%= form.hidden_field :nationality, value: @artist_scraper[:nationality] %>
+    <%= form.hidden_field :portrait_url, value: @artist_scraper[:portrait_url] %>
+    <%= form.submit t('.add-artist'), class: 'button is-primary is-small' %>
   <% end %>
 <% end %>

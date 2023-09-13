@@ -9,16 +9,19 @@ module Scraper
 
     # iterate through all different stories and get an array of codes
     def scrape
-      result = []
+      stories = []
       url = "https://inducks.org/issue.php?c=#{@book_id}"
       begin
         BookStories.start_urls(url)
-        BookStories.run { |s| result << story_code(s[:url]) }
-        ReturnScraper.new(created: true, data: result, msg: I18n.t('services.scraper.success')).data
+        BookAttrs.run(driver: :ferrum, process_timeout: 30, xvfb: true) { |s| stories << story_code(s[:url]) }
+        if stories.blank?
+          ReturnScraper.new(created: false, msg: I18n.t('services.scraper.no-stories'))
+        else
+          ReturnScraper.new(created: true, data: stories, msg: I18n.t('services.scraper.success'))
+        end
       rescue Vessel::Error, Ferrum::Error => e
-        ReturnScraper.new(created: false, data: result, msg: I18n.t('services.scraper.httperror', error: e)).data
+        ReturnScraper.new(created: false, msg: I18n.t('services.scraper.httperror', error: e))
       end
-      result
     end
 
     # return class

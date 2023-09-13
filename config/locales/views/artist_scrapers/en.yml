@@ -7,7 +7,5 @@ en:
       code: Code
       submit-label: Add artist
     create:
-      not-found: No artist with this code found.
-      again: Try again
       exists: Artist already exists.
       add-artist: Add Artist

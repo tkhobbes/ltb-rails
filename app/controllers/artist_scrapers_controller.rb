@@ -5,6 +5,15 @@ class ArtistScrapersController < ApplicationController
 
   # show the artists found on INDUCKS for the code
   def create
-    @artist_scraper = Scraper::ArtistScraper.new(params[:code]).scrape
+    result = Scraper::ArtistScraper.new(params[:code]).scrape
+    if result.valid?
+      if Artist.find_by(code: @artist_scraper[:code]).present?
+        redirect_to new_artist_scraper_path, alert: I18n.t('artist_scrapers.create.exists')
+      else
+        @artist_scraper = result.artist
+      end
+    else
+      redirect_to new_artist_scraper_path, alert: result.message
+    end
   end
 end

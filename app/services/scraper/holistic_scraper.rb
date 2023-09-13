@@ -30,6 +30,8 @@ module Scraper
         artist = Artist.find(artist_id)
         retrieve_artist_portrait(artist)
       end
+
+      puts "Book #{book.title} created"
       # return the created book
       book
     end
@@ -37,7 +39,7 @@ module Scraper
     private
 
     def retrieve_book(code)
-      book_attributes = Scraper::BookScraper.new(code).scrape
+      book_attributes = Scraper::BookScraper.new(code).scrape.data
       Book.create(book_attributes)
     end
 
@@ -50,10 +52,10 @@ module Scraper
 
     def retrieve_story_entries(book)
       story_ids = []
-      story_codes = Scraper::BookStoryScraper.new(book.code).scrape
+      story_codes = Scraper::BookStoryScraper.new(book.code).scrape.data
       story_codes.each_with_index do |story_code, index|
         story_id = Story.find_by(code: story_code)&.id ||
-                   Story.create(Scraper::StoryScraper.new(story_code).scrape).id
+                   Story.create(Scraper::StoryScraper.new(story_code).scrape.story).id
         BookEntry.create(book_id: book.id, story_id:, position: index + 1) unless story_id.nil?
         story_ids << story_id
       end
@@ -69,10 +71,10 @@ module Scraper
 
     def retrieve_roles(story)
       artists = []
-      roles = Scraper::RoleScraper.new(story.code).scrape
+      roles = Scraper::RoleScraper.new(story.code).scrape.roles
       roles.each do |task, artist_code|
         artist_id = Artist.find_by(code: artist_code)&.id ||
-                    Artist.create(Scraper::ArtistScraper.new(artist_code).scrape).id
+                    Artist.create(Scraper::ArtistScraper.new(artist_code).scrape.artist).id
         Role.create(story_id: story.id, task:, artist_id:) unless artist_id.nil?
         artists << artist_id
       end

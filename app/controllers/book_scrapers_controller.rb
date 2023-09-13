@@ -5,6 +5,11 @@ class BookScrapersController < ApplicationController
 
   # show the artists found on INDUCKS for the code
   def create
-    @book_scraper = Scraper::BookScraper.new(params[:code]).scrape
+    result = Scraper::BookScraper.new(params[:code]).scrape
+    if result.created?
+      @book_scraper = result.data
+    else
+      redirect_to new_book_scraper_path, alert: result.message
+    end
   end
 end

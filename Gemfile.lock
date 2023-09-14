@@ -197,6 +197,7 @@ GEM
       activesupport (>= 5.0)
     google-protobuf (3.22.3-arm64-darwin)
     highline (2.1.0)
+    hot_flash (1.1)
     http (5.1.1)
       addressable (~> 2.8)
       http-cookie (~> 1.0)
@@ -484,6 +485,7 @@ DEPENDENCIES
   exception_notification
   factory_bot_rails
   faker
+  hot_flash
   http
   httparty
   i18n-country-translations

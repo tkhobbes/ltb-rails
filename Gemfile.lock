@@ -517,7 +517,7 @@ DEPENDENCIES
   prosopite
   pry-rails
   puma (~> 5.0)
-  rails (~> 7.0.5, >= 7.0.5.1)
+  rails (~> 7.0.8)
   rails-erd
   rails-i18n
   rspec-rails

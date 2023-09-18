@@ -40,7 +40,7 @@
           <% if current_user.notifications.any? %>
             <div class="navbar-dropdown is-right">
               <% current_user.notifications.order(created_at: :desc).limit(5).each do |notification| %>
-                <%= link_to notification.to_notification.message, notifications_path(notification), class: "navbar-item #{notification.read? ? 'has-text-grey' : 'has-text-primary-dark' }" %>
+                <%= link_to notification.to_notification.message, notification.to_notification.url, class: "navbar-item #{notification.read? ? 'has-text-grey' : 'has-text-primary-dark' }" %>
               <% end %>
               <hr class="navbar-divider">
               <%= link_to t('.all-notifications'), notifications_path, class: 'navbar-item' %>

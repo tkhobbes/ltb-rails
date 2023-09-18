@@ -4,3 +4,5 @@ de:
       time_ago: "vor %{time}"
     book_notification:
       message: "'%{book}' hinzugefügt"
+    error_notification:
+      message: "'%{code}' konnte nicht hinzugefügt werden. Fehler '%{error}'"

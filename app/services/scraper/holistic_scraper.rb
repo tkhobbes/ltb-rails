@@ -12,8 +12,10 @@ module Scraper
       artists = []
       # 1. scrape the book and retrieve it
       book = retrieve_book(@code)
-      raise ActiveRecord::Rollback if book.id.blank?
-
+      if book.id.blank?
+        ErrorNotification.with(error: 'Book not found', code: @code).deliver_later(User.all)
+        raise ActiveRecord::Rollback
+      end
       # 1.a retrieve the cover for the book
       retrieve_book_cover(book)
       # 2. go through the book_entries and scrape all stories. Store stories in an array
@@ -30,13 +32,16 @@ module Scraper
         artist = Artist.find(artist_id)
         retrieve_artist_portrait(artist)
       end
-
       BookNotification.with(book:).deliver_later(User.all)
       # return the created book
       book
     end
 
     private
+
+    def error_notification
+      ErrorNotification.deliver_later(User.all)
+    end
 
     def retrieve_book(code)
       book_attributes = Scraper::BookScraper.new(code).scrape.data

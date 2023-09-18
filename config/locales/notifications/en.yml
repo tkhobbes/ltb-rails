@@ -1,0 +1,6 @@
+en:
+  notifications:
+    notification:
+      time_ago: "%{time} ago"
+    book_notification:
+      message: "'%{book}' added}"

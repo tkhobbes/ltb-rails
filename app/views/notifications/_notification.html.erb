@@ -1,0 +1,21 @@
+<article class="media">
+  <div class="media-content">
+    <div class="content">
+      <p class="mb-2 <%= notification.read? ? 'has-text-grey' : 'has-text-primary-dark'%>">
+        <strong>
+            <%= link_to notification.to_notification.message,
+              notification.to_notification.url,
+              class: notification.read? ? 'has-text-grey' : 'has-text-primary-dark' %>
+        </strong>
+        <small>
+          (<%= t('.time_ago', time: time_ago_in_words(notification.created_at)) %>)
+        </small>
+      </p>
+    </div>
+  </div>
+  <div class="media-right">
+    <% if notification.unread? %>
+      <a href="#"><%= t('.read') %></a>
+    <% end %>
+  </div>
+</article>

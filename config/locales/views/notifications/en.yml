@@ -1,0 +1,6 @@
+en:
+  notifications:
+    index:
+      title: Your Notifications
+    notification:
+      read: Read

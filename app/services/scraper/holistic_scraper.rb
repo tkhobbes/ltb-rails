@@ -31,7 +31,7 @@ module Scraper
         retrieve_artist_portrait(artist)
       end
 
-      Rails.logger.info "Book #{book.code} added to database"
+      BookNotification.with(book:).deliver_later(User.all)
       # return the created book
       book
     end

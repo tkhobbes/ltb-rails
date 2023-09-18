@@ -1,0 +1,6 @@
+de:
+  notifications:
+    index:
+      title: Deine Benachrichtigungen
+    notification:
+      read: Gelesen

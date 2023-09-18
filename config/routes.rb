@@ -29,5 +29,7 @@ Rails.application.routes.draw do
     post :print, to: 'inlays#print', on: :collection
   end
 
+  resources :notifications, only: %i[index]
+
   devise_for :users
 end

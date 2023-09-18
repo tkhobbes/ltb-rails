@@ -21,13 +21,31 @@
     </div>
     <div class="navbar-end">
       <% if user_signed_in? %>
-        <div class="navbar-item has-dropdown is-hoverable mr-4">
+        <div class="navbar-item has-dropdown is-hoverable">
           <p class="navbar-link"><%= current_user.email %></p>
           <div class="navbar-dropdown is-right">
             <%= link_to 'Profile', edit_user_registration_path, class: 'navbar-item' %>
             <hr class="navbar-divider">
             <%= link_to 'Logout', '/users/sign_out', class: 'navbar-item', data: { turbo_method: :delete } %>
           </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable mr-4">
+          <%= link_to notifications_path, class: 'navbar-link' do %>
+            <% if current_user.notifications.unread.any? %>
+              <%= inline_svg_tag('bell-full.svg', height: '1.5em') %>
+            <% else %>
+              <%= inline_svg_tag('bell.svg', height: '1.5em') %>
+            <% end %>
+          <% end %>
+          <% if current_user.notifications.any? %>
+            <div class="navbar-dropdown is-right">
+              <% current_user.notifications.order(created_at: :desc).limit(5).each do |notification| %>
+                <%= link_to notification.to_notification.message, notifications_path(notification), class: "navbar-item #{notification.read? ? 'has-text-grey' : 'has-text-primary-dark' }" %>
+              <% end %>
+              <hr class="navbar-divider">
+              <%= link_to t('.all-notifications'), notifications_path, class: 'navbar-item' %>
+            </div>
+          <% end %>
         </div>
       <% else %>
         <div class="navbar-item">

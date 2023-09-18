@@ -1,0 +1,14 @@
+<hero-box class="hero is-primary">
+  <div class="hero-body">
+    <p class="title is-family-secondary">
+      <%= t('.title') %>
+    </p>
+  </div>
+</hero-box>
+<main-layout class="section is-centered mt-2">
+  <main-box class="column box">
+    <%= turbo_frame_tag 'notifications' do %>
+      <%= render @notifications %>
+    <% end %>
+  </main-box>
+</main-layout>

@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.2.1'
 
 # Rails Core Gems
-gem 'rails', '~> 7.0.4', '>= 7.0.4.3'
+gem 'rails', '~> 7.0.8'
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem 'bcrypt', '~> 3.1.7'
@@ -78,10 +78,12 @@ gem 'hot_flash'
 gem 'inline_svg'
 gem 'pagy'
 
-
 # Application gems: Authentication and Security
 gem 'devise'
 gem 'devise-i18n'
+
+# application gems: Notifications
+gem 'noticed'
 
 # Application gems: Network and scraping
 gem 'config'
@@ -91,4 +93,3 @@ gem 'httparty' # http client
 gem 'nokogiri' # html parser
 # gem 'selenium-webdriver'
 gem 'vessel'
-

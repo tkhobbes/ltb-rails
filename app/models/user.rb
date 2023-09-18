@@ -29,6 +29,8 @@ class User < ApplicationRecord
   # constants
   #  class methods
   # relationships
+  has_many :notifications, as: :recipient, dependent: :destroy
+
   # validations
   validates :email, presence: true, uniqueness: true
 

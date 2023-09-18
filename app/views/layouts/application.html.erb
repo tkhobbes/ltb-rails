@@ -15,7 +15,7 @@
     <section class="section m-0 p-0">
       <layout-container class="container">
         <layout-columns class="columns p-1 mb-1">
-          <%= render 'shared/sidebar' if current_user %>
+          <%= render 'shared/sidebar' if user_signed_in? %>
           <main class="column m-1 px-5 py-3 is-relative">
             <%= render 'shared/flashes' %>
             <%= yield %>

@@ -1001,6 +1001,18 @@
           null
         ]
       },
+      "/Users/thomas/Programming/ltb-rails/spec/factories/notifications.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
       "/Users/thomas/Programming/ltb-rails/spec/factories/roles.rb": {
         "lines": [
           1,
@@ -1071,6 +1083,8 @@
           null,
           null,
           1,
+          null,
+          1,
           null
         ]
       },
@@ -1106,6 +1120,8 @@
           null,
           null,
           null,
+          null,
+          1,
           null,
           null,
           1,
@@ -1781,6 +1797,41 @@
           null,
           null,
           null,
+          null
+        ]
+      },
+      "/Users/thomas/Programming/ltb-rails/spec/models/notification_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/thomas/Programming/ltb-rails/app/models/notification.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
           null
         ]
       },
@@ -3096,15 +3147,15 @@
           null,
           1,
           1,
-          6,
+          7,
           null,
-          6,
+          7,
           0,
           0,
           null,
           null,
           null,
-          6,
+          7,
           0,
           0,
           0,
@@ -3291,6 +3342,6 @@
         ]
       }
     },
-    "timestamp": 1694693840
+    "timestamp": 1695035357
   }
 }

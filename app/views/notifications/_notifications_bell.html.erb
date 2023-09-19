@@ -1,0 +1,7 @@
+<%= link_to notifications_path, class: 'navbar-link', data: { turbo_frame: '_top' } do %>
+  <% if user.notifications.unread.any? %>
+    <%= inline_svg_tag('bell-full.svg', height: '1.5em') %>
+  <% else %>
+    <%= inline_svg_tag('bell.svg', height: '1.5em') %>
+  <% end %>
+<% end %>

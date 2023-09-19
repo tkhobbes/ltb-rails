@@ -19,4 +19,29 @@
 class Notification < ApplicationRecord
   include Noticed::Model
   belongs_to :recipient, polymorphic: true
+
+  after_create_commit :broadcast_to_recipient
+
+  private
+
+  def broadcast_to_recipient
+    broadcast_update_later_to(
+      recipient,
+      :notifications_top,
+      target: 'notifications_bell',
+      partial: 'notifications/notifications_bell',
+      locals: {
+        user: recipient
+      }
+    )
+    broadcast_prepend_later_to(
+      recipient,
+      :public_notifications,
+      target: 'notifications_menu',
+      partial: 'notifications/notification_navi',
+      locals: {
+        notification: self
+      }
+    )
+  end
 end

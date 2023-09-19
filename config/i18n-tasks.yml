@@ -63,6 +63,7 @@ search:
     - app/controllers
     - app/helpers
     - app/mailers
+    - app/notifications
     - app/services
     - app/views
 
@@ -118,6 +119,7 @@ search:
 ignore_missing:
   - "errors.messages.{accepted,blank,invalid,too_short,too_long,not_saved}"
   - "{devise,simple_form}.*"
+  - "*.message.*" # weird behaviours with notification messages
 ## Consider these keys used:
 ignore_unused:
   - "activerecord.attributes.*"
@@ -125,6 +127,7 @@ ignore_unused:
   - "{devise}.*"
   - "errors.messages.*"
   - "helpers.label.book.*"
+  - "notifications.*" # weird behaviours with notification messages
 # - 'simple_form.{yes,no}'
 # - 'simple_form.{placeholders,hints,labels}.*'
 # - 'simple_form.{error_notification,required}.:'

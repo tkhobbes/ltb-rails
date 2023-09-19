@@ -6,9 +6,7 @@
   </div>
 </hero-box>
 <main-layout class="section is-centered mt-2">
-  <main-box class="column box">
-    <%= turbo_frame_tag 'notifications' do %>
-      <%= render @notifications %>
-    <% end %>
-  </main-box>
+  <%= turbo_frame_tag 'notifications' do %>
+    <%= render @notifications %>
+  <% end %>
 </main-layout>

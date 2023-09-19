@@ -1,21 +1,29 @@
-<article class="media">
-  <div class="media-content">
-    <div class="content">
-      <p class="mb-2 <%= notification.read? ? 'has-text-grey' : 'has-text-primary-dark'%>">
-        <strong>
-            <%= link_to notification.to_notification.message,
-              notification.to_notification.url,
-              class: notification.read? ? 'has-text-grey' : 'has-text-primary-dark' %>
-        </strong>
-        <small>
-          (<%= t('.time_ago', time: time_ago_in_words(notification.created_at)) %>)
-        </small>
-      </p>
+<%= turbo_frame_tag dom_id(notification) do %>
+  <article class="media mb-2" data-controller="notification-read" data-notification-read-id-value="<%= notification.id %>">
+    <div class="media-content">
+      <div class="content">
+        <p class="<%= notification.read? ? 'has-text-grey' : 'has-text-primary-dark'%>">
+          <strong>
+              <%= link_to notification.to_notification.message,
+                notification.to_notification.url,
+                class: notification.read? ? 'has-text-grey' : 'has-text-primary-dark',
+                data: {
+                  turbo_frame: '_top',
+                  action: 'click->notification-read#markAsRead'
+                } %>
+          </strong>
+          <small>
+            (<%= t('.time_ago', time: time_ago_in_words(notification.created_at)) %>)
+          </small>
+        </p>
+      </div>
     </div>
-  </div>
-  <div class="media-right">
-    <% if notification.unread? %>
-      <a href="#"><%= t('.read') %></a>
-    <% end %>
-  </div>
-</article>
+    <div class="media-right">
+      <% if notification.unread? %>
+        <%= button_to read_notification_path(notification), class: 'button is-info is-small', method: :post do %>
+          <%= inline_svg_tag 'tick.svg', height: '1.5em' %>
+        <% end %>
+      <% end %>
+    </div>
+  </article>
+<% end %>

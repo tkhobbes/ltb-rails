@@ -14,7 +14,8 @@ module Scraper
       book = retrieve_book(@code)
       if book.id.blank?
         ErrorNotification.with(error: 'Book not found', code: @code).deliver_later(User.all)
-        raise ActiveRecord::Rollback
+        return
+        # raise ActiveRecord::Rollback
       end
       # 1.a retrieve the cover for the book
       retrieve_book_cover(book)

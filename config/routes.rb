@@ -29,7 +29,10 @@ Rails.application.routes.draw do
     post :print, to: 'inlays#print', on: :collection
   end
 
-  resources :notifications, only: %i[index]
+  resources :notifications, only: %i[index] do
+    post :read, to: 'notifications#read', on: :member
+    delete :read, to: 'notifications#unread', on: :member
+  end
 
   devise_for :users
 end

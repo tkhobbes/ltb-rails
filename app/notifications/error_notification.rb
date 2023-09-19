@@ -18,6 +18,6 @@ class ErrorNotification < Noticed::Base
   end
 
   def url
-    root_path
+    '#'
   end
 end

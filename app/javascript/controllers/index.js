@@ -13,5 +13,8 @@ application.register("inlay-select", InlaySelectController)
 import NavbarController from "./navbar_controller"
 application.register("navbar", NavbarController)
 
+import NotificationReadController from "./notification_read_controller"
+application.register("notification-read", NotificationReadController)
+
 import TagsInputController from "./tags_input_controller"
 application.register("tags-input", TagsInputController)

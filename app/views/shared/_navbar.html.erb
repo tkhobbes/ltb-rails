@@ -30,17 +30,17 @@
           </div>
         </div>
         <div class="navbar-item has-dropdown is-hoverable mr-4">
-          <%= link_to notifications_path, class: 'navbar-link' do %>
-            <% if current_user.notifications.unread.any? %>
-              <%= inline_svg_tag('bell-full.svg', height: '1.5em') %>
-            <% else %>
-              <%= inline_svg_tag('bell.svg', height: '1.5em') %>
-            <% end %>
+          <%= turbo_stream_from current_user, :notifications_top %>
+          <%= turbo_frame_tag 'notifications_bell', class: 'is-flex is-align-items-center' do %>
+            <%= render 'notifications/notifications_bell', user: current_user %>
           <% end %>
           <% if current_user.notifications.any? %>
-            <div class="navbar-dropdown is-right">
-              <% current_user.notifications.order(created_at: :desc).limit(5).each do |notification| %>
-                <%= link_to notification.to_notification.message, notification.to_notification.url, class: "navbar-item #{notification.read? ? 'has-text-grey' : 'has-text-primary-dark' }" %>
+            <div class="navbar-dropdown is-right" id="notifications-list">
+              <%= turbo_stream_from current_user, :public_notifications %>
+              <%= turbo_frame_tag 'notifications_menu' do %>
+                <% current_user.notifications.order(created_at: :desc).limit(5).each do |notification| %>
+                  <%= render 'notifications/notification_navi', notification: %>
+                <% end %>
               <% end %>
               <hr class="navbar-divider">
               <%= link_to t('.all-notifications'), notifications_path, class: 'navbar-item' %>

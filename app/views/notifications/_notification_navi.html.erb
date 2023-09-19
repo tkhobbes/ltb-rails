@@ -1,0 +1,9 @@
+<%= link_to notification.to_notification.message,
+  notification.to_notification.url,
+  class: "navbar-item #{notification.read? ? 'has-text-grey' : 'has-text-primary-dark' }",
+  data: {
+    turbo_frame: '_top',
+    controller: 'notification-read',
+    notification_read_id_value: notification.id,
+    action: 'click->notification-read#markAsRead'
+  } %>

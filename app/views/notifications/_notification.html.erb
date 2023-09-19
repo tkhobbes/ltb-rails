@@ -20,7 +20,10 @@
     </div>
     <div class="media-right">
       <% if notification.unread? %>
-        <%= button_to read_notification_path(notification), class: 'button is-info is-small', method: :post do %>
+        <%= button_to read_notification_path(notification),
+          class: 'button is-info is-small',
+          title: t('.read'),
+          method: :post do %>
           <%= inline_svg_tag 'tick.svg', height: '1.5em' %>
         <% end %>
       <% end %>

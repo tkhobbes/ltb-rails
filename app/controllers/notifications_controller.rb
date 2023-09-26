@@ -6,11 +6,17 @@ class NotificationsController < ApplicationController
 
   def read
     @notification = Notification.find(params[:id])
+    return if @notification.read_at.present?
+
     @notification.update(read_at: Time.zone.now)
-    respond_to do |format|
-      format.turbo_stream do
-        render turbo_stream: turbo_stream.replace(@notification, partial: 'notifications/notification',
-                                                                 locals: { notification: @notification })
+    if params[:menu] == 'true'
+      head(:no_content)
+    else
+      respond_to do |format|
+        format.turbo_stream do
+          render turbo_stream: turbo_stream.replace(@notification, partial: 'notifications/notification',
+                                                                   locals: { notification: @notification })
+        end
       end
     end
   end

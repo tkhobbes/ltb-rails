@@ -7,6 +7,8 @@ module Scraper
     end
 
     # the key method to put everything together
+    # rubocop:disable Metrics/MethodLength
+    # rubocop:disable Metrics/AbcSize
     def scrape
       # 0. Set up an empty artists array - it will contain all artist ids from all stories
       artists = []
@@ -37,6 +39,8 @@ module Scraper
       # return the created book
       book
     end
+    # rubocop:enable Metrics/MethodLength
+    # rubocop:enable Metrics/AbcSize
 
     private
 
@@ -56,6 +60,7 @@ module Scraper
       book.update(cover_url: nil) if result.created?
     end
 
+    # rubocop:disable Metrics/AbcSize
     def retrieve_story_entries(book)
       story_ids = []
       story_codes = Scraper::BookStoryScraper.new(book.code).scrape.data
@@ -67,6 +72,7 @@ module Scraper
       end
       story_ids
     end
+    # rubocop:enable Metrics/AbcSize
 
     def retrieve_story_cover(story)
       return if story.cover_url.blank?
@@ -75,6 +81,7 @@ module Scraper
       story.update(cover_url: nil) if story_attach_result.created?
     end
 
+    # rubocop:disable Metrics/AbcSize
     def retrieve_roles(story)
       artists = []
       roles = Scraper::RoleScraper.new(story.code).scrape.roles
@@ -86,6 +93,7 @@ module Scraper
       end
       artists
     end
+    # rubocop:enable Metrics/AbcSize
 
     def retrieve_artist_portrait(artist)
       return if artist.portrait_url.blank?

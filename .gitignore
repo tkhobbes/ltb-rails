@@ -37,6 +37,7 @@ Dockerfile
 docker-build.sh
 start.sh
 sidekick-start.sh
+*.tar
 
 config/settings.local.yml
 config/settings/*.local.yml

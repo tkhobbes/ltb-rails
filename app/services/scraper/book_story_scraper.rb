@@ -8,12 +8,13 @@ module Scraper
     end
 
     # iterate through all different stories and get an array of codes
+    # rubocop:disable Metrics/MethodLength
     def scrape
       stories = []
       url = "https://inducks.org/issue.php?c=#{@book_id}"
       begin
         BookStories.start_urls(url)
-        BookStories.run(driver: :ferrum, process_timeout: 30, xvfb: true) { |s| stories << story_code(s[:url]) }
+        BookStories.run(xvfb: true) { |s| stories << story_code(s[:url]) }
         if stories.blank?
           ReturnScraper.new(created: false, msg: I18n.t('services.scraper.no-stories'))
         else
@@ -23,6 +24,7 @@ module Scraper
         ReturnScraper.new(created: false, msg: I18n.t('services.scraper.httperror', error: e))
       end
     end
+    # rubocop:enable Metrics/MethodLength
 
     # return class
     class ReturnScraper

@@ -7,12 +7,13 @@ module Scraper
     end
 
     # method to scraper book data
+    # rubocop:disable Metrics/MethodLength
     def scrape
       book = {}
       url = "https://inducks.org/issue.php?c=#{@book_id}"
       begin
         BookAttrs.start_urls(url)
-        BookAttrs.run(driver: :ferrum, process_timeout: 30, xvfb: true) { |b| book = b }
+        BookAttrs.run(xvfb: true) { |b| book = b }
         book[:code] = @book_id
         book[:url] = url
         if book[:title].blank?
@@ -24,6 +25,7 @@ module Scraper
         ReturnScraper.new(created: false, msg: I18n.t('services.scraper.httperror', error: e))
       end
     end
+    # rubocop:enable Metrics/MethodLength
 
     # return class
     class ReturnScraper
@@ -44,7 +46,12 @@ module Scraper
     # vessel scraper class
     class BookAttrs < Vessel::Cargo
       domain 'inducks.org'
+      # driver :ferrum, process_timeout: 300
 
+      # rubocop:disable Metrics/MethodLength
+      # rubocop:disable Metrics/AbcSize
+      # rubocop:disable Metrics/CyclomaticComplexity
+      # rubocop:disable Metrics/PerceivedComplexity
       def parse
         css('body').each do |header|
           temp_publication = header.at_xpath('//dt[contains(text(), "Publication")]/following-sibling::dd')&.text
@@ -61,6 +68,10 @@ module Scraper
           })
         end
       end
+      # rubocop:enable Metrics/PerceivedComplexity
+      # rubocop:enable Metrics/CyclomaticComplexity
+      # rubocop:enable Metrics/MethodLength
+      # rubocop:enable Metrics/AbcSize
 
       def short_title(title)
         title.gsub(/^.*:/, '').strip! if title.present?

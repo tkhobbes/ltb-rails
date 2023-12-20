@@ -16,5 +16,6 @@ en:
       no-book: No book found
       no-stories: No stories found
   holistic_scrapers:
+    book-exists: Book already exists.
     create:
       job-started: Book is being added in the background.

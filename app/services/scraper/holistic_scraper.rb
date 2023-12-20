@@ -10,12 +10,17 @@ module Scraper
     # rubocop:disable Metrics/MethodLength
     # rubocop:disable Metrics/AbcSize
     def scrape
+      # first - check whether the book is already in the database. If so - no need to scrape
+      if book_exists(@code)
+        ErrorNotification.with(error: I18n.t('holistic_scrapers.book-exists'), code: @code).deliver_later(User.all)
+        return
+      end
       # 0. Set up an empty artists array - it will contain all artist ids from all stories
       artists = []
       # 1. scrape the book and retrieve it
-      book = retrieve_book(@code)
-      if book.id.blank?
-        ErrorNotification.with(error: 'Book not found', code: @code).deliver_later(User.all)
+      book, message = retrieve_book(@code)
+      unless book&.id
+        ErrorNotification.with(error: message, code: @code).deliver_later(User.all)
         return
         # raise ActiveRecord::Rollback
       end
@@ -44,13 +49,20 @@ module Scraper
 
     private
 
+    def book_exists(code)
+      Book.find_by(code:).present?
+    end
+
     def error_notification
       ErrorNotification.deliver_later(User.all)
     end
 
     def retrieve_book(code)
-      book_attributes = Scraper::BookScraper.new(code).scrape.data
-      Book.create(book_attributes)
+      result = Scraper::BookScraper.new(code).scrape
+      b = Book.create(result.data) if result.created?
+      [b, result.message]
+      # book_attributes = Scraper::BookScraper.new(code).scrape.data
+      # Book.create(book_attributes)
     end
 
     def retrieve_book_cover(book)

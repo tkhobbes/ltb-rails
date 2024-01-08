@@ -280,7 +280,7 @@ GEM
     mime-types-data (3.2023.1205)
     mini_magick (4.12.0)
     mini_mime (1.1.5)
-    minitest (5.19.0)
+    minitest (5.20.0)
     model_probe (1.1.2)
       rainbow
     multi_xml (0.6.0)
@@ -477,7 +477,7 @@ GEM
       mechanize (>= 2.8.5)
       nokogiri (~> 1.13)
       thor (~> 1.2)
-    view_component (3.1.0)
+    view_component (3.9.0)
       activesupport (>= 5.2.0, < 8.0)
       concurrent-ruby (~> 1.0)
       method_source (~> 1.0)

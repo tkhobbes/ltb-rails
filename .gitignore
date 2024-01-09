@@ -22,7 +22,9 @@
 /app/assets/builds/*
 !/app/assets/builds/.keep
 
+# ignore some stuff that doesn't need to be in the repo
 /node_modules
+/coverage
 
 # Ignore important secret files
 /.env

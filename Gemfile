@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.2.2'
 
 # Rails Core Gems
-gem 'rails', '~> 7.0.8'
+gem 'rails'
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem 'bcrypt', '~> 3.1.7'
@@ -17,7 +17,7 @@ gem 'kredis'
 gem 'pg', '~> 1.1'
 gem 'pg_query'
 gem 'propshaft'
-gem 'puma', '~> 5.6'
+gem 'puma'
 gem 'sidekiq'
 gem 'stimulus-rails'
 gem 'turbo-rails'

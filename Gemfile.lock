@@ -206,8 +206,8 @@ GEM
       rake
     globalid (1.2.1)
       activesupport (>= 6.1)
-    google-protobuf (3.22.3-arm64-darwin)
-    google-protobuf (3.22.3-x86_64-linux)
+    google-protobuf (3.25.5-arm64-darwin)
+    google-protobuf (3.25.5-x86_64-linux)
     highline (2.1.0)
     hot_flash (1.1)
     http (5.1.1)

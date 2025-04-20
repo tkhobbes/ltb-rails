@@ -1,36 +1,26 @@
 # everything for scrapers goes into one module
 module Scraper
   # scrape all stories in a book
-  class BookStoryScraper
+  class BookStoryScraper < ApplicationScraper
     # initialisation is the same as for book scrapers
     def initialize(book_id)
+      super('issue', book_id, browserless: true)
       @book_id = book_id
     end
 
-    # iterate through all different stories and get an array of codes
-    # rubocop:disable Metrics/MethodLength
     def scrape
-      stories = []
-      url = "https://inducks.org/issue.php?c=#{@book_id}"
-      begin
-        BookStories.start_urls(url)
-        BookStories.run(xvfb: true) { |s| stories << story_code(s[:url]) }
-        if stories.blank?
-          ReturnScraper.new(created: false, msg: I18n.t('services.scraper.no-stories'))
-        else
-          ReturnScraper.new(created: true, data: stories, msg: I18n.t('services.scraper.success'))
-        end
-      rescue Vessel::Error, Ferrum::Error => e
-        ReturnScraper.new(created: false, msg: I18n.t('services.scraper.httperror', error: e))
+      story_ids = @scraper.data.css('tr.normal .code .storycode .codeidentifier').map(&:text)
+      if story_ids.blank?
+        ReturnStories.new(created: false, msg: I18n.t('services.scraper.no-stories'))
+      else
+        ReturnStories.new(created: true, data: story_ids, msg: I18n.t('services.scraper.success'))
       end
     end
-    # rubocop:enable Metrics/MethodLength
 
-    # return class
-    class ReturnScraper
+    # return object
+    class ReturnStories
       attr_reader :data, :message
 
-      # this method smells of :reek:BooleanParameter
       def initialize(created: false, data: nil, msg: '')
         @created = created
         @data = data
@@ -40,25 +30,6 @@ module Scraper
       def created?
         @created
       end
-    end
-
-    # vessel parser class
-    class BookStories < Vessel::Cargo
-      domain 'inducks.org'
-
-      def parse
-        css('tr.normal .code .storycode .codeidentifier').each do |code|
-          yield({
-            url: code.at_css('a')&.[]('href')
-          })
-        end
-      end
-
-      # return the story code from a string like https://inducks.org/story.php?c=I+TL++303-AP
-    end
-
-    def story_code(url)
-      url.sub(/^.*c=/, '')
     end
   end
 end

@@ -6,7 +6,7 @@ RSpec.describe Scraper::BookStoryScraper do
       it 'returns data with a valid code' do
         result = Scraper::BookStoryScraper.new('de/LTB%20%20%202').scrape
         expect(result.created?).to be true
-        expect(result.data).to include('I+TL++303-AP')
+        expect(result.data).to include('I TL  303-AP')
       end
 
       it 'returns an empty array with an invalid code' do

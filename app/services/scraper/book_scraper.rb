@@ -1,91 +1,81 @@
 # module for all scrapers
 module Scraper
   # scrape book details
-  class BookScraper
+  class BookScraper < ApplicationScraper
     def initialize(book_id)
+      super('issue', book_id, browserless: true)
       @book_id = book_id
     end
 
-    # method to scraper book data
-    # rubocop:disable Metrics/MethodLength
+    # scrape book data; returns a hash of the scraped data
     def scrape
-      book = {}
-      url = "https://inducks.org/issue.php?c=#{@book_id}"
-      begin
-        BookAttrs.start_urls(url)
-        BookAttrs.run(xvfb: true) { |b| book = b }
-        book[:code] = @book_id
-        book[:url] = url
-        if book[:title].blank?
-          ReturnScraper.new(created: false, msg: I18n.t('services.scraper.no-book'))
-        else
-          ReturnScraper.new(created: true, data: book, msg: I18n.t('services.scraper.success'))
-        end
-      rescue Vessel::Error, Ferrum::Error => e
-        ReturnScraper.new(created: false, msg: I18n.t('services.scraper.httperror', error: e))
-      end
-    end
-    # rubocop:enable Metrics/MethodLength
+      return ReturnBook.new(message: I18n.t('services.scraper.no-scraper')) unless @scraper.created?
 
-    # return class
-    class ReturnScraper
-      attr_reader :data, :message
+      book = {
+        code: @book_id,
+        url: "https://inducks.org/issue.php?c=#{@book_id}",
+        title:,
+        publication: publication_name,
+        issue: issue_number(title),
+        pages:,
+        published:,
+        cover_url:
+      }
+      return ReturnBook.new(valid: false, message: I18n.t('services.scraper.no-book')) if book[:title].blank?
 
-      # this method smells of :reek:BooleanParameter
-      def initialize(created: false, data: nil, msg: '')
-        @created = created
-        @data = data
-        @message = msg
-      end
-
-      def created?
-        @created
-      end
+      ReturnBook.new(valid: true, book:, message: @scraper.message)
     end
 
-    # vessel scraper class
-    class BookAttrs < Vessel::Cargo
-      domain 'inducks.org'
-      # driver :ferrum, process_timeout: 300
+    private
 
-      # rubocop:disable Metrics/MethodLength
-      # rubocop:disable Metrics/AbcSize
-      # rubocop:disable Metrics/CyclomaticComplexity
-      # rubocop:disable Metrics/PerceivedComplexity
-      def parse
-        css('body').each do |header|
-          temp_publication = header.at_xpath('//dt[contains(text(), "Publication")]/following-sibling::dd')&.text
-          subheader = header.at_css('.subHeader')&.text
-          title = short_title(header.at_css('.topHeader h1')&.text)
+    # return object
+    class ReturnBook
+      attr_reader :book, :message
 
-          yield({
-            title:,
-            publication: publication_name(temp_publication),
-            issue: issue_number(subheader) || issue_number(title),
-            pages: header.at_xpath('//dt[contains(text(), "Pages")]/following-sibling::dd')&.text&.to_i,
-            published: header.at_xpath('//dt[contains(text(), "Date")]/following-sibling::dd/time/a')&.text&.to_i,
-            cover_url: header.at_css('.issueImageHighlight .scan figure img')&.[]('src')
-          })
-        end
-      end
-      # rubocop:enable Metrics/PerceivedComplexity
-      # rubocop:enable Metrics/CyclomaticComplexity
-      # rubocop:enable Metrics/MethodLength
-      # rubocop:enable Metrics/AbcSize
-
-      def short_title(title)
-        title.gsub(/^.*:/, '').strip! if title.present?
+      def initialize(valid: false, book: nil, message: '')
+        @valid = valid
+        @book = book
+        @message = message
       end
 
-      def publication_name(publication)
-        return if publication.blank?
-
-        publication == 'Lustiges Taschenbuch' ? 'ltb' : publication.tr(' ', '_').downcase!
+      def valid?
+        @valid
       end
+    end
 
-      def issue_number(subheader)
-        subheader.gsub(/^.*#/, '').strip! if subheader.present?
-      end
+    # individual methods to get datapoints for books
+
+    def title
+      temp_title = @scraper.data.css('.topHeader h1')&.text
+      temp_title.gsub(/^.*:/, '').strip! if temp_title.present?
+    end
+
+    def publication_name
+      temp_publication = @scraper.data.xpath('//dt[contains(text(), "Publication")]/following-sibling::dd')&.first&.text
+      return if temp_publication.blank?
+
+      temp_publication == 'Lustiges Taschenbuch' ? 'ltb' : temp_publication.tr(' ', '_').downcase!
+    end
+
+    def issue_number(title)
+      subheader = @scraper.data.css('.subHeader')&.text
+      data_to_scrape = (subheader.presence || title) # if subheader is blank, use title
+      data_to_scrape.gsub(/^.*#/, '').strip! if data_to_scrape.present?
+    end
+
+    def pages
+      @scraper.data.xpath('//dt[contains(text(), "Pages")]/following-sibling::dd')&.text&.to_i
+    end
+
+    def published
+      @scraper.data.xpath('//dt[contains(text(), "Date")]/following-sibling::dd/time/a')&.text&.to_i
+    end
+
+    def cover_url
+      url = @scraper.data.css('.issueImageHighlight .scan figure img').first&.[]('src')
+      return if url.blank?
+
+      "https://inducks.org/#{url}"
     end
   end
 end

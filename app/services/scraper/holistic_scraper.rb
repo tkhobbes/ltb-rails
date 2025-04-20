@@ -59,7 +59,7 @@ module Scraper
 
     def retrieve_book(code)
       result = Scraper::BookScraper.new(code).scrape
-      b = Book.create(result.data) if result.created?
+      b = Book.create(result.book) if result.valid?
       [b, result.message]
       # book_attributes = Scraper::BookScraper.new(code).scrape.data
       # Book.create(book_attributes)

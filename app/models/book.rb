@@ -50,6 +50,11 @@ class Book < ApplicationRecord
 
   # callbacks
   before_save :set_sort_title
+
+  after_create do
+    AddPictureJob.perform_async('Book', id, cover_url, 'cover') if cover_url.present?
+  end
+
   # scopes
   # additional config (accepts_nested_attributes_for etc.)
   # public instance methods

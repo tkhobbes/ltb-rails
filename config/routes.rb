@@ -15,7 +15,6 @@ Rails.application.routes.draw do
   resources :book_searches, only: %i[new create]
 
   resources :artist_scrapers, only: %i[new create]
-  resources :artist_portraits, only: :create
   resources :story_scrapers, only: %i[new create]
   resources :story_covers, only: :create
   resources :role_scrapers, only: :create

@@ -24,21 +24,12 @@ module Scraper
         return
         # raise ActiveRecord::Rollback
       end
-      # 1.a retrieve the cover for the book
-      retrieve_book_cover(book)
       # 2. go through the book_entries and scrape all stories. Store stories in an array
       story_ids = retrieve_story_entries(book)
       story_ids.each do |story_id|
         story = Story.find(story_id)
-        # 2.a retrieve the cover for each story
-        retrieve_story_cover(story)
         # 3. go through all stories and their roles and scrape corresponding artists; store IDs in an array
         artists << retrieve_roles(story)
-      end
-      # 4. Attach the portrait for each artist
-      artists.flatten.compact.uniq.each do |artist_id|
-        artist = Artist.find(artist_id)
-        retrieve_artist_portrait(artist)
       end
       BookNotification.with(book:).deliver_later(User.all)
       # return the created book
@@ -65,13 +56,6 @@ module Scraper
       # Book.create(book_attributes)
     end
 
-    def retrieve_book_cover(book)
-      return if book.cover_url.blank?
-
-      result = Attacher::PictureAttach.new(book.cover_url, book.cover).attach
-      book.update(cover_url: nil) if result.created?
-    end
-
     # rubocop:disable Metrics/AbcSize
     def retrieve_story_entries(book)
       story_ids = []
@@ -86,13 +70,6 @@ module Scraper
     end
     # rubocop:enable Metrics/AbcSize
 
-    def retrieve_story_cover(story)
-      return if story.cover_url.blank?
-
-      story_attach_result = Attacher::PictureAttach.new(story.cover_url, story.cover).attach
-      story.update(cover_url: nil) if story_attach_result.created?
-    end
-
     # rubocop:disable Metrics/AbcSize
     def retrieve_roles(story)
       artists = []
@@ -106,12 +83,5 @@ module Scraper
       artists
     end
     # rubocop:enable Metrics/AbcSize
-
-    def retrieve_artist_portrait(artist)
-      return if artist.portrait_url.blank?
-
-      artist_attach_result = Attacher::PictureAttach.new(artist.portrait_url, artist.portrait).attach
-      artist.update(portrait_url: nil) if artist_attach_result.created?
-    end
   end
 end

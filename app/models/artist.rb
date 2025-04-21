@@ -32,7 +32,11 @@ class Artist < ApplicationRecord
   validates :name, presence: true
 
   # callbacks
-  #  scopes
+  after_create do
+    AddPictureJob.perform_async('Artist', id, portrait_url, 'portrait') if portrait_url.present?
+  end
+
+  # scopes
   # additional config
   # public instance methods
   # protected instance methods

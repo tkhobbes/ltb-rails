@@ -21,17 +21,9 @@
   <main-column class="column is-one-third">
     <figure class="media-left">
       <% if @artist.portrait.attached? %>
-        <%= image_tag @artist.portrait, alt: @artist.name %>
+      <%= image_tag @artist.portrait, alt: @artist.name %>
       <% else %>
-        <%= inline_svg_tag('person.svg') %>
-        <% if @artist.portrait_url.present? %>
-          <%= form_with model: Artist, url: artist_portraits_path, method: :post, data: {
-            turbo_frame: '_top' } do |form| %>
-            <%= form.hidden_field :id, value: @artist.id %>
-            <%= form.hidden_field :portrait_url, value: @artist.portrait_url %>
-            <%= form.submit t('.download-portrait'), class: 'button is-small is-info' %>
-          <% end %>
-        <% end %>
+      <%= inline_svg_tag('person.svg') %>
       <% end %>
     </figure>
   </main-column>
@@ -40,23 +32,23 @@
       <li class="list-item">
         <%= Artist.human_attribute_name(:nationality) %>:
         <%= ISO3166::Country.new(@artist.nationality)&.translation(locale) %>
-        </li>
+      </li>
       <li class="list-item"><%= Artist.human_attribute_name(:born) %>: <%= @artist.born %></li>
       <li class="list-item"><%= Artist.human_attribute_name(:died) %>: <%= @artist.died %></li>
     </ul>
     <h2 class="subtitle"><%= t('.artists-table-title') %></h4>
-    <table class="table is-hoverable is-fullwidth is-narrow">
-      <thead>
-        <tr>
-          <th><%= Role.human_attribute_name(:task) %></th>
-          <th><%= Artist.human_attribute_name(:name) %></th>
-        </tr>
-      </thead>
-      <tbody>
-      <% @artist.roles.each do |role| %>
-        <%= render 'roles/artist_table', role: %>
-      <% end %>
-      </tbody>
-    </table>
+      <table class="table is-hoverable is-fullwidth is-narrow">
+        <thead>
+          <tr>
+            <th><%= Role.human_attribute_name(:task) %></th>
+            <th><%= Artist.human_attribute_name(:name) %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @artist.roles.each do |role| %>
+          <%= render 'roles/artist_table', role: %>
+          <% end %>
+        </tbody>
+      </table>
   </main-column>
 </main-layout>

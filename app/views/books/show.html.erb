@@ -4,16 +4,16 @@
       <%= @book.long_title %>
     </p>
     <% if current_user %>
-      <button-group class="buttons column is-right">
-        <%= link_to t('.edit'), edit_book_path(@book), class: 'button is-small is-info m-1' %>
-        <%= link_to t('.delete'),
+    <button-group class="buttons column is-right">
+      <%= link_to t('.edit'), edit_book_path(@book), class: 'button is-small is-info m-1' %>
+      <%= link_to t('.delete'),
           book_path(@book),
           class: 'button is-danger is-small m-1',
           data: {
             turbo_method: :delete,
             turbo_confirm: t('.delete-confirm')
           } %>
-      </button-group>
+    </button-group>
     <% end %>
   </div>
 </hero-box>
@@ -21,18 +21,9 @@
   <main-column class="column is-one-third">
     <figure class="media-left">
       <% if @book.cover.attached? %>
-        <%= image_tag @book.cover, alt: @book.title %>
+      <%= image_tag @book.cover, alt: @book.title %>
       <% else %>
-        <%= inline_svg_tag('book.svg') %>
-        <% if @book.cover_url.present? %>
-          <%= form_with model: Book, url: book_covers_path, method: :post, data: {
-            turbo_frame: '_top' } do |form| %>
-            <%= form.hidden_field :id, value: @book.id %>
-            <%= form.hidden_field :cover_url, value: @book.cover_url %>
-            <%= form.submit t('.download-cover'), class: 'button is-small is-info' %>
-          <% end %>
-        <% end %>
-
+      <%= inline_svg_tag('book.svg') %>
       <% end %>
     </figure>
   </main-column>
@@ -42,11 +33,11 @@
       <li class="list-item"><%= Book.human_attribute_name(:pages) %>: <%= @book.pages %></li>
     </ul>
     <h2 class="subtitle"><%= t('.story-table-title') %></h4>
-    <%= form_with model: Book, url: book_stories_scrapers_path, method: :post,
+      <%= form_with model: Book, url: book_stories_scrapers_path, method: :post,
       class: 'mt-0 mb-5' do |form| %>
       <%= form.hidden_field :id, value: @book.id %>
       <%= form.submit t('.scrape-stories'), class: 'button is-small is-info' %>
-    <% end %>
-    <%= render 'stories/story_table', book: @book %>
+      <% end %>
+      <%= render 'stories/story_table', book: @book %>
   </main-column>
 </main-layout>

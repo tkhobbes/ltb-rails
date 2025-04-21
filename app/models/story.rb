@@ -35,6 +35,10 @@ class Story < ApplicationRecord
   validates :code, presence: true, uniqueness: true
 
   # callbacks
+  after_create do
+    AddPictureJob.perform_async('Story', id, cover_url, 'cover') if cover_url.present?
+  end
+
   # scopes
   # additional config
   # public instance methods

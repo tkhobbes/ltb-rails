@@ -93,11 +93,13 @@ RSpec.configure do |config|
   #   )
   #   Capybara::Selenium::Driver.new app, browser: :chrome, options:
   # end
-  options = Selenium::WebDriver::Options.chrome
 
-  Capybara.register_driver :headless do |app|
-    Capybara::Selenium::Driver.new(
-      app, browser: :chrome, options:
-    )
-  end
+  ### instead of removing
+  # options = Selenium::WebDriver::Options.chrome
+
+  # Capybara.register_driver :headless do |app|
+  #   Capybara::Selenium::Driver.new(
+  #     app, browser: :chrome, options:
+  #   )
+  # end
 end

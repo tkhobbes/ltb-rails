@@ -174,8 +174,12 @@ GEM
       rake
     globalid (1.2.1)
       activesupport (>= 6.1)
-    google-protobuf (3.25.5-arm64-darwin)
-    google-protobuf (3.25.5-x86_64-linux)
+    google-protobuf (4.30.2-arm64-darwin)
+      bigdecimal
+      rake (>= 13)
+    google-protobuf (4.30.2-x86_64-linux)
+      bigdecimal
+      rake (>= 13)
     highline (3.1.2)
       reline
     hot_flash (1.1)
@@ -285,8 +289,8 @@ GEM
       ast (~> 2.4.1)
       racc
     pg (1.4.6)
-    pg_query (4.2.0)
-      google-protobuf (>= 3.19.2)
+    pg_query (6.1.0)
+      google-protobuf (>= 3.25.3)
     pp (0.6.2)
       prettyprint
     prettyprint (0.2.0)
@@ -472,6 +476,7 @@ GEM
 
 PLATFORMS
   arm64-darwin-22
+  arm64-darwin-24
   x86_64-linux
 
 DEPENDENCIES
@@ -533,7 +538,7 @@ DEPENDENCIES
   web-console
 
 RUBY VERSION
-   ruby 3.2.2p53
+   ruby 3.3.7p123
 
 BUNDLED WITH
-   2.4.18
+   2.5.22

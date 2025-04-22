@@ -13,10 +13,10 @@ class BookNotification < Noticed::Base
 
   # Define helper methods to make rendering easier
   def message
-    t('.message', book: params[:book].title)
+    t('.message', book: params[:book]&.title || t('.no_book'))
   end
 
   def url
-    book_path(params[:book])
+    book_path(params[:book]) if Book.find_by(id: params[:book]).present?
   end
 end

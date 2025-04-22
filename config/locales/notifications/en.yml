@@ -4,5 +4,6 @@ en:
       time_ago: "%{time} ago"
     book_notification:
       message: "'%{book}' added}"
+      no_book: "(Deleted book)"
     error_notification:
       message: "'%{code}' could not be added. Error '%{error}'"

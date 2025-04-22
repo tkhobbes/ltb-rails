@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2025-04-22T16:22:01+02:00">2025-04-22T16:22:01+02:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2025-04-22T16:53:41+02:00">2025-04-22T16:53:41+02:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -23,7 +23,7 @@
     <span class="group_name">All Files</span>
     (<span class="covered_percent">
       <span class="red">
-  51.48%
+  51.44%
 </span>
 
      </span>
@@ -43,11 +43,11 @@
   </div>
 
   <div class="t-line-summary">
-    <b>1183</b> relevant lines,
+    <b>1184</b> relevant lines,
     <span class="green"><b>609</b> lines covered</span> and
-    <span class="red"><b>574</b> lines missed. </span>
+    <span class="red"><b>575</b> lines missed. </span>
     (<span class="red">
-  51.48%
+  51.44%
 </span>
 )
   </div>
@@ -226,12 +226,12 @@
         
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#9e6c88a45279c5e216623374177c28de1cbce225" class="src_link" title="app/services/scraper/artist_scraper.rb">app/services/scraper/artist_scraper.rb</a></td>
-            <td class="red strong cell--number t-file__coverage">42.42 %</td>
-            <td class="cell--number">76</td>
-            <td class="cell--number">33</td>
+            <td class="red strong cell--number t-file__coverage">41.18 %</td>
+            <td class="cell--number">77</td>
+            <td class="cell--number">34</td>
             <td class="cell--number">14</td>
-            <td class="cell--number">19</td>
-            <td class="cell--number">0.42</td>
+            <td class="cell--number">20</td>
+            <td class="cell--number">0.41</td>
             
           </tr>
         
@@ -8061,7 +8061,7 @@
     <h3>app/services/scraper/artist_scraper.rb</h3>
     <h4>
       <span class="red">
-  42.42%
+  41.18%
 </span>
 
       lines covered
@@ -8070,9 +8070,9 @@
     
 
     <div class="t-line-summary">
-      <b>33</b> relevant lines.
+      <b>34</b> relevant lines.
       <span class="green"><b>14</b> lines covered</span> and
-      <span class="red"><b>19</b> lines missed.</span>
+      <span class="red"><b>20</b> lines missed.</span>
     </div>
 
     
@@ -8815,18 +8815,18 @@
 
             
 
-            <code class="ruby">      ISO3166::Country.find_country_by_iso_short_name(country_string)&amp;.alpha2 if country_string.present?</code>
+            <code class="ruby">      country_string = &#39;United States of America&#39; if country_string == &#39;United States&#39;</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="68">
+          <li class="missed" data-hits="0" data-linenumber="68">
             
             
 
             
 
-            <code class="ruby">    end</code>
+            <code class="ruby">      ISO3166::Country.find_country_by_iso_short_name(country_string)&amp;.alpha2 if country_string.present?</code>
           </li>
         </div>
       
@@ -8837,12 +8837,23 @@
 
             
 
+            <code class="ruby">    end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="70">
+            
+            
+
+            
+
             <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="70">
+          <li class="covered" data-hits="1" data-linenumber="71">
             <span class="hits">1</span>
             
 
@@ -8853,7 +8864,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="71">
+          <li class="never" data-hits="" data-linenumber="72">
             
             
 
@@ -8864,7 +8875,7 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="72">
+          <li class="missed" data-hits="0" data-linenumber="73">
             
             
 
@@ -8875,7 +8886,7 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="73">
+          <li class="missed" data-hits="0" data-linenumber="74">
             
             
 
@@ -8886,7 +8897,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="74">
+          <li class="never" data-hits="" data-linenumber="75">
             
             
 
@@ -8897,7 +8908,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="75">
+          <li class="never" data-hits="" data-linenumber="76">
             
             
 
@@ -8908,7 +8919,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="76">
+          <li class="never" data-hits="" data-linenumber="77">
             
             
 

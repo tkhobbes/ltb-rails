@@ -10,7 +10,7 @@ class BookListComponent < ViewComponent::Base
   end
 
   def information_list
-    [@book.code, render_pages].compact.join(' | ')
+    [render_pages].compact.join(' | ')
   end
 
   private

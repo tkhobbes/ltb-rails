@@ -64,6 +64,7 @@ module Scraper
     def artist_nationality
       # country_string = @page_data.css('a').find { |link| link['href'].include?('nationality') }&.text
       country_string = @scraper.data.css('a').find { |link| link['href'].include?('nationality') }&.text
+      country_string = 'United States of America' if country_string == 'United States'
       ISO3166::Country.find_country_by_iso_short_name(country_string)&.alpha2 if country_string.present?
     end
 

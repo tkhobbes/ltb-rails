@@ -37,7 +37,6 @@ group :development, :test do
   gem 'model_probe'
   gem 'pry-rails'
   gem 'rspec-rails'
-  gem 'selenium-webdriver'
 end
 
 group :development do
@@ -76,14 +75,14 @@ gem 'rails-i18n'
 # Application gems: Frontend functionality
 gem 'hot_flash'
 gem 'inline_svg'
-gem 'pagy'
+gem 'pagy', '~> 5.10.1'
 
 # Application gems: Authentication and Security
-gem 'devise'
-gem 'devise-i18n'
+gem 'devise', '~>4.9.2'
+gem 'devise-i18n', '~>1.11.0'
 
 # application gems: Notifications
-gem 'noticed'
+gem 'noticed', '~> 1.6.3'
 
 # Application gems: Network and scraping
 gem 'config'
@@ -91,5 +90,3 @@ gem 'down' # download files
 gem 'http'
 gem 'httparty' # http client
 gem 'nokogiri' # html parser
-# gem 'selenium-webdriver'
-gem 'vessel'

@@ -1,12 +1,14 @@
 inherit_from:
   - .rubocop_strict.yml
 
-require:
-  - rubocop-rails
+plugins:
   - rubocop-performance
   - rubocop-rspec
   - rubocop-md
   - rubocop-i18n
+
+require:
+  - rubocop-rails
 
 I18n/RailsI18n:
   Enabled: true

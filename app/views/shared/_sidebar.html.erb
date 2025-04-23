@@ -1,22 +1,22 @@
 <sidebar-column class="column is-one-quarter m-1 px-5 py-3" id="sidebar-menu">
   <aside class="menu">
     <% if user_signed_in? %>
-      <p class="menu-label has-text-primary-dark is-size-5 mb-0">
-        <%= t('.big-tasks') %>
-      </p>
-      <ul class="menu-list">
-        <li>
-          <%= link_to t('.search-all'), new_book_search_path %>
-        </li>
-      </ul>
-      <p class="menu-label has-text-primary-dark is-size-5 mb-0">
-        <%= Book.model_name.human(count: 10) %>
-      </p>
+    <p class="menu-label has-text-primary-dark is-size-5 mb-0">
+      <%= t('.big-tasks') %>
+    </p>
+    <ul class="menu-list">
+      <li>
+        <%= link_to t('.search-all'), new_book_search_path %>
+      </li>
+    </ul>
+    <p class="menu-label has-text-primary-dark is-size-5 mb-0">
+      <%= Book.model_name.human(count: 10) %>
+    </p>
     <% end %>
     <ul class="menu-list">
       <li>
         <%= link_to t('.all-books'), books_path %>
-      <% if user_signed_in? %>
+        <% if user_signed_in? %>
         <ul class="mt-0">
           <li><%= link_to t('.add-book'), new_book_path %></li>
           <li><%= link_to t('.scrape-book'), new_book_scraper_path %></li>
@@ -31,10 +31,10 @@
       <li>
         <%= link_to t('.all-stories'), stories_path %>
         <% if user_signed_in? %>
-          <ul class="mt-0">
-            <li><%= link_to t('.add-story'), new_story_path %></li>
-            <li><%= link_to t('.scrape-story'), new_story_scraper_path %></li>
-          </ul>
+        <ul class="mt-0">
+          <li><%= link_to t('.add-story'), new_story_path %></li>
+          <li><%= link_to t('.scrape-story'), new_story_scraper_path %></li>
+        </ul>
         <% end %>
       </li>
     </ul>
@@ -43,14 +43,27 @@
     </p>
     <ul class="menu-list">
       <li>
-          <%= link_to t('.all-artists'), artists_path %>
-          <% if user_signed_in? %>
-            <ul class="mt-0">
-              <li><%= link_to t('.add-artist'), new_artist_path %></li>
-              <li><%= link_to t('.scrape-artist'), new_artist_scraper_path %></li>
-            </ul>
-          <% end %>
+        <%= link_to t('.all-artists'), artists_path %>
+        <% if user_signed_in? %>
+        <ul class="mt-0">
+          <li><%= link_to t('.add-artist'), new_artist_path %></li>
+          <li><%= link_to t('.scrape-artist'), new_artist_scraper_path %></li>
+        </ul>
+        <% end %>
       </li>
     </ul>
+    <% if user_signed_in? %>
+    <p class="menu-label has-text-primary-dark is-size-6 mb-0">
+      <%= t('.admin') %>
+    </p>
+    <ul class="menu-list">
+      <li>
+        <ul class="mt-0">
+          <li><%= link_to t('.remove-stories-with-no-book'), unused_entry_path('Story') %></li>
+          <li><%= link_to t('.remove-artists-with-no-story'), unused_entry_path('Artist') %></li>
+        </ul>
+      </li>
+    </ul>
+    <% end %>
   </aside>
 </sidebar-column>

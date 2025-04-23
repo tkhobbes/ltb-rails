@@ -40,6 +40,8 @@ class Story < ApplicationRecord
   end
 
   # scopes
+  scope :no_items, -> { where.missing(:books) }
+
   # additional config
   # public instance methods
   def drawings_role
@@ -48,6 +50,11 @@ class Story < ApplicationRecord
 
   def story_role
     Role.find(story_role_id) if story_role_id
+  end
+
+  # needed for unused entries - models need to respond to "name"
+  def name
+    title
   end
 
   # protected instance methods

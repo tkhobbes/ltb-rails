@@ -1,0 +1,8 @@
+de:
+  unused_entries:
+    show:
+      title: "Nicht verlinkte Einträge (%{model})"
+      delete_entries: "Einträge löschen"
+      no_entries: "Es gibt keine unverlinkten Einträge (%{model})."
+    destroyed:
+      destroyed: "%{model}: %{amount} gelöscht."

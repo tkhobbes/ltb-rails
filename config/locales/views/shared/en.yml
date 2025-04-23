@@ -12,6 +12,9 @@ en:
       all-artists: All Artists
       add-artist: Add Artist
       scrape-artist: Add Artist from INDUCKS
+      admin: Administrative Tasks
+      remove-stories-with-no-book: Remove Stories not in any Book
+      remove-artists-with-no-story: Remove Artists with no Story
     navbar:
       print-inlay: Print Inlay
       search: Search

@@ -1,0 +1,8 @@
+en:
+  unused_entries:
+    show:
+      title: "Unused Entries (%{model})"
+      delete_entries: "Delete Entries"
+      no_entries: "There are no unused entries (%{model})."
+    destroyed:
+      destroyed: "%{model}: Removed %{amount}."

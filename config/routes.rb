@@ -33,5 +33,7 @@ Rails.application.routes.draw do
     delete :read, to: 'notifications#unread', on: :member
   end
 
+  resources :unused_entries, only: %i[ show destroy ]
+
   devise_for :users
 end

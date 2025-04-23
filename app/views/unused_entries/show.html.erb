@@ -1,0 +1,28 @@
+<main-layout class="columns is-centered">
+  <main-box class="column box">
+    <h2 class="is-family-secondary is-size-4">
+      <%= t('.title', model: params[:id].pluralize) %>
+    </h2>
+
+    <ul class="mt-4">
+      <% if @results.size.positive? %>
+      <% @results.each do |r| %>
+      <li class="media"><%= r.name %></li>
+      <% end %>
+      <% else %>
+      <li class="media"><%= t('.no_entries', model: params[:id].pluralize) %>
+        <% end %>
+    </ul>
+
+    <div>
+      <% if @results.size.positive? %>
+      <div class="buttons is-centered">
+        <%= button_to t('.delete_entries'), unused_entry_path(params[:id]),
+        method: :delete,
+        class: 'button is-primary' %>
+      </div>
+      <% end %>
+    </div>
+
+  </main-box>
+</main-layout>

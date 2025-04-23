@@ -37,6 +37,8 @@ class Artist < ApplicationRecord
   end
 
   # scopes
+  scope :no_items, -> { where.missing(:stories) }
+
   # additional config
   # public instance methods
   # protected instance methods

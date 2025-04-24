@@ -85,7 +85,6 @@ gem 'devise-i18n', '~>1.11.0'
 gem 'noticed', '~> 1.6.3'
 
 # Application gems: Network and scraping
-gem 'config'
 gem 'down' # download files
 gem 'http'
 gem 'httparty' # http client

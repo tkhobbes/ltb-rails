@@ -5,7 +5,6 @@ de:
       edit: Buch bearbeiten
       delete: Buch löschen
       delete-confirm: Dieses Buch wirklich löschen?
-      download-cover: Cover herunterladen
       scrape-stories: Geschichten von INDUCKS importieren
     edit:
       title: "'%{book}' bearbeiten"

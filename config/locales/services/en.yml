@@ -1,10 +1,5 @@
 en:
   services:
-    picture_attach:
-      no-url: No URL given
-      not-found: Picture not found
-      attached: Picture attached
-      cannot-attach: Something went wrong when trying to attach the picture.
     scraper:
       httperror: "Error: %{error}"
       success: Data collected

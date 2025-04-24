@@ -4,5 +4,5 @@ de:
       title: "Nicht verlinkte Einträge (%{model})"
       delete_entries: "Einträge löschen"
       no_entries: "Es gibt keine unverlinkten Einträge (%{model})."
-    destroyed:
+    destroy:
       destroyed: "%{model}: %{amount} gelöscht."

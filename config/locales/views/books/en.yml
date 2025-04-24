@@ -5,7 +5,6 @@ en:
       edit: Edit Book
       delete: Delete Book
       delete-confirm: Really delete this book?
-      download-cover: Download cover
       scrape-stories: Import stories from INDUCKS
     edit:
       title: Edit '%{book}'

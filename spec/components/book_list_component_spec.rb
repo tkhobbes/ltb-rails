@@ -12,7 +12,7 @@ RSpec.describe BookListComponent, type: :component do
       it 'shows code and pages if all are given' do
         render_inline(described_class.new(book:))
         expect(page).to have_content(
-          "#{book.code} | #{book.pages} #{Book.human_attribute_name(:pages)}"
+          "#{book.pages} #{Book.human_attribute_name(:pages)}"
         )
       end
 

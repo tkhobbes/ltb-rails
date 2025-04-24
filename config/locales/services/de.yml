@@ -1,10 +1,5 @@
 de:
   services:
-    picture_attach:
-      no-url: Keine URL gefunden
-      not-found: Kein Bild gefunden
-      attached: Bild angehängt
-      cannot-attach: Beim Anhängen des Bildes ist ein Fehler aufgetreten.
     scraper:
       httperror: "Fehler: %{error}"
       success: Daten gesammelt

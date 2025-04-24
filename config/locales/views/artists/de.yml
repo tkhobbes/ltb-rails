@@ -21,7 +21,6 @@ de:
       delete: Künsler löschen
       delete-confirm: Diesen Künstler wirklich löschen?
       edit: Künstler bearbeiten
-      download-portrait: Portrait herunterladen
     update:
       updated: Künstler aktualisiert
       not_updated: Künstler konnte nicht aktualisiert werden

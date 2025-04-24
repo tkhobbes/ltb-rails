@@ -4,5 +4,5 @@ en:
       title: "Unused Entries (%{model})"
       delete_entries: "Delete Entries"
       no_entries: "There are no unused entries (%{model})."
-    destroyed:
+    destroy:
       destroyed: "%{model}: Removed %{amount}."

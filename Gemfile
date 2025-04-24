@@ -36,6 +36,7 @@ group :development, :test do
   gem 'faker'
   gem 'model_probe'
   gem 'pry-rails'
+  gem 'rails-controller-testing'
   gem 'rspec-rails'
 end
 

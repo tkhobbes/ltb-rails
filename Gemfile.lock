@@ -178,7 +178,6 @@ GEM
       rake (>= 13)
     highline (3.1.2)
       reline
-    hot_flash (1.1)
     http (5.2.0)
       addressable (~> 2.8)
       base64 (~> 0.1)
@@ -496,7 +495,6 @@ DEPENDENCIES
   exception_notification
   factory_bot_rails
   faker
-  hot_flash
   http
   httparty
   i18n-country-translations

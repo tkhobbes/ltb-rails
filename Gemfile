@@ -74,7 +74,6 @@ gem 'i18n-tasks'
 gem 'rails-i18n'
 
 # Application gems: Frontend functionality
-gem 'hot_flash'
 gem 'inline_svg'
 gem 'pagy', '~> 5.10.1'
 

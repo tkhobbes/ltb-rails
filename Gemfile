@@ -78,7 +78,7 @@ gem 'inline_svg'
 gem 'pagy', '~> 5.10.1'
 
 # Application gems: Authentication and Security
-gem 'devise', '~>4.9.2'
+gem 'devise', '~>4.9.4'
 gem 'devise-i18n', '~>1.11.0'
 
 # application gems: Notifications
